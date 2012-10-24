@@ -1,0 +1,213 @@
+title: The New iPad And Responsive Web Design
+date: 2012-03-11 12:00:00
+layout: post
+---
+It is resolutionary. The new iPad got a display that provides more pixels
+than your HDTV. In your pocket, in your hand, everywhere you want it. So 
+how can it be possible that a small group of people starts complaining like
+four year old Timmy that just realized that his visit in the dental clinic 
+will not be the promised Disney Land trip?
+<!--MORE-->
+
+I am talking about user interface and experience designers specialized in
+web development and design (formally known as webdesigners). Luckily most of
+us realized that responsive web design a good idea. If you do not know
+what I am talking about let me give you a short introduction to the topic
+before we talk about what the new iPad means for our work.
+
+##Responsive Web Design
+Today we use a wide variety of devices. We visit websites with our
+iPads, iPhones, some confused people with their Android things - just
+kidding, luv U the same way as the Apple evangelists ;) - and sometimes,
+in quiet corners, when no one could possibly notice it, we do the most
+uber lame thing mankind can imagine. We use a computer with a nice, big
+screen.
+
+Now all those devices have different screen resolutions. People understood
+at some point that it is not optional anymore if you can view a website
+on a mobile device. Mobile sites emerged. Most of the time known as "the
+creepy shit that hides all informations I want with
+the subdomain "m" in the URL which I cannot change". I think we all agree
+that a witch-hunt would have been an appropriate reaction.
+
+Webdesigners noticed that users were not happy. Some of them even cared
+about those bloody leeches that always complain about something and just
+do not appreciate the art, all the passion and the newest Photoshop filters
+the designer put in his work. They came up with JavaScript solutions. And
+it kind of worked and got better.
+
+Fast forward. 2011 / 2012. People understand that HTML and CSS can
+actually be used to design and style sites and that JavaScript should be
+used to move parts of the page away from the server to the client. Not
+necessarily for design purposes or only in small bits.
+
+###Introducing Media Queries
+Today it is nearly a standard that you use [media queries][1] to serve 
+different styles. There are many advantages, some shortcomings, but the 
+two positive reasons everyone should see:
+
+ * You always have the same URLs, no matter which device you use
+ * Less JavaScript means faster rendering
+
+So beside many arguable arguments why media queries are the superior
+alternative for responsive web design we should be able to agree on those
+two.
+
+You have some options to check your device and based on them decide which
+stylesheet is sufficient to provide the best user experience. The most
+common and I think the only ones you really need are
+
+  * width
+  * height
+  * orientation
+
+In some cases ```device-width``` and ```device-height``` could provide
+some value.
+
+###Ignoring Responsive Web Design Is An Option
+My last two designs, hopelesscom and [blaze it][4] (sorry, German only)
+currently ignore responsive web design. Why? That is really easy to
+answer. Both were pushed out because they needed to go live. Responsive
+web design is something you put on top of a great design that works on
+every device. I made sure they are usable and follow certain standards
+but they do not use different stylesheets for different devices nor are
+they tuned to the last bit.
+
+But sometimes you have to move stuff like responsive web design to some
+future release and just make sure there is something that works. If you
+are in this position let me just tell you two things:
+
+  * It is okay
+  * Remember to add it later and do not screw it up
+
+Just because responsive web design is the new black does not mean that you
+have to wear it. Do not screw up is another thing. Even if you ignore
+media queries, relative font sizes and everything else. Make sure your
+design works on *every* device with *any* resolution. If this is the
+case you can ignore everything else. You accomplished enough for a quick
+"it needs to be released. NOW!" situation. Just add it sometime later.
+Really, add it. I mean it.
+
+##Why Does The New iPad Change The Game?
+Let us assume you want your design to be responsive. You start looking
+at devices and their resolutions. In the end it always comes down to the
+question "is my user able to use my page without trouble". This means:
+
+  * no zooming to get the idea what content he is viewing
+  * no zooming to hit the right menu button
+  * no scrolling to notice the current location
+
+Most designers used to create different stylesheets to cover the common
+resolutions. 480, 1024 and above. Some hard-core stylesheet fans created
+up to six to eight versions. God save them when they have to add something
+new and where stupid enough to ignore [less][2] or [Sass][3]. Even with
+those two it would be a pain in the ass. In a perfect scenario you need
+two stylesheets. Yes, I said two.
+
+  * desktop
+  * mobile
+
+Use relative values instead of fixed ones and you are nearly set. Of course
+it is a bit harder, takes some time to develop but most of the time this
+will scale for nearly every desktop user. It would even scale for mobile
+users but they deserve their own stylesheet. Why?
+
+Bandwidth. While a desktop user can easily load 5MB fonts, 3MB JavaScript
+and 10MB images - yes I am a bit exaggerating but you get the point - a
+mobile user is most of the time on a slow 3G connection. LTE is currently
+no standard and sometimes they even have to use Edge or GPRS. Minimize
+page loading time. Optimize images and JavaScript for size and use less
+fonts. Rendering on mobile devices is fast,
+downloading stuff is not. This alone is the best reason for a mobile
+stylesheet.
+
+Now thanks to the new iPad the game changed and we have new rules.
+
+###Can I Haz More Than FullHD?!
+Look at the numbers. We are talking about 2048x1536 pixels. Stunning 264
+dpi. Show me more screens with this resolution and dpi numbers. Now most
+designers use media queries and just add stuff and higher resolution
+images. Skip three paragraphs back. Bandwidth. Proving a stylesheet with
+images that fits the new iPad would make the site nearly unusable on
+mobile networks.
+
+Now the rules changed. You cannot make your assumptions based on the 
+screens width and height anymore. If you do so your users will not really
+like you anymore. But what options do we have?
+
+  * Create layouts that just work and add or change elements based on the resolution
+  * Create three stylesheets
+
+I would prefer option one. More stylesheets always mean more work when
+you have to change or maintain your site. Adding complexity is not a
+good idea. If you are a web designer I can see why you use eight or now
+nine stylesheets. But sadly impressing people has nothing to do with 
+effective and efficient client work.
+
+I will write a follow up post, suggesting how to use media queries and how to
+optimize your site for screen and mobile usage. Just some basic rules
+some web-user-interface-experience-designer-engineers-whatever will look
+down on and tell me that there is way more room for creating different
+styles, squeezing in some extra pixels and whatever. In my opinion there
+are only two things that really matter: Stunning designs that work on
+every device and are a pleasure to use and ease of maintenance. And you
+can accomplish this with one or two stylesheets.
+
+###How To React To The New iPad?
+I suggest we just use something that is already available, but most of us
+ignored, because we just did not need it. Let us praise media queries that
+check the ```resolution```. If it is 264dpi we can be kind of sure for now
+that we are displaying stuff on a new iPad. Even if you ignore zooming and
+scrolling, add some images that are compressed and remove some fonts.
+
+I fear that this will only be a short-time solution and that we will have
+to come up with something better. Maybe we have to go back to JavaScript.
+The only displays I know that have such a high dpi count are retina 
+displays and the only one running a resolution that falls in the desktop
+segment is the new iPad. But I am sure we will see more screens with
+a high dpi count in the future and at this moment we need a different 
+solution.
+
+###User Want Sharp Stuff
+Till now we discussed a perfect bubble where everything is designed to make
+our life as comfortable as possible. Our own little world with pink
+unicorns vomiting rainbows. But there is one point I did not talk about.
+
+Scaling down images and removing fonts is not without risk. People buy
+iPads to surf at home without the need for a laptop or desktop. They
+buy it to experience the full web. Removing fonts and delivering low
+quality images would be an offense. They do not care about mobile users, 
+they have wifi and they do not care about bandwidth.
+
+The biggest question we have to answer is "do our users use the iPad
+with 3G / LTE or on wifi?". I often use 3G, roughly
+between 15 and 30 hours a month. From my point of view this is
+a pretty high number and I am sure I would be not as amused as I always am
+when I have to wait for a page to download 20MB. Besides the fact that 
+connections, especially in trains, are not always stable and pages that
+take some time and bandwidth are not always viewable.
+
+My new iPad will arrive in (hopefully) two weeks and from this point I
+will be using it on 3G, too. And more people will do this. Looking
+at some numbers I believe that we are really a minority. And as long as it
+is not possible to check user bandwidth before deciding which stylesheet to
+deliver to mobile users, we should just shut up and be happy about high
+quality content when we are hardcore couching.
+
+You can only lose this game. Either you punish high resolution wifi users
+or you screw mobile users up. According to numbers I tend to screw up
+mobile users till there is a better and especially viable solution. Our
+best option are high resolution images with a degree of compression that
+is okay but also allows a small file size.
+
+The new iPad definitely changes the way we have to think about our
+designs but it should currently not influence our way we do it. At least
+not until we can react to bandwidth. All options I know (like parsing 
+request headers) are not viable or as accurate as they have to be to work
+reliable.
+
+
+[1]: http://www.w3.org/TR/css3-mediaqueries/
+[2]: http://lesscss.org/
+[3]: http://sass-lang.com/
+[4]: http://www.blazeit.de/

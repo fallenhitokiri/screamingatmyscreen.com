@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+
+{% block title %}
+ - Archive
+{% endblock %}
+
+{% block content %}
+    <h6>Archive</h6>
+    <p class="box">If you do not want to miss new posts subscribe to my <a href="/feed/">RSS feed</a>.</p>
+
+    <ul>
+    {% for item in site.sorted %}
+        <li><a href="{{ item.url }}">{{ item.meta['title'] }}</a> <span>written on: {{ item.meta['date'].month }} / {{ item.meta['date'].day }} / {{ item.meta['date'].year }}</span></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

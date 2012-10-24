@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - The New iPad And Responsive Web Design
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>The New iPad And Responsive Web Design</h1>
+    <p class="date">posted on: 3 / 11 / 2012</p>
+    <p>It is resolutionary. The new iPad got a display that provides more pixels
+than your HDTV. In your pocket, in your hand, everywhere you want it. So 
+how can it be possible that a small group of people starts complaining like
+four year old Timmy that just realized that his visit in the dental clinic 
+will not be the promised Disney Land trip?
+<!--MORE--></p>
+
+<p>I am talking about user interface and experience designers specialized in
+web development and design (formally known as webdesigners). Luckily most of
+us realized that responsive web design a good idea. If you do not know
+what I am talking about let me give you a short introduction to the topic
+before we talk about what the new iPad means for our work.</p>
+
+<h2>Responsive Web Design</h2>
+
+<p>Today we use a wide variety of devices. We visit websites with our
+iPads, iPhones, some confused people with their Android things - just
+kidding, luv U the same way as the Apple evangelists ;) - and sometimes,
+in quiet corners, when no one could possibly notice it, we do the most
+uber lame thing mankind can imagine. We use a computer with a nice, big
+screen.</p>
+
+<p>Now all those devices have different screen resolutions. People understood
+at some point that it is not optional anymore if you can view a website
+on a mobile device. Mobile sites emerged. Most of the time known as "the
+creepy shit that hides all informations I want with
+the subdomain "m" in the URL which I cannot change". I think we all agree
+that a witch-hunt would have been an appropriate reaction.</p>
+
+<p>Webdesigners noticed that users were not happy. Some of them even cared
+about those bloody leeches that always complain about something and just
+do not appreciate the art, all the passion and the newest Photoshop filters
+the designer put in his work. They came up with JavaScript solutions. And
+it kind of worked and got better.</p>
+
+<p>Fast forward. 2011 / 2012. People understand that HTML and CSS can
+actually be used to design and style sites and that JavaScript should be
+used to move parts of the page away from the server to the client. Not
+necessarily for design purposes or only in small bits.</p>
+
+<h3>Introducing Media Queries</h3>
+
+<p>Today it is nearly a standard that you use <a href="http://www.w3.org/TR/css3-mediaqueries/">media queries</a> to serve 
+different styles. There are many advantages, some shortcomings, but the 
+two positive reasons everyone should see:</p>
+
+<ul>
+<li>You always have the same URLs, no matter which device you use</li>
+<li>Less JavaScript means faster rendering</li>
+</ul>
+
+<p>So beside many arguable arguments why media queries are the superior
+alternative for responsive web design we should be able to agree on those
+two.</p>
+
+<p>You have some options to check your device and based on them decide which
+stylesheet is sufficient to provide the best user experience. The most
+common and I think the only ones you really need are</p>
+
+<ul>
+<li>width</li>
+<li>height</li>
+<li>orientation</li>
+</ul>
+
+<p>In some cases <code>device-width</code> and <code>device-height</code> could provide
+some value.</p>
+
+<h3>Ignoring Responsive Web Design Is An Option</h3>
+
+<p>My last two designs, hopelesscom and <a href="http://www.blazeit.de/">blaze it</a> (sorry, German only)
+currently ignore responsive web design. Why? That is really easy to
+answer. Both were pushed out because they needed to go live. Responsive
+web design is something you put on top of a great design that works on
+every device. I made sure they are usable and follow certain standards
+but they do not use different stylesheets for different devices nor are
+they tuned to the last bit.</p>
+
+<p>But sometimes you have to move stuff like responsive web design to some
+future release and just make sure there is something that works. If you
+are in this position let me just tell you two things:</p>
+
+<ul>
+<li>It is okay</li>
+<li>Remember to add it later and do not screw it up</li>
+</ul>
+
+<p>Just because responsive web design is the new black does not mean that you
+have to wear it. Do not screw up is another thing. Even if you ignore
+media queries, relative font sizes and everything else. Make sure your
+design works on <em>every</em> device with <em>any</em> resolution. If this is the
+case you can ignore everything else. You accomplished enough for a quick
+"it needs to be released. NOW!" situation. Just add it sometime later.
+Really, add it. I mean it.</p>
+
+<h2>Why Does The New iPad Change The Game?</h2>
+
+<p>Let us assume you want your design to be responsive. You start looking
+at devices and their resolutions. In the end it always comes down to the
+question "is my user able to use my page without trouble". This means:</p>
+
+<ul>
+<li>no zooming to get the idea what content he is viewing</li>
+<li>no zooming to hit the right menu button</li>
+<li>no scrolling to notice the current location</li>
+</ul>
+
+<p>Most designers used to create different stylesheets to cover the common
+resolutions. 480, 1024 and above. Some hard-core stylesheet fans created
+up to six to eight versions. God save them when they have to add something
+new and where stupid enough to ignore <a href="http://lesscss.org/">less</a> or <a href="http://sass-lang.com/">Sass</a>. Even with
+those two it would be a pain in the ass. In a perfect scenario you need
+two stylesheets. Yes, I said two.</p>
+
+<ul>
+<li>desktop</li>
+<li>mobile</li>
+</ul>
+
+<p>Use relative values instead of fixed ones and you are nearly set. Of course
+it is a bit harder, takes some time to develop but most of the time this
+will scale for nearly every desktop user. It would even scale for mobile
+users but they deserve their own stylesheet. Why?</p>
+
+<p>Bandwidth. While a desktop user can easily load 5MB fonts, 3MB JavaScript
+and 10MB images - yes I am a bit exaggerating but you get the point - a
+mobile user is most of the time on a slow 3G connection. LTE is currently
+no standard and sometimes they even have to use Edge or GPRS. Minimize
+page loading time. Optimize images and JavaScript for size and use less
+fonts. Rendering on mobile devices is fast,
+downloading stuff is not. This alone is the best reason for a mobile
+stylesheet.</p>
+
+<p>Now thanks to the new iPad the game changed and we have new rules.</p>
+
+<h3>Can I Haz More Than FullHD?!</h3>
+
+<p>Look at the numbers. We are talking about 2048x1536 pixels. Stunning 264
+dpi. Show me more screens with this resolution and dpi numbers. Now most
+designers use media queries and just add stuff and higher resolution
+images. Skip three paragraphs back. Bandwidth. Proving a stylesheet with
+images that fits the new iPad would make the site nearly unusable on
+mobile networks.</p>
+
+<p>Now the rules changed. You cannot make your assumptions based on the 
+screens width and height anymore. If you do so your users will not really
+like you anymore. But what options do we have?</p>
+
+<ul>
+<li>Create layouts that just work and add or change elements based on the resolution</li>
+<li>Create three stylesheets</li>
+</ul>
+
+<p>I would prefer option one. More stylesheets always mean more work when
+you have to change or maintain your site. Adding complexity is not a
+good idea. If you are a web designer I can see why you use eight or now
+nine stylesheets. But sadly impressing people has nothing to do with 
+effective and efficient client work.</p>
+
+<p>I will write a follow up post, suggesting how to use media queries and how to
+optimize your site for screen and mobile usage. Just some basic rules
+some web-user-interface-experience-designer-engineers-whatever will look
+down on and tell me that there is way more room for creating different
+styles, squeezing in some extra pixels and whatever. In my opinion there
+are only two things that really matter: Stunning designs that work on
+every device and are a pleasure to use and ease of maintenance. And you
+can accomplish this with one or two stylesheets.</p>
+
+<h3>How To React To The New iPad?</h3>
+
+<p>I suggest we just use something that is already available, but most of us
+ignored, because we just did not need it. Let us praise media queries that
+check the <code>resolution</code>. If it is 264dpi we can be kind of sure for now
+that we are displaying stuff on a new iPad. Even if you ignore zooming and
+scrolling, add some images that are compressed and remove some fonts.</p>
+
+<p>I fear that this will only be a short-time solution and that we will have
+to come up with something better. Maybe we have to go back to JavaScript.
+The only displays I know that have such a high dpi count are retina 
+displays and the only one running a resolution that falls in the desktop
+segment is the new iPad. But I am sure we will see more screens with
+a high dpi count in the future and at this moment we need a different 
+solution.</p>
+
+<h3>User Want Sharp Stuff</h3>
+
+<p>Till now we discussed a perfect bubble where everything is designed to make
+our life as comfortable as possible. Our own little world with pink
+unicorns vomiting rainbows. But there is one point I did not talk about.</p>
+
+<p>Scaling down images and removing fonts is not without risk. People buy
+iPads to surf at home without the need for a laptop or desktop. They
+buy it to experience the full web. Removing fonts and delivering low
+quality images would be an offense. They do not care about mobile users, 
+they have wifi and they do not care about bandwidth.</p>
+
+<p>The biggest question we have to answer is "do our users use the iPad
+with 3G / LTE or on wifi?". I often use 3G, roughly
+between 15 and 30 hours a month. From my point of view this is
+a pretty high number and I am sure I would be not as amused as I always am
+when I have to wait for a page to download 20MB. Besides the fact that 
+connections, especially in trains, are not always stable and pages that
+take some time and bandwidth are not always viewable.</p>
+
+<p>My new iPad will arrive in (hopefully) two weeks and from this point I
+will be using it on 3G, too. And more people will do this. Looking
+at some numbers I believe that we are really a minority. And as long as it
+is not possible to check user bandwidth before deciding which stylesheet to
+deliver to mobile users, we should just shut up and be happy about high
+quality content when we are hardcore couching.</p>
+
+<p>You can only lose this game. Either you punish high resolution wifi users
+or you screw mobile users up. According to numbers I tend to screw up
+mobile users till there is a better and especially viable solution. Our
+best option are high resolution images with a degree of compression that
+is okay but also allows a small file size.</p>
+
+<p>The new iPad definitely changes the way we have to think about our
+designs but it should currently not influence our way we do it. At least
+not until we can react to bandwidth. All options I know (like parsing 
+request headers) are not viable or as accurate as they have to be to work
+reliable.</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

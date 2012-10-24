@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<rss version="2.0">
+
+    <channel>
+        <title>Timo Zimmermann</title>
+        <link>/</link>
+        <description>get the latest news from Screaming At My Screen</description>
+        <language>en-en</language>
+        <copyright>Timo Zimmermann</copyright>
+        <pubDate>2012-10-24 08:34:38.419728 GMT</pubDate>
+
+        
+            
+            <item>
+                <title>Zenbo, Zenbo As A Service And Pricing</title>
+                <link>http://www.screamingatmyscreen.com/2012/10/zenbo-zenbo-as-a-service-and-pricing/</link>
+                <description><p>After a week of working on Zenbo (and desperately searching for a new name, as this one is already protected by someone else) there are some news I want to share with you. Sadly not everything worked as expected and there were some private issues I had to take care of. But the good news are that I am on a good track for a release. Let me give you an overview what happened and what you can expect.
+<!--MORE--></p>
+
+<p>First of all there were some major commits and pushes to the <a href="https://github.com/fallenhitokiri/Zenbo">GitHub repository</a>. Some changes that look small but make a lot of sense if you take the greater picture into consideration.</p>
+
+<h3>Configuration</h3>
+
+<p>Each plugin will now ship with a default configuration. This means that you can, if you are happy with the defaults, run with a configuration file that only consists of three lines. A major step for people starting to use Zenbo.</p>
+
+<p>On the other hand there are some things left to do. There will be a way to run Zenbo with defaults and command line arguments. This is needed for the hosting.</p>
+
+<h3>Plugins</h3>
+
+<p>There are no categories for plugins anymore. There is just a plugin with a <code>run</code> method in a class called <code>Feature</code>. The order in which plugins are executed is determinate by the order in which they are listed in the configuration file.</p>
+
+<p>This makes it easy to add a base class for common features which will happen at one point. This way configuration handling will be provided by Zenbo and not be the job of every plugin and plugin author.</p>
+
+<h3>Usability</h3>
+
+<p>Today I started working on a way to setup a new site with <code>zenbo --init</code>. It is still a bit rough around the edges but I think it will be done tomorrow. The goal is making it easy for people without prior Zenbo experience getting a site up and running with one command. Deployment excluded.</p>
+
+<h2>Zenbo As A Service</h2>
+
+<p>I talked about <a href="http://www.screamingatmyscreen.com/2012/9/23/updates_on_zenbo_and_zenbo-hosted.html">zenbo-hosted</a>. Some people asked why we need another hosting and blogging service. The answer is pretty easy. I want it for my own and my companies projects.</p>
+
+<p>Most of the time there is no reason for full featured content management systems and there is also no reason to waste money of clients for server resources and hosting they do not really need. With Zenbo as a service there is a way to edit sites in the browser and still benefit from the advantages of a static generated site.</p>
+
+<p>Everyone who prefers a fast and easy to use hosting service, who wants to edit files locally and test a site before it goes live, designers who love the freedom doing what they want, not being tied to the annoyances and limitations of a CMS, everyone who loves git and vim will hopefully enjoy it.</p>
+
+<h3>Architecture</h3>
+
+<p>There will be a longer post how everything will work but a quick overview.</p>
+
+<p>The backend will be hosted on a dedicated server. Adding content, no matter if you push with git or add it through the web interface will cause a commit in the git repository which will trigger a hook that starts generating your site.</p>
+
+<p>Between the generation and the repository will be Celery which will make sure the same site is not generated multiple times parallel, that there are not 500 processes fighting over system resources and finally notify the front end if everything is fine or if problems occurred. My last tests indicate that generating 100 sites parallel should be fine on a small box. And thanks to some revised design decisions it will be easy to just add more or bigger boxes.</p>
+
+<p>The final site will be hosted on S3. This will add a hughe performance boost over one or two server and cut down costs. If a customer still wants more performance I will offer a CloudFront add-on. This is, at least for my current knowledge, the fastest possible site you can have. No backend wasting time on generating content, servers near every customer visiting your site, in one word: performance.</p>
+
+<h3>Pricing</h3>
+
+<p>Now that I had some time evaluating my options I decided what the pricing will look like. Thanks to an Amazon Web Services event in Leipzig I had the opportunity to talk to some people and answer some open questions.</p>
+
+<p>Zenbo-hosted will be free for everything which is non-commercial. There will be some strings attached to it. Those are still a topic that has to be discussed.</p>
+
+<ul>
+<li>private sites will always be free</li>
+<li>no advertisement, or anything else</li>
+<li>no file hosting</li>
+<li>non-profit organizations have special rules</li>
+</ul>
+
+<h3>File Hosting</h3>
+
+<p>This is just a matter of costs. I want to keep the service free with no strings attached for private usage. Putting up a 2MB PDF with your résumé is fine. Images and image galleries are fine. Uploading the last season of Buffy you just ripped for your friends is not cool. Not only because of the costs but also because of all the DMCA stuff I would have to answer.</p>
+
+<h3>Non-profit Organizations</h3>
+
+<p>Most of the time they cause some decent traffic and have some money at their hands for organizational costs. The only thing that changes is that they are halt to put "powered by Zenbo-hosted" in the footer of the site.</p>
+
+<p>If a non-profit organization decides to use Zenbo I hope they will get in touch with me. I would be happy to support them and provide add-on packages as a donation.</p>
+
+<h3>Companies</h3>
+
+<p>Basically pretty easy. $5 / month as basic plan and you pay what you use. That is it. Without any add-ons this is everything you have to pay for.</p>
+
+<h3>Add-Ons</h3>
+
+<p>There will be several add-on packages you can order which will be a paid service. I am not sure if they will be all available at the beginning but they should appear in the course of this year.</p>
+
+<ul>
+<li>Post by mail</li>
+<li>Hosting files</li>
+<li>Dedicated backend</li>
+<li>Mail service</li>
+<li>API to submit any form you put on your site</li>
+<li>Custom plugins</li>
+<li>Domain service / DNS</li>
+<li>AWS CloudFront support</li>
+</ul>
+
+<p>Beside the file hosting all features will be around $1 to $3 a month. I think this is reasonable and affordable.</p>
+
+<h2>Why Am I Building This?</h2>
+
+<p>Because I believe people will enjoy using it. Because I want to offer a different approach to classic hosting services. Because it is fun. Because it will be beneficial for my company. Because I hope some people who did amazing stuff that helped me do my job and run my business will notice it and use it - my way of saying "thank you".</p>
+
+<p>There are many reasons. For me, the most important ones are fun, saying "thank you" and providing a solid base for future projects I and my company will be working on.</p>
+</description>
+                <pubDate>10 / 12 / 2012</pubDate>
+            </item>
+            
+        
+            
+            <item>
+                <title>Updates On Zenbo And Zenbo-hosted</title>
+                <link>http://www.screamingatmyscreen.com/2012/9/updates-on-zenbo-and-zenbo-hosted/</link>
+                <description><p>After a week of doing nearly nothing, thanks to a really bad cold, I managed to get some testing and coding done. I thought I give you some updates how your favorite project is doing and how soon you will see the release of the last blogging platform you will ever need.
+<!--MORE--></p>
+
+<p>This is one of the names and slogans that were suggested for Zenbo-hosted. While I liked this one, even if it maybe not 100% accurate, here are some more.</p>
+
+<ul>
+<li>yet another blogging platform</li>
+<li>static blogging</li>
+<li>scaled blogging</li>
+<li>blogging with fun again</li>
+</ul>
+
+<p>I also thought about just using Zenbo. Name the service after the core software that is used. I had far worser ideas, believe me. The final decisions will be made in some weeks, so I am not really stressed making my mind up.</p>
+
+<h3>Zenbo</h3>
+
+<p>Today Zenbo learned what tags are and how they work. The documentation is not really finished but I did not find any bugs in the implementation so I just pushed it to the <a href="https://github.com/fallenhitokiri/Zenbo">repository on GitHub</a>.</p>
+
+<p>One of the main things I have to fix before the first release will be the way Zenbo reads and uses the configuration. A plugin should ship with sane defaults. Currently you have to add all configuration options to <code>config.yaml</code> which is not really comfortable, fast or clean.</p>
+
+<p>Also it will be a lot easier to integrate Zenbo in zenbo-hosted if the configuration is internally represented as an object.</p>
+
+<p>I think we will see the last beta version next week. After adding some more tests and finished the crawler everything should be ready for 1.0.0, except the documentation which is a different topic.</p>
+
+<h3>Zenbo-hosted</h3>
+
+<p>I have a basic implementation of the backend. Currently only working if the backend and web server are running on the same server. Separating the backend from the fronted needs some time. I am not sure if I will just use <a href="http://docs.fabfile.org/en/1.4.3/index.html">Fabric</a> or integrate SSH to run commands on a remote system. Fabric seems to be the better way.</p>
+
+<p>Adding multiple fronted servers on the other hand is already integrated. To be honest I am just to lazy to change the database scheme, even if it is quiet easy thanks to <a href="http://south.aeracode.org">South</a>.</p>
+
+<p>I am also not happy with the way I create git repositories. I subprocess too much for my taste but finding a python git library that does not suck is not as easy as it sounds.</p>
+
+<p>Pricing is also nearly set. Free for non-commercial use. I am not sure how to price companies but I thought about something like 10k requests / $x. Not sure what x needs to be to make this service sustainable.</p>
+
+<p>I have some work to do the next two weeks but I think I will be able to release an early beta in October.</p>
+</description>
+                <pubDate>9 / 23 / 2012</pubDate>
+            </item>
+            
+        
+            
+            <item>
+                <title>Taking Zenbo To The Next Level - Zenbo-hosted</title>
+                <link>http://www.screamingatmyscreen.com/2012/9/taking-zenbo-to-the-next-level-zenbo-hosted/</link>
+                <description><p>The beta is running pretty great and I am making progress towards a <a href="http://www.hopelesscom.de/2012/8/14/the_road_to_zenbo_1_0.html">1.0 release candidate</a>. While working on <a href="http://www.hopelesscom.de/2012/9/9/my_stack_is_bigger_than_yours_-_ranting_about_web_applications_and_scalability.html">a project</a> for my company to enable forms and other dynamic features in Zenbo I thought about something totally different. Providing a hosted service for Zenbo. How exactly would this look like?
+<!--MORE--></p>
+
+<p>Before I start I want to mention that I do not plan becoming the next Tumblr or Posterous and that I also have no intention to compete with Wordpress over the last 14 year old who just wants to post about his new puppy. Neither are the plans really polished or in a final "I have a big announcement" state. This is more a public brainstorming to see if I get some reactions or people who would be interested and give it a try.</p>
+
+<p>Zenbo-hosted, internal development name which is still open for discussion, would target a certain group of people. A group I did not believe would be interested in such a service till I read a tweet from <a href="https://twitter.com/garybernhardt">Gary Bernhardt</a> (which I cannot find anymore. He tweets too much) and did some research to find out that more people would love to see such a service.</p>
+
+<p>I thought that developers and tech-savvy people are fine running their own blog and server. After looking at some posts there is one common sentence: "I would love a service that lets me do $this and $that." Turns out some people just want a great platform and do not care about something trivial like blogging software and running <code>apt-get update; apt-get upgrade</code> from time to time.</p>
+
+<p>Now what would Zenbo-hosted look like?</p>
+
+<h3>Features</h3>
+
+<ul>
+<li>Admin interface to quickly post from a browser</li>
+<li>Service to post by mail</li>
+<li>Still everything in a git repository</li>
+<li>Static generated site</li>
+<li>Backend service so you can submit forms, save them and receive them as mail</li>
+<li>Everything in git</li>
+</ul>
+
+<p>So you would basically be free how to submit content. Write it in vim and push your repository, write in your browser like you would do it with every other content management system or send posts via mail. The backend service is in my opinion not as necessary for most people who would be interested in a git based hosted blog platform but a nice to have. Okay, I also have a nearly finished implementation, so why not? :)</p>
+
+<h3>Scaling</h3>
+
+<p>I do not believe I will attract high traffic sites that make it to the frontpage of HN once a week. But since developers have a tendency to write great posts it could be possible that there are unknown amounts of visits. I currently think and hope that this would not become a problem.</p>
+
+<p>Hopelesscom currently runs on the <a href="http://www.hetzner.de/hosting/produkte_vserver/vq7">smallest vServer Hetzner</a> offers with some stuff consuming huge amounts of the already small amount of RAM. Just a default, unoptimized lighttpd without any caching. My <a href="http://www.hopelesscom.de/2012/9/9/my_stack_is_bigger_than_yours_-_ranting_about_web_applications_and_scalability.html">last post</a> had 40-70k requests/hour. The server did not show any significant load. It did not even go above 1.00.  </p>
+
+<p>Scaling is the thing that would likely give me the most headaches. If people really trust me to host their blogs they use to publish great stuff I want those blogs to be available all the time. No matter how. Thanks to the nature of static sites the last possible solution, namely Amazon S3, should be the one that should always work if everything else would fail me.</p>
+
+<h3>Pricing Model And LockIn</h3>
+
+<p>Initial thought was to just make it free.</p>
+
+<p>If developers and people who currently pay a small VPS for a moderate known site just donate 50% of their current hosting costs it should be more than enough. I refuse to even talk and think about a sell-out or an ad based model.</p>
+
+<p>I see Zenbo-hosted as a fun side project and I do not care if I make $5 or invest $5 as long as I do not pay thousands of dollars every month for other peoples blog. I want this service, I build this service. (The implementation I currently build for my company is definitely nothing I or other tech-savvy people would love to use. It targets a complete different group of people.)</p>
+
+<p>Now you could ask: "Why should we trust him to provide a service I like?" or "what if he screws up and notices that his blue eyed, trusting in mankind, pricing model does not work?" I have a pretty easy answer. Zenbo-hosted, as Zenbo, will be open source. If you like the way it works - roll your own. If you start hating Zenbo, you already have a full copy of your content on your hard disk. I cannot think of a way how it would be easier to migrate everything away.</p>
+
+<h3>Me Likes, Me Wants</h3>
+
+<p>If you are interested in Zenbo-hosted just drop me a line, a tweet, send a bird with a message or set something on fire, dance around it and make some smoke signals.</p>
+
+<p>I will build the tools around Zenbo-hosted in some weekend- or evening sessions and release them. I am just not sure if enough people would like seeing me buy some servers and providing everything as a service.</p>
+</description>
+                <pubDate>9 / 16 / 2012</pubDate>
+            </item>
+            
+        
+            
+            <item>
+                <title>My Stack Is Bigger Than Yours - Ranting About Web Applications And Scalability</title>
+                <link>http://www.screamingatmyscreen.com/2012/9/my-stack-is-bigger-than-yours-ranting-about-web-applications-and-scalability/</link>
+                <description><p>Building a web application is serious business. Reading start up blogs, High Scalability or other sites you see many different tools, opinions how stuff should be designed and build, how you should deploy everything and of course even more opinions why this particular stack is superior to everything else. Sadly people who read this believe they have to do the same things and use as many tools as everyone else does.
+<!--MORE--></p>
+
+<p>Let me give you an example. I build <a href="http://www.hopelesscom.de/2012/8/14/the_road_to_zenbo_1_0.html">Zenbo</a> and I am currently using it for two clients. They both want a contact form and one of them also wants a form for his job page so people can submit an application. I was aware that this would eventually happen when I was writing Zenbo and I also had a plan for this situation: Writing a backend service. Use Ajax to send the form to it and store it. Send users a mail that there is a new message and add a web interface so they can check it and mark it as 'read'.</p>
+
+<p>This is the trivial version which covers the immediate needs. There are some plans for extending it, but they will need some time and will likely be finished at the end of the year.</p>
+
+<p>The basic plan is using Zenbo for as much projects as possible and provide a solid hosting service. Scaling is easy, sites can look the way my clients and I want them to look and with some backend power there is not drawback. So it could be possible that I will have to add more features and face some serious traffic.</p>
+
+<h3>How To Solve This The Start Up Way</h3>
+
+<p>If I build dynamic sites I use Django. But my backend is more of a service and an API. Naturally Flask came to my mind. If you do not know why I suggest you take a look at Kenneth Reitz - "Why Django sucks". But I could also think of Ruby On Rails which is, in my humble opinion, a good framework for fast and basic REST and CRUD.</p>
+
+<p>I thought about joining all fields, storing them in one key and let the frontend handle the presentation. There is no need for indexing and searching, so it does not hurt. A key (client specific) with a value (form data) are the easiest way to use the same backend for all clients. If I think of key value storage I think of Redis. Adding store to PostgreSQL could also work.</p>
+
+<p>Sending EMails? Just add a job to Celery. A queue systems and some worker scripts should be fine.</p>
+
+<p>Webinterface? Well, it could be great to build a single page application so it feels responsive and improves the user experience. Node.js is the new black for SPAs. </p>
+
+<p>Deployment? As much as I love Fabric, Chef seems to do a better job. Not sure about that, but most start ups seem to choose Chef over Fabric and they are all pretty smart - so they should know what they are doing, right?</p>
+
+<p>So what do we have so far? </p>
+
+<p>Programming/Scripting languages:</p>
+
+<ul>
+<li>Python</li>
+<li>Ruby</li>
+<li>JavaScript</li>
+</ul>
+
+<p>Frameworks, applications and tools:</p>
+
+<ul>
+<li>Zenbo</li>
+<li>Flask</li>
+<li>Node.js</li>
+<li>Celery</li>
+<li>Chef</li>
+<li>Redis</li>
+</ul>
+
+<p>We use the best tools and best frameworks for every part of the system. This is great, right?</p>
+
+<h3>How To Solve It In A Sane Way</h3>
+
+<p>Write a freaking Django application. Use the tools you know are often suggested and most of the time sufficient. It is easy to learn most of the tools I mentioned, especially since I know most of the stuff already and would only need to look up some stuff I do not have present in my mind.</p>
+
+<p>Add the application to <code>/backend</code> and post your data. Store it in a PostgreSQL database with three fields. Id, key, value. Create a web interface. If a user logs in query the database, read all entries where <code>key</code> matches the user key and show the values in a nice way.</p>
+
+<h3>The Big Difference</h3>
+
+<p>While installing everything I mentioned in the "start up stack" I created the basic application mentioned in the "sane stack". Does this mean that the start up stack is stupid or that they are doing it all wrong? Well... no.</p>
+
+<p>Most of them have to handle a different load than I will face in the first few months. And I would not buy an additional server when I encounter the first load problems. I am aware of the possibilities and I can easily separate the backend from the frontend, add a task queue or improve the user experience for big data sets.</p>
+
+<p>Until this happens I do not waste time developing and creating things I may never need. I do not waste time maintaining a stack of frameworks and languages I currently do not need. I keep it small and easy until I need it. But I consider the possibilities and try to make sure I can easily add the option to scale.</p>
+
+<p>Why do I not just create a Django or Flask application for each client? Because using Zenbo, I can just host more small sites on one server. I can keep the hosting and administration costs low. Everyone wins.</p>
+
+<h3>Why Do I Rant About This?</h3>
+
+<p>I have recently talked to some friends who work on their first product and start up. And they fall into the big "everyone is doing it"-trap. Just because other start ups use something does not mean you have to, even if their arguments make sense. They have different needs, they have different engineers, they have different use cases.</p>
+
+<p>The best advices I could give them were</p>
+
+<ul>
+<li>keep your stack as small as possible</li>
+<li>always keep scaling in mind</li>
+<li>only scale when you need it</li>
+<li>use what you know</li>
+<li>"it works" is good enough most of the time</li>
+</ul>
+
+<p>This will not work for everyone, though. Look at App.net for example: They knew that they will face a certain load. It would have made no sense to deliver fast and ignore scaling. The whole business model is build around the fact that they have to grow as fast as possible, which means scaling.</p>
+</description>
+                <pubDate>9 / 9 / 2012</pubDate>
+            </item>
+            
+        
+            
+            <item>
+                <title>In Defense Of Being Obsessed</title>
+                <link>http://www.screamingatmyscreen.com/2012/8/in-defense-of-being-obsessed/</link>
+                <description><p>In nearly all kinds of media you hear about those obsessed people who are just bad, evil and likely terrorists or psychopaths. Why? Because they are obsessed. What they never tell you is that an obsession can be something great. Not if you want to live a boring, standard life like your neighbor and his neighbor and so on.
+<!--MORE--></p>
+
+<p>Every time I hear about people explaining why it is such a bad thing I try to not join the discussion. I stay away as far from it as I can. I would know what I am talking about but since they do everything to believe that an obsession is bad and should be treated - you would have an easier time arguing with a blind person about what blue looks like.</p>
+
+<p>Before I continue let me define the term "average life". I mean a regular life. You have friends, many hobbies, a job. You are not trying to do something amazing and are happy just getting up, complaining a bit about your job, going home to your friends and family,… you just live from day to day, sometimes thinking about the future. I do not try to argue about that lifestyle and I do not judge or care about it. Just wanted to get this out before misunderstandings happen. :)</p>
+
+<p>When I was in school I did not really care about parties. I went to some but most of the time I was in front of my computer. When other people went to Spain to drink themselves into oblivion I organized network parties. Others were hiding a Playboy under their bed, I was just reading computer magazines. Looking back at my youth I was obsessed with computers. Well, I still am.</p>
+
+<p>But I have a tendency to this behavior. When I started training martial arts I went from zero to 5 days training a week. I wanted to play the guitar and my teacher told me to first learn the flute to understand notes and stuff. He said I would have to practice a year. After 4 month I got my guitar.</p>
+
+<p>There is an easy way how I explain the way I learn and practice things. "If it is worth doing, give 100%. If you are not ready to give 100% just do not do it." Personally I just do not like half assed attempts.</p>
+
+<p>From time to time I look back to see how far I have gotten. I remember 15 years acting this way. People told me that I am obsessed and that I should do something else than spending my whole time with computers. They told me I annoy them talking about it. That my life would suck because I have nothing else. (A quote from the mother of an old friend.) People in my class did not really like me (but neither did I like them).</p>
+
+<p>When I was 16 and still in school preparing for my diploma I started my first company. After finishing it I started a second one together with a training in a completely different profession. I am self employed and earning money since I was 16. I did not need my parents to pay for my car. I was able to move in my own apartment and live on my own when I finished school.</p>
+
+<p>People who went to school with me are still studying. They need their parents to support them. They have no idea what work is like, but believe they will have an easy life because they studied. They do not really work hard, do not have good grades,… They are just average and the only thing they want is making enough money to pay a car and alcohol. They already resigned and subscribed to an average life. While talking to some of them I learned that they do not even see or imagine that something else would be possible.</p>
+
+<p>Looking back at my school time and every time people told me I would live a sad life because I am obsessed with things makes me smile. Thanks to my obsession I enjoy my life. I am good at the things I do. I am even great in some of them. I do not have to regret not doing things because I did everything I really wanted to do. I gave everything and if I could not achieve a goal, I never had to think: "if I would just had tried harder".</p>
+
+<p>Now please do not get me wrong. I understand that there is a clinical type of obsession that is not healthy. I am not talking about this one. If you stalk a girl or forget to eat and drink because you are sitting in a tree trying to catch a bird to make sweet, sweet love to it you should really look for help. There is some kind of illness but I am not talking about that.</p>
+
+<p>In the end the only thing that counts is a happy, full filled live. If an average life, no stress, no pressure to achieve things is what makes you happy - go for it. But just one little thing (and I believe it is not too much to ask for): If your friend, your fiancee, your daughter or son are obsessed (in a not clinical or critical way) do not tell them they are doing something wrong or that their life sucks. There is a reason and maybe they are onto something and one day achieve great things. And if they don't, they will not regret anything. Living obsessed is for them what living an average life is for you.</p>
+</description>
+                <pubDate>8 / 29 / 2012</pubDate>
+            </item>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </channel>
+
+</rss>

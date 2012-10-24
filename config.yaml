@@ -1,0 +1,22 @@
+name: "Timo Zimmermann"
+url: "/"
+
+plugins: ['fsreader', 'blank', 'sorted', 'tags', 'markdown', 'jinja', 'fswriter', 'imagecopy', 'gitsub']
+
+input: "content"
+template: "template"
+output: "site"
+
+# url scheme - form: layout: url
+# $foo means: relpace $foo with $foo from "meta"
+# %foo means: replace %foo with attribute foo from ContentObject
+layouts:
+  post: ["$year/$month/%slug/", "_post.html"]
+  page: ["%slug/", "_page.html"]
+  archive: ["archive/", "_archive.html"]
+  index: ["", "_index.html"]
+  feed: ["feed/", "_feed.xml"]
+  tags: ["tag/$title/", "_tag.html"]
+
+
+options:

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - What Is Wrong With Content Management Systems?
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>What Is Wrong With Content Management Systems?</h1>
+    <p class="date">posted on: 4 / 30 / 2012</p>
+    <p>I am currently working on some projects and two them are kind of private or semi-private. 
+My private and my business domain will receive a redesign and a Django based
+backend. I thought about writing a modular content management system and provide it
+as hosted option for some clients. And while working on it I noticed something that is
+in my opinion wrong with most existing solutions.
+<!--MORE--></p>
+
+<p>The idea behind a content management system is that you can manage your content. 
+Surprise, surprise. This includes categories, tags, a basic structure, defining the type 
+of you content and much more. Let us call every piece of information you enter an object.
+Depending on what your object represents you likely want to add different informations.</p>
+
+<p>Four simple examples</p>
+
+<ul>
+<li>article: title, date, slug, content</li>
+<li>image: title, date, image, comment</li>
+<li>dvd: name, genre, cover</li>
+<li>cd: name, artist, track list, cover, genre</li>
+</ul>
+
+<p>Now your CMS should somehow understand that you want to store three different types of 
+objects with different informations. If your CMS does not know what it is storing, there 
+is no way you can build a reliable search, sort or anything else based on your data.</p>
+
+<p>Even something simple as creating your view or template would not be possible or just
+do not look as nice as you want it to. If you want an article there should be some
+spacing and other things to make it readable. If you display your CD you want the
+track list beside your cover and so on.</p>
+
+<p>So we need a way to let our users describe the objects and informations they want to
+store. And I believe this is the point where most developers just go "meh, a general
+model works somehow. It is fine".</p>
+
+<p>Talking as Django developer you build your database model with specific field types.
+You tell your CMS while developing it, not while entering your content, what you want to
+store. Not the best idea. (I mention Django because it could be possible that there is
+an framework that makes this a lot easier)</p>
+
+<p>No matter how many models you build from the start there is no way you could include all
+possible scenarios. So the only way to build a CMS that covers every need is to add the
+possibility to create your own objects.</p>
+
+<p>There would be an option to build a model that describes objects but this would be
+a lot of work and trouble and usability would just go downhill. You would need to base
+it on many ManyToMany relations. This is the point where it gets
+ugly. Usability is likely going downhill, especially if you rely on Djangos admin
+interface and do not want to build one yourself.</p>
+
+<p>All systems that are capable of doing this require you to read one or two books and in the
+end you will likely end paying someone who loves pain to manage everything for you. We
+achieved many cool things and there is a lot of stuff possible but managing your data
+still seems to be troublesome. Typo3, anyone?</p>
+
+<p>I cannot promise that I will find an optimal way to solve this problem nor do I believe
+that my solution will be the ultimate answer to all problems current systems have but
+I think the first step is understanding the problem and at least trying to solve it.
+Even if I fail to go the full way I should be some steps ahead of some of the most
+popular blogging and content management systems out there.</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - The Road To Zenbo 1.0
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>The Road To Zenbo 1.0</h1>
+    <p class="date">posted on: 8 / 14 / 2012</p>
+    <p>Last weekend I pushed an early alpha of <a href="https://github.com/fallenhitokiri/Zenbo">Zenbo 1.0</a> to GitHub. I received some feedback and questions. I want to address some of them and give you a short estimate what I will add till the first release and how development will look in general.
+<!--MORE--></p>
+
+<p>Master is the current development tree. You can build a site using it. I did not find any bugs if the input files are valid and the configuration file is not missing anything. I used hopelesscom as test source. I still run 0.1 since I did not finish migration scripts. That is everything about the general state of Zenbo.</p>
+
+<h2>Do Not Fear Updating Your Site And Add Content</h2>
+
+<p>One of the scary things about automating updates is that something could go wrong. Especially if you push the site and notice that something went wrong - you are offline. Sucks, doesn't it?</p>
+
+<p>There are currently three things to do before you will see 1.0.</p>
+
+<ol>
+<li>testing if the configuration file is complete</li>
+<li>crawling the generated site to make sure all pages exist</li>
+<li>optional crawling of the live site</li>
+</ol>
+
+<p>The basic idea is that if Zenbo can find all files and open all URLs the chance that your update worked without trouble is really high. Of course this is not perfect but it should be more than enough to cover most common problems. All bug reports I received were not directly Zenbos fault but a misconfigured git repo, pushing to the currently checked out branch, dying disks while checkout is running,… I still agree that you should be notified if you update your site and something goes wrong.</p>
+
+<h2>Features To Add</h2>
+
+<p>Most of the features I want to include in the first release are already implemented. I will add some more options to the ContentObject to make template authoring easier and a bit more flexible. The only real feature I am likely to add are tags or categories. Not sure how I will call them but it will represent what most people understand as a tagging system.</p>
+
+<p>Everything else will be added in a future release. Out of the need for easier testing I had to shift feature priorities around. I did not want to implement the internal server e.x.</p>
+
+<h2>Development And Contribution</h2>
+
+<p>If you want to contribute to Zenbo head over to <a href="https://github.com/fallenhitokiri/Zenbo">GitHub</a>. I will only accept bug fixes and new features if you send me a pull request. Do not spam my mail account with diffs and patches. I know that some people love them and refuse to use pull requests - I am not one of them.</p>
+
+<p>Master will always be the current development branch. All releases will become their own. So bug fix against the latest release not against development. In development things brake and bad things happen. Only develop against master if you want to contribute to the next major release.</p>
+
+<p>I do not expect to see many major releases. Thanks to the plugin structure Zenbo can be easily extended making major releases nearly unnecessary.</p>
+
+<h3>Plugins</h3>
+
+<p>Just take a look at the existing plugins if you want to contribute one. The basic idea is that we have a header with a short explanation what the plugin does and how to configure it. </p>
+
+<p>Only add one key in the configuration dictionary for your plugin and add all options as value of this one key. Stay away from ContentObject.meta - feel free to add additional instance variables, as much as you need.</p>
+
+<p>If you think a test would be useful write one. But please stick to <code>unittest</code> and do not require additional dependencies just to run tests.</p>
+
+<p>I currently plan to add an input plugin for MongoDB. There are no plans for additional add ons. I will first work on another part of Zenbo before I implement features I do not need or want. Maybe I will add some converters (reStructured and Textile come to my mind).</p>
+
+<h2>Add Some Awesomeness</h2>
+
+<p>After 1.0 I will work on a web interface for Zenbo. I do not have any idea how I will do it but it should be possible to use it as easy as Wordpress or other known content management systems. This is a result of the idea to use Zenbo for more clients than I currently can.</p>
+
+<p>The idea is to write a little application, maybe Flask or Django and expose the git repository to it. You can run the backend on whatever server you want and still only have a web server and cache on your "production" server, taking full advantage of static site awesomeness.</p>
+
+<p>Great thing about it? Imagine a multi-user environment writing articles, editing your site whatever. Someone makes a "buh buh". Hit restore and start smiling. If you are an Apple fanboy: Time Machine for your homepage.</p>
+
+<p>I will also look in the possibilities of extending Zenbo with some JavaScript magic to hide the fact that we are using static sites. I will start with basic stuff most sites need like sending messages from your contact page.</p>
+
+<p>It is even possible, time and requests will show how likely and useful this could be, that I will provide the backend as hosted service thru my company. But it will be a long way till I have to make this decision.</p>
+
+<h2>Current Shape</h2>
+
+<p>I believe Zenbo is in a good shape and on the right way. After figuring out how to write useful tests, forcing myself to write some more documentation and adding the last few features we will see a release.</p>
+
+<p>The plugin system will stay like it is. I do not expect any changes and I will do anything I can to prevent them. So if you want to start adding features go ahead. They could be included in the first release if you work fast ;)</p>
+
+<p>Looking back at the last week of working on Zenbo it was fun to work outside a framework again. Of course you have to make your own design decisions. And they have to be good. You do not want an overly complex plugin system, objects you only understand after studying the documentation for days or some piece of code that is impossible to maintain without screaming.</p>
+
+<p>I will migrate hopelesscom to Zenbo 1.0 after it is released. There is a new theme and a new domain name. Do not worry, I know that 301 exists and I will also use it.</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

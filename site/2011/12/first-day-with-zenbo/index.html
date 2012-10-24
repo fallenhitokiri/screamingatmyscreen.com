@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - First day with Zenbo
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>First day with Zenbo</h1>
+    <p class="date">posted on: 12 / 12 / 2011</p>
+    <p>Today is the first day with my server running Zenbo. Everything is fine and the only
+process currently running is <a href="http://www.lighttpd.net/">Lighttpd</a>. But let us first look at yesterday. This post will
+mostly be a recapitulation of what happened and what will happen.
+<!--MORE--></p>
+
+<h3>Testing Zenbo</h3>
+
+<p>I was a bit sceptical if everything will work as expected. I first used a
+vhost to test everything. While fixing the design I did 23 deploys and I had
+not one error. So I was pretty sure everything should work well while blogging.</p>
+
+<p>Using the post-receive hook seems pretty solid. After the repo is pushed it is automatically
+checked out and up to date. What I currently do not know is how long it will take when
+the repo gets bigger, the load gets higher and if there will be a downtime while the
+checkout is running.</p>
+
+<h3>Nice URLs</h3>
+
+<p>I want URLs that do not include a file extensions. Looks and feels wired after all
+those years that there is an extension again. I already found a rewrite that works
+but sadly I am not sure how to manage multiple extensions based on conditions.</p>
+
+<p>Having a RSS feed with a .html extension looks as wrong as a CSS file with an .html
+at the end. Even if it would work it is just not right.</p>
+
+<h3>RFC conform dates</h3>
+
+<p>The date in an RSS feed should be RFC-822 compatible so it validates. Currently I
+only add a date on a year-month-day scheme since it is enough for my blog.</p>
+
+<p>Adding hours and minutes should not break my sorting but it could. So I need some
+time for testing. Well or I just check if the feed works without a valid date.</p>
+
+<h3>Editor</h3>
+
+<p>I currently use <a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a> to write this post. I will also try to replace vim with it.
+After using vim for 12 years now I feel like I should really give something else a fair
+chance. Again.</p>
+
+<h3>404</h3>
+
+<p>Definitely need a 404 page. Nothing to add to this point.</p>
+
+<h2>Next few weeks</h2>
+
+<p>I made up my mind what I will fix next. There will be some improvements in my
+CSS files and I will add syntax highlighting that actually works. I use pygments and
+guess the lexer what does not always work as intended. Than there is the plugin
+system that really wants some love and attention.</p>
+
+<p>But basically after Zenbo is now running I will do the most obvious thing. Blogging.
+My blog solution works and I am happy that it is released and I also want to add
+some features but the basic idea behind Zenbo was that blogging should be fun
+again and no fight against strange Ajax interfaces.</p>
+
+<p>I also do not talk about every feature I will add or what I am currently working on.
+There is <a href="https://github.com/fallenhitokiri/Zenbo/issues?sort=created&amp;direction=desc&amp;state=open">GitHub Issues</a> that holds every idea and a description how far I got.</p>
+
+<p>If you want to add features I suggest you wait till the plugin system is working. There
+will be some major changes and generators will also become plugins. Filters will stay
+the same. If you are using Zenbo or start someday drop me a line or add yourself to
+the <a href="https://github.com/fallenhitokiri/Zenbo/wiki/Who%3F">GithHub Wiki Page</a>.</p>
+
+<h2>Twitter Comments</h2>
+
+<p>As a side project I am looking in a way to pull all tweets using a specific hashtag in
+a local file and load them with every page using JavaScript. Basically a comment
+system using Twitter.</p>
+
+<p>Instead of a file it is also possible that I will use <a href="http://redis.io/">redis</a> since I fear some performance
+problems with plain/text files and I am also too lazy to work on anything cache
+related. Mostly because caches tend to break or mess something up at some point.</p>
+
+<p>But this is nothing that is finished or even in an early alpha stage.</p>
+
+<h2>Webserver</h2>
+
+<p>I use lighttpd for many years now. Compared to <a href="http://httpd.apache.org/">Apache</a> it has enough features, is
+sometimes faster, easier to configure and has some regex url magic included.</p>
+
+<p>Since it is possible that I will hit more problems with nice looking URLs and rewrites
+I consider using Apache or <a href="http://nginx.org/">Nginx</a>. Load and speed is not really a problem. Especially
+since they now only have to serve static files - one of the best arguments against
+Apache as far as I know. And if there will be some load problems in future I can still
+try to mess around with caching,...</p>
+
+<p>There should be a way to add .htaccess support to Lighttpd. I do not know how stable
+and well supported it is. But it should solve most problems.</p>
+
+<p>I think I created something that will entertain me for many months and serve me well
+for - I hope - many years. Somehow I feel a bit satisfied... and thankfully my 
+significant other did not get mad at me for all the hours I talked about it or, well,
+cursed because something just did not work. Thanks to her I will also have a great
+logo, so I believe she is not too pissed,... :)</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

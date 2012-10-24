@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - OOP: Lesson 1 - Basics
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>OOP: Lesson 1 - Basics</h1>
+    <p class="date">posted on: 1 / 20 / 2012</p>
+    <p>Today we will be learning the basics of object-oriented programming.
+As I mentioned in the <a href="http://www.hopelesscom.de/2012/1/18/object-oriented_programming.html">introduction post</a> to this series we have to
+make sure that we know the basic ideas and words that describe them.</p>
+
+<!--MORE-->
+
+<h3>Java, Gists and Eclipse</h3>
+
+<p>We will be using Java examples. You can download the examples clicking
+on the "raw" link at the bottom and comment on them or add something on
+my <a href="https://gist.github.com/fallenhitokiri">GitHub Gist page</a>. Do not get stuck with Git, Gists or what
+this is - go along with the fact that the code examples are hosted there.
+If you enable JavaScript for this domain you will also see them embedded
+in this post.</p>
+
+<p>Before we start let me say two things. I know that many people use an
+IDE like <a href="http://www.eclipse.org/">Eclipse</a> or <a href="http://netbeans.org/">NetBeans</a> for Java development. For the
+sake of understanding what happens I will just use an ordinary editor
+and the command line in this post. Well, I always use those - this
+does not mean that you should too. If you are comfortable with Eclipse
+just read the post, understand what it is doing and everything is fine.
+You just have to figure out how to create a project and add the code
+by yourself.</p>
+
+<p>Now would be a good time, if you have not already, to visit <a href="http://www.oracle.com/technetwork/java/index.html">Oracle</a>
+and get the latest <em>JDK</em>. Currently Java SE 7u2. I skip the hint that
+you should also install it...</p>
+
+<h2>Our first code</h2>
+
+<p>Let us take a look at the first few lines of code we will be using for
+this example. The code is not perfect. And this has a good reasons. We
+will use the knowledge we are gaining to make this code better.</p>
+
+<script src="https://gist.github.com/1646775.js?file=lesson1.java"></script>
+
+<p>Really simple, isn't it?</p>
+
+<h3>Compile & Execute</h3>
+
+<p>This is Java specific, but you should now it, so you can work with all the
+following examples. For everyone that is not forced to use Java:
+"Sorry - I know it sucks, but stop complaining and play nicely with
+the rest of us."</p>
+
+<p>There are two stages. First you compile your code to byte code using</p>
+
+<p><code>javac lesson1.java</code></p>
+
+<p>This will generate a file called <em>lesson1.class</em>. We can run our
+program using the JVM (Java Virtual Machine)</p>
+
+<p><code>java lesson1</code></p>
+
+<p>No you do not add a file extension. As I said in the first post, sometimes
+stuff will be a bit vague. But this is totally fine, you do not need to
+know Java internals to understand OOP and how it is working. If you
+ever wanted to know what happens when you hit the green "play" button
+in Eclipse - now you do.</p>
+
+<h3>Structure</h3>
+
+<p>As you can clearly see there is a <em>class</em> called lesson1. The name of this
+class is what you use when you execute your program. Even if you name the
+file lesson2, <code>javac</code> will create a lesson1.class file.</p>
+
+<p>Every time you run <code>java something</code> the JVM is looking for a <em>method</em> called
+<em>main</em> in something.class. It will start executing stuff you put in there. Always add the
+keywords <em>public static void</em> and add <em>String args[]</em> as expected <em>argument</em>.</p>
+
+<h3>Doing stuff</h3>
+
+<p>We print something to the console. But how does Java now what
+<code>System.out.println</code> should do? There is an easy and a correct explanation.
+I think we should go with the easy one since it is accurate enough, not
+confusing and with some exceptions a common definition.</p>
+
+<p>Every time you write a program a set of predefined classes and methods
+are automatically added. You do not have to import them or tell the
+compiler and runtime (JVM) where they are. They are just there and you can use them.</p>
+
+<h3>Comments</h3>
+
+<p>Most of the time people will tell you to comment your code. Sometimes they
+are right sometimes they are just idiots. You have to think what you are
+commenting.</p>
+
+<p>Adding a comment that tells everyone that this is the main method is
+pretty useless. Everyone looking at your code already knows this.</p>
+
+<p>Adding comments to explain complex procedures, algorithms or give people a
+quick idea what your method is actually doing is a good idea. </p>
+
+<p>Methods are a
+complex thing when talking about comments. If you just wrote one that only
+prints an argument to the screen you do not need comments. On the other hand
+if you connect to a database, delete 5 rows and close the connection a short
+comment would be a good idea.</p>
+
+<p>The difference between those two comment styles is simply explained. If you
+use <code>//</code> everything till the end of the line is a comment. If you use <code>/*</code>
+everything till <code>*/</code> is a comment. No matter how many lines are included.</p>
+
+<h2>Quick summary</h2>
+
+<p>There are classes, methods, some of them that are magically available, no
+matter if you do something or not and there are comments that tend to be
+problematic when two programmers discuss how important and verbose you should
+be.</p>
+
+<p>In the next post we will learn how to place <em>{}</em>, why there is <em>public</em>,
+<em>static</em>, <em>void</em>, what it means and why methods are no functions.</p>
+
+<h3>German</h3>
+
+<p>As usual a short translation of everything that is important.</p>
+
+<ul>
+<li>class = Klasse</li>
+<li>method = Methode (Unterprogramm)</li>
+<li>argument = Argument(e)</li>
+<li>comment = Kommentare</li>
+</ul>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

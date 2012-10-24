@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - Firefox Is The New Enemy
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>Firefox Is The New Enemy</h1>
+    <p class="date">posted on: 2 / 27 / 2012</p>
+    <p>When I first started designing websites there was one enemy. Internet
+Explorer. No matter what you did it did not work. Sites were designed
+for "Firefox 0.7 ++" or just did look horrible. Well they did work but only
+as plain/text document. Internet Explorer lost a serious amount of
+market share, the new versions became more and more standard compliant 
+and you had less work creating stunning sites that work on all browsers.
+<!--MORE--></p>
+
+<p>Most people learned to use Firefox or another alternative the last few
+years. Even if it is not as necessary as it was. But today I ran into
+something only Firefox screws up. Cross-Origin Resource Sharing.</p>
+
+<h2>Explaining The Setup</h2>
+
+<p>Sounds complicated, doesn't it? Well let me give you an easy example
+why I ran into this problem. I deployed some Django sites today and
+they share the same static files. Let us assume we have three domains.</p>
+
+<ul>
+<li>domain1.tld</li>
+<li>domain2.tld</li>
+<li>domain3.tld</li>
+</ul>
+
+<p>They all represent one Django project and are all hosted on the same
+server. Since I do not care about the flavor of the month I used
+lighttpd as webserver. Do not start giving me all the reasons to
+use nginx. I know them and I still decided to stay with lighttpd. All
+Django projects run as wgsi on a different port using gunicorn.</p>
+
+<p>So what you basically do is set the document root of your webserver to
+the static directory that contains all the files and create three
+conditions, for every domain, to tell lighttpd to proxy requests to the
+corresponding project. I will talk about this setup in another post.</p>
+
+<h2>Accessing Your Static Files</h2>
+
+<p>Now you tell your Django projects that they should access the static
+files through <code>http://$ip/</code>. Everything looked fine till I did the
+last check on my Windows box with Firefox and Internet Explorer.</p>
+
+<p>I have some fonts embedded in my stylesheets. font-face works fine if
+you remember to convert your fonts in a format Internet Explorer
+understands. But Firefox showed the fallback font. What happend?</p>
+
+<p>Firefox refuses to load files that are not on the same domain as your
+website. Loading something form <code>$ip</code> when you opened <code>domain3.tld</code>
+does not work. I am currently not sure what they try to achieve with
+this behaviour but I am sure that there are some good reasons.</p>
+
+<h3>Good Reasons For Everything</h3>
+
+<p>When I talk about good reasons and Firefox in one sentence you should
+read it in the most sarcastic voice you can imagine. There is a reason
+why I call Firefox useless these days. Of course it did something
+great in the past. Thanks to Firefox we had a tiny, fast browser that 
+was a perfectly fine alternative to Internet Explorer and Mozilla.</p>
+
+<p>After the 1.0 release everything went downhill. Firefox became bigger
+and slower. At some point they decided that releasing one major release
+every week is the best idea since sliced bread and that those stupid 
+users are the best beta testers you can get.</p>
+
+<p>It could be possible that I am a bit exaggerating but you get the idea
+and I think you can understand why I declare Firefox the new Internet
+Explorer.</p>
+
+<h2>Solving This Problem</h2>
+
+<p>There is an easy way to solve it. You just have to tell Firefox that
+it is okay to access those files. Add <code>Access-Control-Allow-Origin</code>
+to your response header and everything is fine.</p>
+
+<p>The worst solution I know is patching this with your application. There
+are better options. Use your webserver.</p>
+
+<h3>Lighttpd</h3>
+
+<p>Load <code>mod_setenv</code> and add the following line to your configuration.</p>
+
+<p>setenv.add-response-header = ( "Access-Control-Allow-Origin" =&gt; "*" )</p>
+
+<p>This allows every domain to load stuff from your server. You could replace
+the wildcard with domain names to restrict access.</p>
+
+<p>If you are on another server just search in your documentation how to 
+add a response header and you are fine. Quick examples, without modules
+or anything else.</p>
+
+<h3>Apache</h3>
+
+<p>Header set Access-Control-Allow-Origin "*"</p>
+
+<h3>IIS</h3>
+
+<p>add name="Access-Control-Allow-Origin" value="*"</p>
+
+<h3>NginX</h3>
+
+<p>add_header Access-Control-Allow-Origin *</p>
+
+<h3>Restricting Access</h3>
+
+<p>I strongly suggest you do not use the wildcard. Every domain can load your
+files. If you are planning to run a CDN this could be viable, for everything
+else think about what you are doing.</p>
+
+<p>If you are not using subdomains in your Django installation you can also
+create a subdomain. But this would not work for my current setup since
+all subdomains have to be processed by Django.</p>
+
+<p>I do not know another browser beside Firefox that implements CORS. But it
+could become a standard. There could be some reasons why they implemented
+this "feature". Being prepared when something from another domain does not
+load one day, after a browser update, is a good idea.</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

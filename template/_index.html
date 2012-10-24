@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+
+{% block bodyid %}id="index"{% endblock %}
+
+{% block content %}
+    <p class="box">Hi, I am Timo Zimmermann and here you will find my thoughts on IT, gaming, and everything else that is in some way geeky</p>
+
+    {% for cur in site.sorted %}
+
+        {% if loop.index <= 5 %}
+
+            <h4><a href="{{ cur.url }}" alt="{{ cur.meta['title'] }}">{{ cur.meta['title']}}</a></h4>
+            <p class="date">posted on: {{ cur.meta['date'].month }} / {{ cur.meta['date'].day }} / {{ cur.meta['date'].year }}</p>
+            {{ cur.markup|more }}
+            <p class="more"><a href="{{ cur.url }}" alt="{{ cur.meta['title'] }}">continue reading</a></p>
+
+        {% endif %}
+
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - Code Challenge - The Ideas
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>Code Challenge - The Ideas</h1>
+    <p class="date">posted on: 4 / 20 / 2012</p>
+    <p>If you read the <a href="http://www.hopelesscom.de/2012/4/16/code_challenge_-_the_challenge.html">post</a> about "code challenge" you know what I am talking about. If you
+did not, you should now. I thought about the challenge and what I could learn and
+write. It is possible that I do not really follow the <a href="http://fredboyle.com/codechallenge/">idea</a> but it should be fine.
+<!--MORE--></p>
+
+<p>Even if it is basically about learning something new just for the sake of learning I
+refuse to build useless things. So it will not just be a to-do list app. Also I have
+some ideas I was thinking about the last few weeks and did not find the opportunity to
+fully evaluate existing solutions. Maybe I will also skip the "simple" part.</p>
+
+<p>Let me give you a short idea what I might build in the next few weeks.</p>
+
+<h3>Task Queue</h3>
+
+<p>I need a simple task queue. Existing solutions look full featured with a lot of stuff
+and administration overhead I do not need and want. It does not have to be high
+performance or scale across thousands of servers, at least not now :&gt;</p>
+
+<p>The implementation could be really simple. Accept socket requests - yes, there is a 
+reason why I want to use sockets instead of other protocol - add stuff to a queue and
+run the queue based on priority and waiting time.</p>
+
+<p>There program will not be bound to a specific task. Instead it will just run scripts
+and pass arguments. This way it will be flexible enough to be used in many different
+applications / stacks / setups.</p>
+
+<h3>Multi Server Management</h3>
+
+<p>This could be the bigger challenge. Creating a application that lets you run remote
+commands (using ssh) on many servers. But instead of just running them on a set of
+servers you could predefine them in lists.</p>
+
+<p>You could create a list for one client or for one task. Imagine you have three clients. 
+Each of them has one Django application server, each of them has a PostgreSQL server, 
+two of them have a mail server.</p>
+
+<p>Now you create lists for all Django, database and mail servers and one for every client
+and add functions describing what commands you want to run.</p>
+
+<p>If you want to update all servers you just run <code>app all update``. If you want to get
+statistics how your database servers perform you run</code>app database status```. </p>
+
+<p>Pretty easy and I believe it is possible with existing tools. Not sure if I should go for
+this one or the task queue.</p>
+
+<h3>Language</h3>
+
+<p>Implementing both ideas in Python would be easy (read: make the app do what I have in my 
+mind) - this means that I already have a basic idea how I will design those applications.</p>
+
+<p>The last time I used Ruby was the time Rails 2 was new, hot stuff. So I basically have to
+learn the language again. Should be done in one or two days and after that the hacking
+can begin.</p>
+
+<p>On the other hand I was looking for a reason to play around with node.js. I do not really
+like JavaScript as a language, but I see the strengths in node.js. It does not matter if I
+learn a framework or get used to Ruby - it should take the same amount of time.</p>
+
+<p>It is possible that I will use what I write. In a normal situation I would go for Python,
+especially since I do not like mixed language projects or stacks. I know I cannot
+prevent it but I can try to use as less languages / frameworks as possible as long as it 
+is viable. </p>
+
+<p>Using Ruby would mean using a well established language that proved what it
+can do. </p>
+
+<p>Using node.js would mean using a new language that could just blow up and
+everything would be gone. But node.js is new, it is interesting and it is currently
+showing that it can work.</p>
+
+<p>I am not really sure which I will pick. But as always I will keep you updated.</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

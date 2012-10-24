@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - Django And Generic Relations
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>Django And Generic Relations</h1>
+    <p class="date">posted on: 6 / 8 / 2012</p>
+    <p>The last few days more and more questions about generic relations appeared in #django.
+Most of the time people do not understand the limitations or how to work around them.
+Let me give you a short example and a bit longer explanation how the <a href="https://docs.djangoproject.com/en/dev/ref/contrib/contenttypes/">contenttypes</a>
+framework works and what you can do with it.
+<!--MORE--></p>
+
+<p>This post is for people who worked with Django, know the basics but never used the
+contenttypes framework. I assume you have a basic understanding how everything works.</p>
+
+<p>An easy example when you want to use generic relations is <a href="http://www.tumblr.com/">Tumblr</a>. Imagine you want a
+tumblelog for yourself and, of course, you want to write it in Django. You start designing
+database models for posts, conversations, images, links and everything that comes to your
+mind. I will use shortened examples in this post - it does not really matter if you have
+4 or 40 fields in your models. Let us create one for posts and one for URLs.</p>
+
+<script src="https://gist.github.com/2895098.js"> </script>
+
+<p>But we just do not want to create models and add content we want to show it to the whole
+world. So we create a view. You want everything in a nice timeline. But how do you do it?
+Query both models and combine the query? Thanks to sort and lambda this would be no
+problem, they both have pub_date, a field that would work fine as key for sort. We are
+using Django, so there has to be a better way, right?</p>
+
+<p>How about a third model that holds enough meta data for us to just use a simple
+<code>Entry.objects.all()</code> returning all posts and URLs, sorted and ready for displaying?
+You could get your hands dirty with ForeignKeys but there is a more elegant solutions.
+We create a model with a generic relation. This model can point to every other model. No
+hard coded relation or 20 fields and if-checks to get the right content.</p>
+
+<script src="https://gist.github.com/2895131.js"> </script>
+
+<p>content_type represents the name of the model, object_id stores the id and content_object
+acts like you would expect it from a ForeignKey, with one little but important difference.
+But first let us finish our models.py.</p>
+
+<p>We want to query Entry and get our objects sorted by date. So we should add a
+DateTimeField. And we still need a way to populate those. We could either write a custom
+save method, use a abstract model as base or just act sophisticated and take advantage of
+Djangos signal framework.</p>
+
+<script src="https://gist.github.com/2895159.js"> </script>
+
+<p>What did we achieve so far? We made our life easier. We just use <code>Entry.objects.all()</code>
+to get everything we posted in a chronological order. We can easily extend our tumblelog
+and add new models. The only thing we have to remember is to connect it to our
+<code>create_entry()</code> function.</p>
+
+<p>In your view or template you can now access your object as every other. 
+<code>{{ entry.content_object.title }}</code> for example to get the title of a post. But this is
+ugly. Really ugly. I prefer <code>{{ entry.title }}</code>. And we can easily make this possible.
+We also want tags for our posts. So we will add a model for those, too.</p>
+
+<script src="https://gist.github.com/2895221.js"> </script>
+
+<p>Great, isn't it? Now that we have tags we want to be able to show users everything related
+to a specific tag. How would you do this? Remember that I said there is a little 
+difference between ForeignKey and GenericForeignKeys. You cannot use them in your queries.
+<code>Entry.objects.filter(content_object...)</code> is not possible. You can use everything
+else but not content_object.</p>
+
+<p>You can, of course, use a manager and raw sql. I imagine that this would be a performance
+boost over the solution I will present you. Maybe you even consider it more elegant. This
+is up to you to decide which one you like more and if your site will be under heavy load
+and needs to be optimized to the last query. You could, of course, filter every model,
+sort,... you know what I mean. Problematic if your Entry model is in charge of returning
+URLs for your entries or provides other things you need in your template. Let us jump in
+your <code>views.py</code> and take a look at a possible solution.</p>
+
+<script src="https://gist.github.com/2895254.js"> </script>
+
+<p>We will not talk about elegance. I am still looking for a better solution but this will
+work. If I find one I will make sure you know it.</p>
+
+<p>I think you get the benefits from using generic relations, at least when you thought about
+using sort or creating ForeignKeys to all models. Far more sophisticated.</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

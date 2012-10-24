@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - Business Decision - Why I use Django and not Ruby On Rails
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>Business Decision - Why I use Django and not Ruby On Rails</h1>
+    <p class="date">posted on: 2 / 19 / 2012</p>
+    <p>My <a href="http://www.blazeit.de">company</a> is currently working on some websites for a business client.
+I will not go into details now. There is nothing I could just use or alter
+to achieve everything they want. So I have to develop a custom solution.
+Before I started I was looking at the options I got and there were only two
+I really considered. <a href="http://www.djangoproject.com">Django</a> and <a href="http://www.rubyonrails.org">Ruby On Rails</a>. Why did I choose to
+go with Django and not RoR? Let me give you some thoughts.
+<!--MORE--></p>
+
+<p>Before I start with the main reasons for the decision let me just make one
+thing clear. I am 100% sure that I could have implemented the websites in
+both frameworks in about the same time. I am also sure that the expansions
+we are currently planning would have been possible in both frameworks and that
+the initial development and hosting costs would have been the same. So why
+was there a reason to choose "a" over "b"?</p>
+
+<h2>Frameworks</h2>
+
+<p>Django and Ruby On Rails are just frameworks. They roughly provide the same
+features and have shortcomings. No matter how much you love your framework
+you will always find something the other is doing better. But since
+they are just frameworks there is something else you should consider. The
+language underneath.</p>
+
+<h3>Other Frameworks</h3>
+
+<p>I know that there are many frameworks out there. But they are neither as
+complete as those two nor are they as feature rich. There are times when the 
+flexibility they give you is an advantage, most of the time they just make your
+work more complicated.</p>
+
+<h3>Language</h3>
+
+<p>There are some differences between Python and Ruby and I believe you
+already know them. Just for the occasional reader doing some research a
+short recap.</p>
+
+<p>In Python there is only one way doing things. There are guidelines how to
+write and format your code and there is, well most of the time, a clean
+structure in your code, no matter what you do. Python follows the old
+principle "code is much more read then written".</p>
+
+<p>If you choose to work with Ruby there will happen three things. You will
+get a feeling most of us had back in 199x when we broke our fingers trying
+to input all those fancy characters Perl required us to write. You will
+read a lot of stuff about coding styles and you will see them raped in every
+dark corner where someone publishes a piece of code. And last but most
+important: You will finally believe in magic. There are many things just
+happening or possible you cannot even imagine. The most abstract constructions
+just work somehow.</p>
+
+<h3>Third Party Libraries</h3>
+
+<p>Some of you know what I am thinking of 3rd party libraries. You will use them
+and you will have problems. But my experience is that Python libraries tend
+to be more powerful or mature. It might be possible that there are some
+exceptions. I do not claim to know them all.</p>
+
+<h3>Little Helpers</h3>
+
+<p>There are some tools that will make your life easier. They will help you
+maintain and deploy your code. If you take some time to learn them they will
+return it in saving you many hours. Precious hours you can use to chill with your
+friends, have fun with your girl or make more money. </p>
+
+<p>Most Python evangelists will hate me for this sentence but nearly every cool
+tool is written in Ruby. If you look at the alternatives they are there. And
+they work. But compared to the original one they just suck. Sadly most of them
+only support Ruby.</p>
+
+<p>Let us call this a draw. If you prefer one language over another you know what
+framework you will be using. If you do not care and see advantages in both of
+them it gets really interesting.</p>
+
+<h2>Django - Tuxedo And A Top Hat</h2>
+
+<p>I think the best description is on the front page. </p>
+
+<p>The Webframework for perfectionists with deadlines</p>
+
+<p>There is nearly nothing I can add. If you just have to get it done and if it is
+in the capabilities of Django you are blazing fast. And you cannot produce
+something that is unmaintainable. You have all the cool stuff like helpers, a
+working ORM, a great admin interface and more.</p>
+
+<h3>Object-relational Mapper</h3>
+
+<p>If you hate SQL, and let us be honest, every sane person does, you love an ORM.
+Thanks to Djangos default implementation you write your database as Python class
+and query it using Python. You do not have to write one line SQL by yourself.</p>
+
+<p>If you try to do something that is not in line with the ORM you are screwed.
+No matter how much you love it - better hope that there is the ability to do
+what you want or you have a problem.</p>
+
+<p>The good news are that they are working on it. Since 0.96 when I started using
+Django, before you had to use the SVN version, they have come a long way and
+slowly they try to solve the problems we had for years. Existing database models.
+Anyone?</p>
+
+<p>The sad part is that you still need a third party library for migrations. I
+suggest you take a look at <a href="http://south.aeracode.org/">South</a>. It works out of the box and I never had a
+major problem with it.</p>
+
+<h3>Admin Interface</h3>
+
+<p>If you are taking care of the website or your client does not matter. You need a
+way to manage all the content. If you do not have to write it you save time. It
+is powerful, customizable and I think in most cases there is no need for something
+else. If it saves you time and work and if it is working it is good.</p>
+
+<h3>Community And Known Projects</h3>
+
+<p>There is a reason why I said grey suit and top hat. One of the front page examples
+is the <a href="http://www.washingtonpost.com">Washington Post</a>. I think I have read about some gaming sites and 
+<a href="http://www.curse.com">Curse</a> being the largest that also use it.</p>
+
+<p>And here is the main point of this topic. Django is used by many people. Most of the
+time just not spectacular. It is used by regular people to power some sites. There
+is nothing fancy about it. It is just a tool in a tool chain to build stuff. Most
+of the time you only read a short and boring note about it.</p>
+
+<h2>Ruby On Rails - Get Your Hawaii Shirt And A Joint</h2>
+
+<p>The main reason so many people love RoR is "convention over configuration". Stuff
+just works. You write one line of code and you do so much things you do not even
+know about. And that is the point where RoR can get a pain in the ass. If something
+does not work you sometimes have a really hard time to even find the place where
+it fails miserably. Sometimes you have to look behind the magic and at this point
+you realize that the cute girl that was just cut in half has something between her
+legs you did not want to know.</p>
+
+<h3>Migrations Are Great</h3>
+
+<p>I think RoR was the first project that did migrations right. And they are way ahead
+of their competitors. At least the last time I checked. Maybe they caught up, maybe
+they are better in some scenarios but most of the time migrations done by RoR are
+just awesome.</p>
+
+<h3>IDEs - If You Like Them You Win</h3>
+
+<p>If you like IDEs go with RoR. There are so many of them and most just rock. 
+They help you developing and deploying your applications, at least to a certain 
+point. They match perfectly and "just work". And I currently did not see an 
+alternative for Django that works as good as <a href="http://www.jetbrains.com/ruby/index.html">RubyMine</a> or <a href="http://www.aptana.com/products/radrails">RadRails</a>.</p>
+
+<p>I do not really like IDEs but after I worked with RubyMine for some days I have
+to admit that I would buy it if I would be using RoR on a regular basis. Or to
+be more precise: I would at least consider it.</p>
+
+<h3>Deployment</h3>
+
+<p>Please, do not get me started. There are so many ways to deploy RoR you cannot
+really count them. If you are looking for easy deployment go with RoR. There are
+a lot of tools, tutorials, they just cover nearly every insane deployment
+scenario you can imagine. </p>
+
+<h3>Community And Known Projects</h3>
+
+<p>Looking at those fancy startups they all seem to prefer RoR. They tell you
+how great it is, why their product is only possible because RoR and other
+cool tools and that they all love everything about their setup. They are young,
+they run startups and they are hipsters. This is the current, for me and some
+people I talked to, picture of the typical RoR user.</p>
+
+<p>If you are looking for a solution you find at least 20 ways doing it. Not one
+way from 2003 (that shockingly still works). You can choose how to work and 
+how to solve problems. You can build up some debt and just clue everything 
+together to fix it later or just make sure that your code is beautiful and
+elegant from the beginning. I believe this is the reason why so many
+startups choose RoR. Clue everything together, release a product, survive till
+you get some money and start paying your debt. In the most critical timeframe,
+when you have no money, no product and when you need both of them, RoR helps
+you to get stuff done.</p>
+
+<h2>Make Up Your Mind</h2>
+
+<p>The basic decision you have to make, from a technical point, is what your
+priorities are. Do you want a fast release? Do you prefer an easy to understand
+system? Do you want to play with all the cool kids or with the boring dudes in
+their offices? Can you build up debt?</p>
+
+<p>Short sidenote. The coolness and community factor is IMHO not tied to
+  Django and Ruby on Rails. The same applies to Python and Ruby.</p>
+
+<p>The first thing you have to do when choosing your framework is to make sure it
+fits your project and workflow. I plan my projects and deliver in time. I consider
+problems and add some time before I send the client my quote. I deliver when the 
+product is ready not while I am working on it. I can afford using Django. 
+This is the most important thing in the process of evaluating the right framework. 
+But there are other things.</p>
+
+<h3>Sometimes You Need Additional People For Your Project</h3>
+
+<p>If I have a project that has to be done in a short timeframe, if I have more than
+one project in a certain period of time or if I just have other reasons why I
+cannot work on it myself I need to hire someone. </p>
+
+<p>I believe that you can get competent developers for both frameworks. You may have
+a better chance to find someone that already worked with RoR than Django but you
+will also find many people that can learn Django in a short amount of time that you
+can sometimes afford.</p>
+
+<p>If I work with other people I end up having to maintain the code of all of them.
+So preferably I can easily read and understand the code and if I have an additional
+wish I do not have to solve a rubik cube to understand the magic.</p>
+
+<h3>Deployment</h3>
+
+<p>I do not deploy really often. When the system is working there is nearly no reason 
+to touch it beside the usual updates or additions. If I would have to, or would have an
+advantage if I did, deploy several times a week or even a day I would consider this
+point. But it is not necessary, so one of RoR biggest advantages are just gone.</p>
+
+<p>I do not think there are really big differences beside the tools. When you have
+everything on your server the setups are done in a few minutes.</p>
+
+<h3>Decision</h3>
+
+<p>I went for Django. I prefer solid products that are easy to maintain. I do not say
+that you cannot get this with Ruby on Rails but it will be a lot harder. If I would
+be in another situation it could be that I would have gone for RoR.</p>
+
+<p>Beside that one project my company will focus on delivering stunning web applications
+and systems build on Django - at least if it fits the client. In my humble opinion
+there are many reasons and advantages in using Django. If you or your company stands
+before the same decision make up your mind what you are doing. There are strong
+arguments for both frameworks but I believe that it depends on your project, even if
+you have the impression that everyone is a Ruby on Rails fan, reading blogs and
+other resources.</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>

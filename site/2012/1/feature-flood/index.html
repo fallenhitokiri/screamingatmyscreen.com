@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Screaming At My Screen 
+ - Feature Flood
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <meta http-equiv="expires" content="3600">
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+        <link href="/feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+    </head>
+
+    <body id="default">
+
+        <!--CONTAINER-->
+        <div id="container">
+
+            <!--CONTENT-->
+            <div id="content">
+                
+    <h1>Feature Flood</h1>
+    <p class="date">posted on: 1 / 7 / 2012</p>
+    <p>Yesterday I took some time to compile a short list of features I
+am implementing in <a href="https://github.com/fallenhitokiri/Zenbo">Zenbo</a> the next few days. I have a big list what
+Zenbo should be able to do when I release version one and even a
+list for version two. Zenbo will be used for two new projects so 
+the features needed for those have priority.
+<!--MORE--></p>
+
+<h3>Syntax Highlighting</h3>
+
+<p>This is one of the features I really want for Hopelesscom. Writing
+posts about python, coding and sometimes stuff that involves the
+command line without syntax highlighting just sucks.</p>
+
+<p>Currently I have some problems filtering the 'code' tags but that
+is just because I have not used regex for some time.</p>
+
+<p>I believe that pygments 'guess_lexer' should be fine but there is
+a chance that it will sometimes fail. Adding a mark what language
+should be used is not the worst idea I had while implementing
+everything.</p>
+
+<h3>Crawler</h3>
+
+<p>After generating a page there should be three things happening.</p>
+
+<ul>
+<li>checking every link if there is a file in the right folder</li>
+<li>deploying the page</li>
+<li>checking every link if it works</li>
+</ul>
+
+<p>I see some performance issues with this one. Crawling a large page
+two times could take some time. I am not sure if I will just check
+the links before deploying since I do not believe that there can or
+will be issues with broken links or files after uploading the site.</p>
+
+<p>Okay I know that this sentences sounds really stupid and that I
+will now run in some deployment issues the next few days,...</p>
+
+<h3>Wordpress Importer</h3>
+
+<p>I really want to migrate my <a href="http://www.timo-zimmermann.de">business blog</a> (german only) to 
+Zenbo. There is currently no archive on hopelesscom since I want
+to merge the past three ones together. But on my other blog I want
+to continue writing without anyone noticing - beside the new layout.</p>
+
+<p>Exporting to an XML file is no problem but sadly there are some
+characters that would need a definition. minidom and pyxml throw
+an exception while loading the file.</p>
+
+<p>I am not sure if I should write a definition, just replace the parts
+that do not work or look for another option to parse the file. I
+fear that this will take some time.</p>
+
+<h3>Tags</h3>
+
+<p>Before migration my other blog I want a plugin for tags and / or
+categories. And I want a beautiful one not just one file for
+every tag.</p>
+
+<p>The idea is one file with a page name, url, all tags and some
+JavaScript magic.</p>
+
+<p>If you are using and working with the web for more than 6 or 7
+years you could remember the time when JavaScript just plainly sucked.
+Every browser implemented it another way, most of the time it did
+nothing useful that improved the usability experience and it just 
+did not work. Times luckily changed.</p>
+
+<h2>Git Flow</h2>
+
+<p>I am looking into the option to change my workflow a little bit.
+<a href="https://github.com/nvie/gitflow">Git Flow</a> implementing an easy way for <a href="http://nvie.com/posts/a-successful-git-branching-model/">Vincent Driessen's 
+branching model</a>. If you do not know what I am talking about take
+a look at <a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">Jeff Kreeftmeijer's post</a>.</p>
+
+<p>I had some problems with branching and merging and I do not know
+why I ran into them. But the main point is that git flow would force
+and assist me to have a clean repository structure. There are far 
+worser things.</p>
+
+<h2>Vim vs. TextWrangler</h2>
+
+<p>I have to admit: I switched <a href="http://www.hopelesscom.de/2011/12/18/the_holy_grail__a_programmer_s_editor.html">back to vim</a>. I still like TextWrangler
+for writing posts but I just cannot stand coding with it. I do not
+know if I just miss modal editing, if I miss the customization or
+if I am just used to FuF and other stuff I used for years now.</p>
+
+<p>But coming home to vim just felt natural again. I still do not believe
+that modal editing is the best thing since sliced bread but I can stand
+it.</p>
+
+    <p id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
+
+            </div>
+            <!--END CONTENT-->
+
+            <!--SIDEBAR-->
+            <div id="sidebar">
+
+                <!--LOGO-->
+                <div id="logo">
+
+                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
+
+                </div>
+                <!--END LOGO-->
+
+                <!--RIBBON-->
+                <div id="ribbon-wrapper">
+                    <div id="ribbon-front">
+                        <p>Timo Zimmermann</p>
+                    </div>
+
+                    <div id="ribbon-edge-bottomleft"></div>
+                    <div id="ribbon-edge-bottomright"></div>
+                    <div id="ribbon-back-left"></div>
+                    <div id="ribbon-back-right"></div>
+                </div>
+                <!--END RIBBON-->
+
+                <!--MENU-->
+                <div id="menu">
+                    <ul>
+                        
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li><a href="/archive/">Archive</a></li>
+                            
+                        
+                    </ul>
+
+                    <p id="social">
+                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
+                        <a href="/feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
+                    </p>
+                </div>
+                <!--END MENU-->
+
+            </div>
+            <!--END SIDEBAR-->
+
+            <div class="clearer"></div>
+
+        </div>
+        <!--END CONTAINER-->
+
+    </body>
+
+</html>
