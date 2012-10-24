@@ -20,7 +20,10 @@ I do not see the lack of a retina display as bad. I still use my iPad first gene
 Now the iPad mini has the same resolution on a smaller display. PPI are nearer to the retina display, even if still not there. We have to wait till someone actually uses the device to know if it is "near enough".
 
 ## Features, Specs and Quality
-I had a short [tweet-exchange][twitter] with Jeff Croft. He is not really a big fan of the specs. There is no point in arguing, he is right. 
+I had a short [tweet-exchange][twitter] with Jeff Croft. He is not really a big fan of the specs. There is no point in arguing, he is right.
+<blockquote class="twitter-tweet tw-align-center" data-in-reply-to="260831959926841344"><p>@<a href="https://twitter.com/fallenhitokiri">fallenhitokiri</a> Totally agree. More than happy to pay a premium for high-end build quality. A 65% premium AND a shitty screen, tho? Too much</p>&mdash; Jeff Croft (@jcroft) <a href="https://twitter.com/jcroft/status/260832245034647552" data-datetime="2012-10-23T19:57:07+00:00">October 23, 2012</a></blockquote>
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+ 
 This little piece of tech is not bleeding edge. It does not have a retina display. It is not the fastest tablet the world has ever seen. It is small. It is a full featured iOS device. It is cheap compared to its "big brothers". It is a device you buy if you want iOS and not pay half a monthly income.
 
 But the big difference to other tablets or eBook readers is iOS. I cannot stress this enough. Full featured iOS device for ~$300. If you really only want to read eBooks you have to decide if you want [Amazon DRM][amazon] or Apple. Hard decision when you can go for Apple and get both services and some more iOS magic.
