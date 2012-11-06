@@ -33,6 +33,6 @@ The four "big projects" are currently only ideas. I am still looking for some in
 
 If you have any ideas, wishes or comments send me a [mail][mail], comment on [Hacker News][hn] or send me a [tweet][twitter].
 
-[hn]: http://localhost.com
+[hn]: http://news.ycombinator.com/item?id=4749368
 [mail]: mailto:timo@screamingatmyscreen.com
 [twitter]: http://www.twitter.com/fallenhitokiri
