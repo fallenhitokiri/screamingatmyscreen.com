@@ -8,8 +8,50 @@
         <description>get the latest news from Screaming At My Screen</description>
         <language>en-en</language>
         <copyright>Timo Zimmermann</copyright>
-        <pubDate>2012-10-24 15:24:20.628445 GMT</pubDate>
+        <pubDate>2012-11-06 18:14:02.763562 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>Django Beginner Series - Introduction</title>
+                <link>http://www.screamingatmyscreen.com/2012/11/django-beginner-series-introduction/</link>
+                <description><p>Some Twitter followers could already know that I am working on a book. Just not what it is about. Big announcement: It will be about web application development using Django. It is supposed to be an easy entry in the world of Django and tries to cover as much as possible in a simple way to get started with the framework.
+<!--MORE--></p>
+
+<p>If you do not care why I am doing this skip to "ideas and how this blog is involved" to get an idea what tutorials I will post in the course of the next weeks.</p>
+
+<p>Django is the best documented project I know. You can find nearly anything in the documentation and if you are not comfortable browsing it you can just read the code with comments. But there is something Django lacks. I know that not everyone agrees with me on this. But I also know how many people asked me basic things they could not figure out just from reading the tutorial. Django needs some basic introduction material.</p>
+
+<p>I do not think it would be wise to rewrite the whole documentation. If I want to know something about a model field, how a battery works or just see if there is something I am missing about a problem the documentation is great. But it does not walk you through the process of creating a basic application that actually works. At least not good enough as it looks to me.</p>
+
+<p>I am aware that there are great resources and that there is even a "community driven book". But this brings me to another point. There are nearly no books written in German about Django. I think I have seen one. Sometimes it only has a little paragraph, maybe a chapter in a book about Python but nothing serious. Other books, written in English, are just so outdated it hurts.</p>
+
+<p>I enjoy working with Django and my company realizes projects based on it on a regular basis. I would love to see more people using Django and I think this could be a way to give something back to the project. A little thank you, spreading the word and showing the great possibilities and reasons why more people should consider using Django.</p>
+
+<h2>Ideas And How This Blog Is Involved</h2>
+
+<p>I know that I am not in the position to provide a solid English translation of the book directly after it is finished. Not without some help. And I am also not sure when I will find the time to translate it. So I had another idea.</p>
+
+<p>In the book I will use examples that are supposed to help my readers with real world problems. We will build</p>
+
+<ul>
+<li>a basic content management system</li>
+<li>some kind of wiki</li>
+<li>a tumblelog</li>
+<li>something that will remind you of Twitter</li>
+</ul>
+
+<p>Beside the basic idea how to start such projects I can introduce management commands, migrations, templating, user accounts and profiles, project layout and structure and other stuff without boring everyone to death.</p>
+
+<p>To reach more people I will link the examples in this blog and add tutorials how everything is put together.</p>
+
+<p>The four "big projects" are currently only ideas. I am still looking for some input what I should include and what I should leave out of the tutorials. The goal is pretty simple: "Introduce enough features so everyone has a basic understanding how Django works and hopefully will be able to realize any project with the help of the documentation". I refuse to copy big parts of the docs, this would make the whole project pointless.</p>
+
+<p>If you have any ideas, wishes or comments send me a <a href="mailto:timo@screamingatmyscreen.com">mail</a>, comment on <a href="http://localhost.com">Hacker News</a> or send me a <a href="http://www.twitter.com/fallenhitokiri">tweet</a>.</p>
+</description>
+                <pubDate>11 / 6 / 2012</pubDate>
+            </item>
+            
         
             
             <item>
@@ -278,88 +320,6 @@ Everyone else will stick to its bigger brothers.</p>
             </item>
             
         
-            
-            <item>
-                <title>My Stack Is Bigger Than Yours - Ranting About Web Applications And Scalability</title>
-                <link>http://www.screamingatmyscreen.com/2012/9/my-stack-is-bigger-than-yours-ranting-about-web-applications-and-scalability/</link>
-                <description><p>Building a web application is serious business. Reading start up blogs, High Scalability or other sites you see many different tools, opinions how stuff should be designed and build, how you should deploy everything and of course even more opinions why this particular stack is superior to everything else. Sadly people who read this believe they have to do the same things and use as many tools as everyone else does.
-<!--MORE--></p>
-
-<p>Let me give you an example. I build <a href="http://www.hopelesscom.de/2012/8/14/the_road_to_zenbo_1_0.html">Zenbo</a> and I am currently using it for two clients. They both want a contact form and one of them also wants a form for his job page so people can submit an application. I was aware that this would eventually happen when I was writing Zenbo and I also had a plan for this situation: Writing a backend service. Use Ajax to send the form to it and store it. Send users a mail that there is a new message and add a web interface so they can check it and mark it as 'read'.</p>
-
-<p>This is the trivial version which covers the immediate needs. There are some plans for extending it, but they will need some time and will likely be finished at the end of the year.</p>
-
-<p>The basic plan is using Zenbo for as much projects as possible and provide a solid hosting service. Scaling is easy, sites can look the way my clients and I want them to look and with some backend power there is not drawback. So it could be possible that I will have to add more features and face some serious traffic.</p>
-
-<h3>How To Solve This The Start Up Way</h3>
-
-<p>If I build dynamic sites I use Django. But my backend is more of a service and an API. Naturally Flask came to my mind. If you do not know why I suggest you take a look at Kenneth Reitz - "Why Django sucks". But I could also think of Ruby On Rails which is, in my humble opinion, a good framework for fast and basic REST and CRUD.</p>
-
-<p>I thought about joining all fields, storing them in one key and let the frontend handle the presentation. There is no need for indexing and searching, so it does not hurt. A key (client specific) with a value (form data) are the easiest way to use the same backend for all clients. If I think of key value storage I think of Redis. Adding store to PostgreSQL could also work.</p>
-
-<p>Sending EMails? Just add a job to Celery. A queue systems and some worker scripts should be fine.</p>
-
-<p>Webinterface? Well, it could be great to build a single page application so it feels responsive and improves the user experience. Node.js is the new black for SPAs. </p>
-
-<p>Deployment? As much as I love Fabric, Chef seems to do a better job. Not sure about that, but most start ups seem to choose Chef over Fabric and they are all pretty smart - so they should know what they are doing, right?</p>
-
-<p>So what do we have so far? </p>
-
-<p>Programming/Scripting languages:</p>
-
-<ul>
-<li>Python</li>
-<li>Ruby</li>
-<li>JavaScript</li>
-</ul>
-
-<p>Frameworks, applications and tools:</p>
-
-<ul>
-<li>Zenbo</li>
-<li>Flask</li>
-<li>Node.js</li>
-<li>Celery</li>
-<li>Chef</li>
-<li>Redis</li>
-</ul>
-
-<p>We use the best tools and best frameworks for every part of the system. This is great, right?</p>
-
-<h3>How To Solve It In A Sane Way</h3>
-
-<p>Write a freaking Django application. Use the tools you know are often suggested and most of the time sufficient. It is easy to learn most of the tools I mentioned, especially since I know most of the stuff already and would only need to look up some stuff I do not have present in my mind.</p>
-
-<p>Add the application to <code>/backend</code> and post your data. Store it in a PostgreSQL database with three fields. Id, key, value. Create a web interface. If a user logs in query the database, read all entries where <code>key</code> matches the user key and show the values in a nice way.</p>
-
-<h3>The Big Difference</h3>
-
-<p>While installing everything I mentioned in the "start up stack" I created the basic application mentioned in the "sane stack". Does this mean that the start up stack is stupid or that they are doing it all wrong? Well... no.</p>
-
-<p>Most of them have to handle a different load than I will face in the first few months. And I would not buy an additional server when I encounter the first load problems. I am aware of the possibilities and I can easily separate the backend from the frontend, add a task queue or improve the user experience for big data sets.</p>
-
-<p>Until this happens I do not waste time developing and creating things I may never need. I do not waste time maintaining a stack of frameworks and languages I currently do not need. I keep it small and easy until I need it. But I consider the possibilities and try to make sure I can easily add the option to scale.</p>
-
-<p>Why do I not just create a Django or Flask application for each client? Because using Zenbo, I can just host more small sites on one server. I can keep the hosting and administration costs low. Everyone wins.</p>
-
-<h3>Why Do I Rant About This?</h3>
-
-<p>I have recently talked to some friends who work on their first product and start up. And they fall into the big "everyone is doing it"-trap. Just because other start ups use something does not mean you have to, even if their arguments make sense. They have different needs, they have different engineers, they have different use cases.</p>
-
-<p>The best advices I could give them were</p>
-
-<ul>
-<li>keep your stack as small as possible</li>
-<li>always keep scaling in mind</li>
-<li>only scale when you need it</li>
-<li>use what you know</li>
-<li>"it works" is good enough most of the time</li>
-</ul>
-
-<p>This will not work for everyone, though. Look at App.net for example: They knew that they will face a certain load. It would have made no sense to deliver fast and ignore scaling. The whole business model is build around the fact that they have to grow as fast as possible, which means scaling.</p>
-</description>
-                <pubDate>9 / 9 / 2012</pubDate>
-            </item>
             
         
             
