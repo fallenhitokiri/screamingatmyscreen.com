@@ -1,83 +1,61 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html>
     <head>
-        <title>Screaming At My Screen {% block title %}{% endblock %}</title>
+        <title>{% block title %}screaming at my screen{% endblock %}</title>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-        <meta http-equiv="expires" content="3600">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="This is the private blog of Timo Zimmermann." />
-        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding" />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding, django, flask, ruby, objective-c, ios, c, blaze it, drupan" />
         <meta name="author" content="Timo Zimmermann" />
         <meta name="robots" content="all" /> 
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
 
-        <link href="{{ site.config['url'] }}css/screen.css" rel="stylesheet" type="text/css" />
-        <link href="{{ site.config['url'] }}feed/" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+        <link rel="stylesheet" href="/css/main.css" />
     </head>
+    
+    <body>
 
-    <body {% block bodyid %}id="default"{% endblock %}>
+        <div id="sidebar">
 
-        <!--CONTAINER-->
-        <div id="container">
 
-            <!--CONTENT-->
-            <div id="content">
-                {% block content %} no content {% endblock %}
-            </div>
-            <!--END CONTENT-->
+            <p id="name"><a href="/">screaming at my screen</a></p>
 
-            <!--SIDEBAR-->
-            <div id="sidebar">
+            <div id="me">
 
-                <!--LOGO-->
-                <div id="logo">
+                <div id="picture"></div>
 
-                    <p><a href="/"><img src="/images/logo.png" alt="Timo Zimmermann" /></a></p>
-
+                <div id="about"><p id="who"><strong>Timo Zimmermann</strong></p>
+                    <p>I am a web and iOS developer running my own business, doing some freelance work, practicing
+                        martial arts and enjoying video games. I believe I have seen the whole internet once, maybe twice.</p>
                 </div>
-                <!--END LOGO-->
-
-                <!--RIBBON-->
-                <div id="ribbon-wrapper">
-                    <div id="ribbon-front">
-                        <p>{{ site.config['name'] }}</p>
-                    </div>
-
-                    <div id="ribbon-edge-bottomleft"></div>
-                    <div id="ribbon-edge-bottomright"></div>
-                    <div id="ribbon-back-left"></div>
-                    <div id="ribbon-back-right"></div>
-                </div>
-                <!--END RIBBON-->
-
-                <!--MENU-->
-                <div id="menu">
-                    <ul>
-                        {% for cur in site.content %}
-                            {% if cur.menu == True or cur.meta['menu'] == True %}
-                                <li><a href="{{ cur.url }}">{{ cur.meta['title'] }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-
-                    <p id="social">
-                        <a href="https://twitter.com/#!/fallenhitokiri"><img src="/images/twitter.png" alt="Twitter" /></a>
-                        <a href="https://www.facebook.com/timo.zimmermann"><img src="/images/facebook.png" alt="Facebook" /></a>
-                        <a href="{{ site.config['url'] }}feed/"><img src="/images/feed.png" alt="RSS Feed" /></a>
-                    </p>
-                </div>
-                <!--END MENU-->
+                <!--about-->
 
             </div>
-            <!--END SIDEBAR-->
+            <!--me-->
 
-            <div class="clearer"></div>
+            <ul>
+                {% for cur in site.content %}
+                    {% if cur.menu == True or cur.meta['menu'] == True %}
+                        <li><a href="{{ cur.url }}">{{ cur.meta['title'] }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         </div>
-        <!--END CONTAINER-->
+        <!--sidebar-->
+
+        <div id="main">
+
+            <div id="wrapper">
+
+                {% block content %} no content {% endblock %}
+
+            </div>
+            <!--wrapper-->
+
+        </div>
+        <!--main-->
 
     </body>
-
 </html>

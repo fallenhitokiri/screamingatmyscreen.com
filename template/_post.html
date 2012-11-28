@@ -1,16 +1,11 @@
 {% extends "_base.html" %}
 
 {% block title %}
- - {{ obj.meta['title'] }}
+    {{ obj.meta['title'] }}
 {% endblock %}
 
 {% block content %}
+    <p class="meta">posted on {{ obj.meta['date'].year }} - {{ obj.meta['date'].month }} - {{ obj.meta['date'].day }} {% if obj.meta['tags'] %}in {% for tag in obj.meta['tags'] %}<a href="{{ tag.url }}">{{ obj.meta['title'] }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
     <h1>{{ obj.meta['title'] }}</h1>
-    <p class="date">posted on: {{ obj.meta['date'].month }} / {{ obj.meta['date'].day }} / {{ obj.meta['date'].year }}</p>
     {{obj.markup}}
-    <p id="twitter">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="fallenhitokiri" data-lang="en" >Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </p>
-    <p class="box">If you want to send me a comment or just talk you can find me on <a href="http://twitter.com/fallenhitokiri">Twitter</a>.</p>
 {% endblock %}

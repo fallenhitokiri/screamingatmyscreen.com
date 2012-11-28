@@ -4,19 +4,19 @@
 
     <channel>
         <title>{{ site.config['name'] }}</title>
-        <link>http://www.screamingatmyscreen.com/</link>
-        <description>get the latest news from Screaming At My Screen</description>
+        <link>{{ site.config['url'] }}</link>
+        <description>what's hot</description>
         <language>en-en</language>
-        <copyright>Timo Zimmermann</copyright>
-        <pubDate>{{ obj.meta['date'] }} GMT</pubDate>
+        <copyright>you!</copyright>
+        <pubDate>{{obj.meta['date']}} GMT</pubDate>
 
         {% for item in site.sorted %}
-            {% if loop.index <= 5 %}
+            {% if loop.index <= 10 %}
             <item>
-                <title>{{ item.meta['title'] }}</title>
-                <link>http://www.screamingatmyscreen.com{{ item.url }}</link>
-                <description>{{ item.markup }}</description>
-                <pubDate>{{ item.meta['date'].month }} / {{ item.meta['date'].day }} / {{ item.meta['date'].year }}</pubDate>
+                <title>{{item.meta['title']}}</title>
+                <link>{{item.meta['url']}}</link>
+                <description>{{item.markup}}</description>
+                <pubDate>{{item.meta['date']}}</pubDate>
             </item>
             {% endif %}
         {% endfor %}
