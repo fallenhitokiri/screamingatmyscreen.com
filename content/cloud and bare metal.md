@@ -1,0 +1,117 @@
+title: The Cloud vs. Dedicated Servers
+date: 2012-12-12 16:34:00
+layout: post
+---
+I used a lot of my time the last two weeks to work on the hosting option for [drupan][drupan] powered sites. While splitting up tasks in services I thought about all the possibilities how I could host them. I looked at AWS, Heroku, Rackspace and considered renting some dedicated servers from Hetzner. To be honest I am surprised by the outcome. I hope to give you a decent overview and maybe a bit help to decide what works for you if you are in a similar situation.
+<!--MORE-->
+
+Just as a quick introduction for those who do not know me: I like servers. Setup, scaling and administration is nothing I consider to be a necessary evil, but actually enjoy it from time to time. When I started organizing network parties with my old team I spent more time with game servers, the network and working on the tournament system than gaming. I think I know pretty well (after all those years) how to install a database, add ssh keys to a system and make sure the web server is up to date. So it would not be a problem to go the dedicated way. Of course there would be the point where I would need help from people who are specialized in database design / sharding / partitioning, etc - likely earlier than going the cloud hosting route.
+I realize my strengths and weaknesses and I believe that I do not have to and cannot specialize in everything, so hiring if needed is a viable option for me.
+
+## Requirements
+Before you start looking at the different options you should know what you need. I need block storage. This means hosting only on Heroku would not be possible. I want to use a CDN for the static generated sites. This has two advantages.
+
+1. If the backend goes down or a hosting provider has problems customer domains are still online.
+2. Performance.
+
+The load on systems is currently unpredictable. If 20 users generate their site at the same moment is a completely other beast than 2 users updating a site in the morning and evening.
+There will also be an option to rent dedicated backends and frontends with a custom branding. Easy and fast provisioning is definitely a plus.
+
+## Stability and Performance
+If you search for experiences with cloud providers you find as many opinions as people writing. The cloud is great, the cloud is bad. Moving to Heroku, moving away from Heroku. 100% uptime to "crashes if I run `uptime`". From some points on earth one CDN is faster than another and so on.
+
+There are some things you should always remember:
+
+- the cloud does not mean you pay nothing and get all the performance a datacenter can offer
+- you will have downtimes
+- it is easier to minimize downtime 
+- it is faster to get processing power, storage or memory if you need it
+
+Overall it is easier to react to problems, needs and give various options a try and see how it performs in testing or production if you choose a cloud provider. At least if you do not want to buy systems "just in case, if you are lucky, and if the stars align right,…" you could need.
+
+## Amazon Web Services
+If I would have to describe AWS in one sentence it would be: "You get everything you dream of and pay for everything they can measure." It is really that easy. Need a task queue? SQS. Payment processing? FPS. Block storage? EBS. And the list goes on and on. As I said you pay for everything. IOPS, Traffic, requests - you can measure it? You pay for it. I actually prefer this to a certain point. If I pay for the resources I use they make money. If they make money they are less likely to go out of business.
+
+While visiting an AWS event in Leipzig I had the chance to talk to some people. Now that I considered using AWS I send a mail with my open questions. Two days later everything was answered. I described what I wanted to do. The - I think - sales engineer answering my questions also commented on the possibilities and shortcomings and how to compensate them. The pre sales service was great.
+
+Another thing I like is the fact that you get a free tier which you can actually use to test your idea. Of course micro instances are not the most powerful option the world has ever seen, 100000 SQS requests are just enough for two request every minute. Depending on your use case this can be enough. Or you have to pay $2.70 / month for a service which queries the queue every second. But over all you get a decent free package.
+
+Before you can see or use anything you have to enter your credit card informations. They will not take your instance down, they charge you if you go over the free limit. You also cannot get any statistics how your next bill will look like. For me, this is not really pleasant.
+
+**Pros:**
+- You can get everything you need from one provider
+- Usable administration interface
+- Lots of different systems (High CPU, high memory,…)
+
+**Cons:**
+- You have to learn Amazons vocabulary. Always three letters, with the first one either standing for "simple" or "elastic".
+- Calculating your monthly costs is nearly impossible if you do not have usage statistics before moving to AWS.
+- Not really cheap
+- Contact sales before buying - there are some limitations I could not directly find on the page / FaQ (maximum 100 buckets on S3 e.x.)
+- Look out for vendor lockin
+- IMHO bad documentation
+
+## Heroku
+Using Heroku somehow gave me a comfy feeling. They are just doing everything right. You can either use the web interface or a command line tool. You just push your repository and the magic happens. Not sure how something works? Clean and structured help and FaQs. You just do not see all the stuff you would have to do if you use your own server.
+
+I cannot say how their pre sales support looks like because I did not need to contact them. A really good sign.
+
+The pricing is reasonable and you get nearly everything for free to test stuff. Want a task queue? Choose from different providers who are happy to sell you a hosted RabbitMQ or a hosted Redis instance. Free options are not always sufficient for anything else than testing but this is fine for me. I can see if my applications still work when deployed, what else can you want?
+
+**Pros:**
+- Usability
+- Open Source based services with a free tier
+- Reasonable pricing
+
+**Cons:**
+- No storage options. (If you do not need them great, else go for S3 e.x.)
+
+## Rackspace
+Rackspace offers servers, storage, a CDN, and other stuff just with a lot better pricing model than AWS. They have no equivalent for services like FPS e.x. but this is a really special case if you ask me. You do not have to pay for everything they can measure. The pricing structure is really clear and easy to follow.
+
+They advertise their great support. My first experience was the live chat which did not work on OSX (Safari, no add ons) or my iPad and always faded over something, on every page, I wanted to read. But if you manage to reach someone they give you fast and clear answers.
+
+Pricing is comparable to AWS. Sadly they offer no free tier. You have to pay to test if you would be comfortable working with them or if people will actually like what you do. But beside that it is a really good option. Looking at their CDN and the pricing it just beats S3 / Cloud Front. No requests or other stuff to consider. You pay for bandwidth and storage. Simple and easy pricing.
+
+**Pros:**
+- Sane pricing model
+- Lots of different systems (High CPU, high memory,…)
+
+**Cons:**
+- No free tier
+
+## Dedicated Servers
+There is always the option to rent servers. You have to administrate them, compensate downtimes, plan for crashes and recovery and all the other stuff we know. If you already have a team doing this kind of work and have the money to buy more servers than you actually need (backup systems, spare systems if you have to scale…) this is a really viable option.
+
+If you only want to write code and have no experience with system administration dedicated servers are no option for you. If you think you can just buy a box, put everything on it and see what happens you should not even think about this option.
+
+**Pros:**
+- Could be cheaper
+- Full control of your environment
+
+**Cons:**
+- Will likely be more expensive
+- More work
+- Slower provisioning
+
+## Overall Ranking
+While dedicated hosting is a two edged sword it could be a viable path if all the time and work you have to put into it are okay for you.
+
+- If you do not need block storage or other stuff go for Heroku. They are doing a great job making your life as developer simple. 
+- You need block storage or other features you do not get using Heroku? Rackspace. Better pricing model, it is that simple for me.
+- If you need a lot of different services beyond the stuff Heroku and Rackspace offers go for AWS.
+
+Those three cloud providers offer different levels of services from "hosting your application" to "just tell us what you need, we have a three-letter-service offering exactly this, just be prepared to pay for everything you can imagine".
+
+The difference between AWS and Rackspace are not that big. The most important point is the clear pricing model and the better documentation if you choose Rackspace.
+
+### Combining Providers
+There is always the option to combine and mix different providers. Use Rackspace Files with your frontend on Heroku and your workers and storage on AWS for example. Depending on your preferences you could get the best out of all clouds. On the other hand it is, at least in my opinion, a disadvantage if you have to look in three different administration consoles, have three different bills and contact three different support teams if something goes wrong and you do not know what exactly happens.
+
+To prevent a vendor lockin on AWS you can also use hosted services you would use if you go for Heroku. Most of them offer a free tier on their homepage. Or you just get a lot EC2 instances and start setting up your own services, although I do not recommend this. You have to do the whole sysops work and likely have to pay more than you would have to pay if you just go for the AWS service.
+
+### Drupan-hosted
+I will likely use AWS and Rackspace. Payment is troublesome in Europe, Stripe is still not here, the free tier allows me to evaluate the service without taking a too big risk. The only thing I will use Rackspace for is their CDN offering. Just a lot more appealing than S3 and Cloud Front. Especially if you consider that you do not get statistics based on buckets and domains. Because of this shortcoming I would not be able to offer usage based pricing to my customers. I would have to assume x connections for every y GB transferred. Not really fair if you ask me.
+
+
+[drupan]: https://github.com/fallenhitokiri/drupan
