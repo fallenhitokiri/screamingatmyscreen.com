@@ -11,8 +11,8 @@ I realize my strengths and weaknesses and I believe that I do not have to and ca
 ## Requirements
 Before you start looking at the different options you should know what you need. I need block storage. This means hosting only on Heroku would not be possible. I want to use a CDN for the static generated sites. This has two advantages.
 
-1. If the backend goes down or a hosting provider has problems customer domains are still online.
-2. Performance.
+- If the backend goes down or a hosting provider has problems customer domains are still online.
+- Performance.
 
 The load on systems is currently unpredictable. If 20 users generate their site at the same moment is a completely other beast than 2 users updating a site in the morning and evening.
 There will also be an option to rent dedicated backends and frontends with a custom branding. Easy and fast provisioning is definitely a plus.
