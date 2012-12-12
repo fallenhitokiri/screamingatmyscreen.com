@@ -39,11 +39,13 @@ Another thing I like is the fact that you get a free tier which you can actually
 Before you can see or use anything you have to enter your credit card informations. They will not take your instance down, they charge you if you go over the free limit. You also cannot get any statistics how your next bill will look like. For me, this is not really pleasant.
 
 **Pros:**
+
 - You can get everything you need from one provider
 - Usable administration interface
 - Lots of different systems (High CPU, high memory,…)
 
 **Cons:**
+
 - You have to learn Amazons vocabulary. Always three letters, with the first one either standing for "simple" or "elastic".
 - Calculating your monthly costs is nearly impossible if you do not have usage statistics before moving to AWS.
 - Not really cheap
@@ -59,11 +61,13 @@ I cannot say how their pre sales support looks like because I did not need to co
 The pricing is reasonable and you get nearly everything for free to test stuff. Want a task queue? Choose from different providers who are happy to sell you a hosted RabbitMQ or a hosted Redis instance. Free options are not always sufficient for anything else than testing but this is fine for me. I can see if my applications still work when deployed, what else can you want?
 
 **Pros:**
+
 - Usability
 - Open Source based services with a free tier
 - Reasonable pricing
 
 **Cons:**
+
 - No storage options. (If you do not need them great, else go for S3 e.x.)
 
 ## Rackspace
@@ -74,10 +78,12 @@ They advertise their great support. My first experience was the live chat which 
 Pricing is comparable to AWS. Sadly they offer no free tier. You have to pay to test if you would be comfortable working with them or if people will actually like what you do. But beside that it is a really good option. Looking at their CDN and the pricing it just beats S3 / Cloud Front. No requests or other stuff to consider. You pay for bandwidth and storage. Simple and easy pricing.
 
 **Pros:**
+
 - Sane pricing model
 - Lots of different systems (High CPU, high memory,…)
 
 **Cons:**
+
 - No free tier
 
 ## Dedicated Servers
@@ -86,10 +92,12 @@ There is always the option to rent servers. You have to administrate them, compe
 If you only want to write code and have no experience with system administration dedicated servers are no option for you. If you think you can just buy a box, put everything on it and see what happens you should not even think about this option.
 
 **Pros:**
+
 - Could be cheaper
 - Full control of your environment
 
 **Cons:**
+
 - Will likely be more expensive
 - More work
 - Slower provisioning
