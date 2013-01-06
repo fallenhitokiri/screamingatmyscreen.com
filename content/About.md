@@ -3,9 +3,7 @@ date: 2011-12-11
 layout: page
 menu: True
 ---
-Hi, I am Timo Zimmermann and this is my private domain. For those of you who are
-not concerned about the long story, I am self employed, a geek, a gamer, a financial
-consultant and much more.
+Hi, I am Timo Zimmermann and this is my private domain. I was born in 1986, want to school, graduated and did not even t
 
 ###History lesson
 I was born in 1986. I started my first business when I was 16 years old. It was a small
