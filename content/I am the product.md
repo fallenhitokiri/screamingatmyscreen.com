@@ -3,7 +3,7 @@ date: 2013-01-20 16:52:00
 layout: post
 ---
 There are two types of online service you can use. On one you are the customer on the other you are the product. Lately, thanks to Instagram, there has been a lot of discussion if it is okay to provide a service to people just to sell their informations. Is this a valid business model? Is it the only business model which could work.
-<!--MORE->
+<!--MORE-->
 
 Before we continue, you should read this [XKCD comic][xkcd] about Instagram. As I already said on [Hacker News][hn] this comparison is IMHO not suitable. But let us start from the beginning.
 
