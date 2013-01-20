@@ -1,5 +1,5 @@
 title: I am the product - and that is okay
-date: 2012-12-21 16:14:00
+date: 2013-01-20 16:52:00
 layout: post
 ---
 There are two types of online service you can use. On one you are the customer on the other you are the product. Lately, thanks to Instagram, there has been a lot of discussion if it is okay to provide a service to people just to sell their informations. Is this a valid business model? Is it the only business model which could work.
