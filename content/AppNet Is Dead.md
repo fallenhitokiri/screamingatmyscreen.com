@@ -1,6 +1,7 @@
 title: App.net - Dead Before It Could Rise
 date: 2012-07-28 12:00:00
 layout: post
+tags: ['web', 'app.net']
 ---
 It is an ambitious goal. The kind of goal that can change the whole game as we know it. [App.net][appnet] is trying to build a paid alternative to Twitter. Dalton Caldwell outlined some of the existing problems and the business model. Sadly I see no way it will ever succeed.
 <!--MORE-->

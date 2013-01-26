@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <p class="meta">posted on {{ obj.meta['date'].year }} - {{ obj.meta['date'].month }} - {{ obj.meta['date'].day }} {% if obj.meta['tags'] %}in {% for tag in obj.meta['tags'] %}<a href="{{ tag.url }}">{{ obj.meta['title'] }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
+    <p class="meta">posted on {{ obj.meta['date'].year }} - {{ obj.meta['date'].month }} - {{ obj.meta['date'].day }} {% if obj.meta['tags'] %}in {% for tag in obj.meta['tags'] %}<a href="{{ site.tags[tag] }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
     <h1>{{ obj.meta['title'] }}</h1>
     {{obj.markup}}
 {% endblock %}

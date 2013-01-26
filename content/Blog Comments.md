@@ -1,6 +1,7 @@
 title: Is Hacker News The Superior Commenting System?
 date: 2012-03-04  12:00:00
 layout: post
+tags: ['web', 'blog', 'hacker news']
 ---
 I think everyone knows commenting systems like [Disqus][1] or [livefyre][2].
 They try to make commenting on blogs social. People replace existing 

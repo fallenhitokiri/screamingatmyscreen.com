@@ -1,6 +1,7 @@
 title: And here comes Zenbo
 date: 2011-12-11  12:00:00
 layout: post
+tags: ['project', 'drupan']
 ---
 After some development time, testing, and moving the release date two times I
 finally and officially start using [Zenbo][1] for Hopelesscom. This is the second time 

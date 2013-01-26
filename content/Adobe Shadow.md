@@ -1,6 +1,7 @@
 title: Even If You Hate Adobe - Go, Get Adobe Shadow
 date: 2012-03-14 12:00:00
 layout: post
+tags: ['development', 'Adobe', 'webdesign']
 ---
 For some hardcore Apple fans, sane people that hate Flash and the rest
 of humanity that also hates Flash Adobe is more evil than Microsoft ever

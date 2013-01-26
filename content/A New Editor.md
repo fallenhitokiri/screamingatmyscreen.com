@@ -1,6 +1,7 @@
 title: A New Editor
 date: 2012-02-05 12:00:00
 layout: post
+tags: ['development', 'editor']
 ---
 In my [last][1] [posts][2] I mentioned that I was evaluating some editors. 
 Again. The basic problem is that I just cannot stand vims modal editing and 
