@@ -220,10 +220,11 @@ a:hover {
 
     .subbox {
         color:$grey3;
-        font-family:"Open Sans Condensed";
-        font-weight:300;
+        /*font-family:"Open Sans Condensed";
+        font-weight:300;*/
         @include borders($grey2, 1px, 0, 0, 0, solid);
         padding:1em 0 0 0;
+        margin:1.5em 0 0 0;
     }
 
     #archive {
