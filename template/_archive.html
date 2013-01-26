@@ -18,8 +18,9 @@
     <ul id="archive">
     {% for item in site.sorted %}
         <li>
-            <span class="title"><a href="{{ item.url }}">{{ item.meta['title'] }}</a></span>
             <span class="meta">{{ item.meta['date'].month }}-{{ item.meta['date'].day }}-{{ item.meta['date'].year }}</span>
+            <span class="title"><a href="{{ item.url }}">{{ item.meta['title'] }}</a></span>
+
             <!--<span class="preview">{{ item.content|more }}</span>-->
         </li>
     {% endfor %}
