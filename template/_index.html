@@ -2,14 +2,14 @@
 
 {% block content %}
 
-    {% for cur in site.sorted %}
+    {% for post in site.sorted %}
 
         {% if loop.index <= 5 %}
 
         <div class="post">
-                <p class="meta">posted on {{ cur.meta['date'].year }} - {{ cur.meta['date'].month }} - {{ cur.meta['date'].day }} {% if obj.meta['tags'] %}in {% for tag in obj.meta['tags'] %}<a href="{{ site.tags[tag] }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
-            <h1><a href="{{ cur.url }}" alt="{{ cur.meta['title'] }}">{{ cur.meta['title']}}</a></h1>
-            {{ cur.markup|more }}
+                <p class="meta">posted on {{ post.meta['date'].month }}-{{ post.meta['date'].day }}-{{ post.meta['date'].year }} {% if post.meta['tags'] %}in {% for tag in post.meta['tags'] %}<a href="{{ site.tags[tag] }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
+            <h1><a href="{{ post.url }}" alt="{{ post.meta['title'] }}">{{ post.meta['title']}}</a></h1>
+            {{ post.markup|more }}
         </div>
 
         {% endif %}
