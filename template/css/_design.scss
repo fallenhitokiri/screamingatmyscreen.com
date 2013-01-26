@@ -218,6 +218,14 @@ a:hover {
         margin:0 0 3em 0;
     }
 
+    .subbox {
+        color:$grey3;
+        font-family:"Open Sans Condensed";
+        font-weight:300;
+        line-height:0.9em;
+        @include borders($grey2, 1px, 0, 0, 0, solid);
+    }
+
     #archive {
         list-style-type:none;
         padding:1em 0 1em 0;
