@@ -225,18 +225,15 @@ a:hover {
         .title a {
             font-weight: 800;
             color:$dark;
+            max-width:550px;
         }
 
         .title a:hover {
             color:$red;
         }
 
-        span {
-            display:block;
-        }
-
         li {
-            padding:0 0 1em 0;
+            padding:0 0 1.2em 0;
         }
 
         #tags {
