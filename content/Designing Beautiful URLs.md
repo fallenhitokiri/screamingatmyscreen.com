@@ -1,6 +1,7 @@
 title: Designing Beautiful URLs
 date: 2012-07-02  12:00:00
 layout: post
+tags: ['content management', 'blog']
 ---
 I thought about beautiful URLs. There are two things I expect from them and I sadly nearly never see them in production. While designing my [content management system][cms] I decided that this will be one of the things that have to be solved before the first release. Changing URLs is always a bad idea, so I want to get this right from the beginning. How should URLs look?
 <!--MORE-->

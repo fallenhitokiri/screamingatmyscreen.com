@@ -1,6 +1,7 @@
 title: Why I Do Not Use Java
 date: 2012-02-11 12:00:00
 layout: post
+tags: ['Java', 'development']
 ---
 I was talking to a client and we discussed the possibilites for a client
 management application they want. Beside some implementation details I

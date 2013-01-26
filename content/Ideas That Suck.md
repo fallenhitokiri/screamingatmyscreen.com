@@ -1,6 +1,7 @@
 title: When People Tell You Your Idea Sucks Ignore Them
 date: 2012-03-31 12:00:00
 layout: post
+tags: ['ideas', 'business', 'start-up']
 ---
 One of the most common advices you receive is that you should carefully 
 evaluate your idea before you start working on it. Sometimes you would

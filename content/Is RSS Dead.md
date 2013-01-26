@@ -1,6 +1,7 @@
 title: Is RSS Dead?
 date: 2012-04-19 12:00:00
 layout: post
+tags: ['RSS', 'it is dead']
 ---
 I came across an [interesting article][1] indicating that RSS has some major problems. 
 Do not get confused by the title, it is a bit exaggerating and, as most headlines,

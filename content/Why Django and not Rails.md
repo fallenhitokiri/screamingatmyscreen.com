@@ -1,6 +1,7 @@
 title: Business Decision - Why I use Django and not Ruby On Rails
 date: 2012-02-19 12:00:00
 layout: post
+tags: ['Django', 'Ruby on Rails', 'development', 'Python', 'Ruby']
 ---
 My [company][1] is currently working on some websites for a business client.
 I will not go into details now. There is nothing I could just use or alter

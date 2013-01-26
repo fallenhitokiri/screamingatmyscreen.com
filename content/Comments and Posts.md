@@ -1,6 +1,7 @@
 title: Comments and Posts
 date: 2012-03-08 12:00:00
 layout: post
+tags: ['blog']
 ---
 There are some general things I want to talk about. The future of 
 hopelesscom, what I consider a good solution for comments and how my

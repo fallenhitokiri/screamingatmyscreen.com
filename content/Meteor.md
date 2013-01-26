@@ -1,6 +1,7 @@
 title: Meteor Is Just A Toy
 date: 2012-04-11  12:00:00
 layout: post
+tags: ['Meteor', 'JavaScript', 'development', 'node.js']
 ---
 I was always a bit skeptical about [node.js][1]. Using JavaScript for
 something else than frontend magic looked insane. Projects building 

@@ -1,6 +1,7 @@
 title: "OOP: Lesson 1 - Basics"
 date: 2012-01-20 12:00:00
 layout: post
+tags: ['development', 'OOP']
 ---
 Today we will be learning the basics of object-oriented programming.
 As I mentioned in the [introduction post][1] to this series we have to

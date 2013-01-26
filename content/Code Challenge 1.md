@@ -1,6 +1,7 @@
 title: Code Challenge - The Challenge
 date: 2012-04-16 12:00:00
 layout: post
+tags: ['development']
 ---
 I believe that learning new skills is essential. No matter if it is in your job, your
 private life, just for fun without any reason - not learning new tricks means you stand 

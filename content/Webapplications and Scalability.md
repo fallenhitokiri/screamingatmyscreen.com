@@ -1,6 +1,7 @@
 title: My Stack Is Bigger Than Yours - Ranting About Web Applications And Scalability
 date: 2012-09-09 12:00:00
 layout: post
+tags: ['development', 'scalability', 'deployment']
 ---
 Building a web application is serious business. Reading start up blogs, High Scalability or other sites you see many different tools, opinions how stuff should be designed and build, how you should deploy everything and of course even more opinions why this particular stack is superior to everything else. Sadly people who read this believe they have to do the same things and use as many tools as everyone else does.
 <!--MORE-->

@@ -1,6 +1,7 @@
 title: "Review: iA Writer"
 date: 2012-08-20 12:00:00
 layout: post
+tags: ['review', 'blog']
 ---
 In my 25 years on earth I was called many things. But poet or author is not on the list. I am not exceptionally good at writing nor is it easy for me. Still I am sitting in front of my screen and writing this words that should, somehow, maybe magically, become a review of a program which can only do one thing: show an edit field so you can enter text.
 <!--MORE-->

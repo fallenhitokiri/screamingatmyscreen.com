@@ -1,6 +1,7 @@
 title: "OOP: Lesson 2 - Vocabulary"
 date: 2012-01-24 12:00:00
 layout: post
+tags: ['development', 'OOP']
 ---
 Hello and welcome to a new part of the famous, loved and anticipated
 series about object-oriented programming. Today we will be talking about

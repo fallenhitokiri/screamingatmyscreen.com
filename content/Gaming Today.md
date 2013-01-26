@@ -1,6 +1,7 @@
 title: 15 Years Of Gaming
 date: 2012-05-22 12:00:00
 layout: post
+tags: ['gaming']
 ---
 As most of you I am currently occupied with Diablo 3. I do not have much time but I
 managed to stand in front of Diablo in normal mode. I thought about the current

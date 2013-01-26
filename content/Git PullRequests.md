@@ -1,6 +1,7 @@
 title: Pull Requests, Developers And Respect
 date: 2012-05-13 12:00:00
 layout: post
+tags: ['git', 'development', 'culture']
 ---
 There is currently an interesting discussion going on. Linus Torvalds started 
 [one on GitHub][1] stating that GitHub is doing pull requests, commit 

@@ -1,6 +1,7 @@
 title: The iPad Mini Is Not For You
 date: 2012-10-24 15:21:00
 layout: post
+tags: ['iPad', 'Apple', 'news']
 ---
 Yesterday Apple introduced the iPad mini. As always I had two different types of people in my Twitter timeline. Those who tried to order it before the keynote was finished and those who explained why the iPad mini is a big disappointment. I believe it is great, just not for "us".
 <!--MORE-->

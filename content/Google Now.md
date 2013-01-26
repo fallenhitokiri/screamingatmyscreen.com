@@ -1,6 +1,7 @@
 title: Does Google Deserve Any Trust?
 date: 2012-08-07 12:00:00
 layout: post
+tags: ['Google', 'news']
 ---
 Sometimes Google has a really hard time announcing new features. Not that all of the things they do just plainly suck like some projects they released the last few years. If Apple would release the exact same product most people would testify that they will, again, change the world, make it a better place and that *everyone* waited for this feature putting meaning back in life.
 <!--MORE-->

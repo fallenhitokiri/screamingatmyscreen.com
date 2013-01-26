@@ -1,6 +1,7 @@
 title: Taking Zenbo To The Next Level - Zenbo-hosted
 date: 2012-09-16 12:00:00
 layout: post
+tags: ['drupan', 'project']
 ---
 The beta is running pretty great and I am making progress towards a [1.0 release candidate][zenbo]. While working on [a project][project] for my company to enable forms and other dynamic features in Zenbo I thought about something totally different. Providing a hosted service for Zenbo. How exactly would this look like?
 <!--MORE-->

@@ -1,6 +1,7 @@
 title: The Cloud vs. Dedicated Servers
 date: 2012-12-12 16:34:00
 layout: post
+tags: ['cloud', 'hosting', 'project']
 ---
 I used a lot of my time the last two weeks to work on the hosting option for [drupan][drupan] powered sites. While splitting up tasks in services I thought about all the possibilities how I could host them. I looked at AWS, Heroku, Rackspace and considered renting some dedicated servers from Hetzner. To be honest I am surprised by the outcome. I hope to give you a decent overview and maybe a bit help to decide what works for you if you are in a similar situation.
 <!--MORE-->

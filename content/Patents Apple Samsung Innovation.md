@@ -1,6 +1,7 @@
 title: On Patents, Apple, Samsung And Innovation
 date: 2012-08-26 12:00:00
 layout: post
+tags: ['patents', 'life']
 ---
 I love reading all those posts that the patent system is evil (I agree to some point on this one), that Samsung should have won and that Apple did not invent anything. Let me just talk about one thing. But there is one little thing so many smart people either do not understand or always get wrong.
 <!--MORE-->

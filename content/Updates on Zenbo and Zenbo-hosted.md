@@ -1,6 +1,7 @@
 title: Updates On Zenbo And Zenbo-hosted
 date: 2012-09-23 12:00:00
 layout: post
+tags: ['drupan', 'project']
 ---
 After a week of doing nearly nothing, thanks to a really bad cold, I managed to get some testing and coding done. I thought I give you some updates how your favorite project is doing and how soon you will see the release of the last blogging platform you will ever need.
 <!--MORE-->

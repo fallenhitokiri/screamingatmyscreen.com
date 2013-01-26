@@ -1,6 +1,7 @@
 title: Firefox Is The New Enemy
 date: 2012-02-27 12:00:00
 layout: post
+tags: ['browser', 'CORS', 'deployment']
 ---
 When I first started designing websites there was one enemy. Internet
 Explorer. No matter what you did it did not work. Sites were designed

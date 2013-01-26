@@ -1,6 +1,7 @@
 title: Myth Of Freelancing - Time Management
 date: 2012-07-09 12:00:00
 layout: post
+tags: ['business', 'freelancing']
 ---
 After talking about the myth that [you are your own boss][boss] I want to talk about something else that is likely the most common misunderstanding when people talk about freelancers and business owners. The myth that everyone always has time whenever they want.
 <!--MORE-->

@@ -1,6 +1,7 @@
 title: Django Beginner Series - Introduction
 date: 2012-11-06 18:32:00
 layout: post
+tags: ['Django', 'Python', 'project', 'book']
 ---
 Some Twitter followers could already know that I am working on a book. Just not what it is about. Big announcement: It will be about web application development using Django. It is supposed to be an easy entry in the world of Django and tries to cover as much as possible in a simple way to get started with the framework.
 <!--MORE-->

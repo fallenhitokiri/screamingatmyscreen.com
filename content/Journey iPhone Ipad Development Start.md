@@ -1,6 +1,7 @@
 title: My Journey - iOS Development
 date: 2012-06-23 12:00:00
 layout: post
+tags: ['iOS', 'Apple', 'development']
 ---
 I love learning new things. One of the most obvious and also a
 long time member on my "do it,… just do it already" list is iOS

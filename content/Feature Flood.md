@@ -1,6 +1,7 @@
 title: Feature Flood
 date: 2012-01-07 12:00:00
 layout: post
+tags: ['drupan']
 ---
 Yesterday I took some time to compile a short list of features I
 am implementing in [Zenbo][1] the next few days. I have a big list what

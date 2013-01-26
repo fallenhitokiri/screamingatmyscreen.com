@@ -1,6 +1,7 @@
 title: The Lie About iCloud
 date: 2012-02-24 12:00:00
 layout: post
+tags: ['iCloud', 'Apple']
 ---
 I have seen .Mac, I have seen me.com and now I see iCloud raise and 
 fail. The problem is not that iCloud is a bad idea or that Apple screw 

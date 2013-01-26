@@ -1,6 +1,7 @@
 title: The Doom Of Responsive Design
 date: 2012-06-13 12:00:00
 layout: post
+tags: ['webdesign', 'responsive design']
 ---
 The last few month you could read it in every blog. Last year most web developers used to 
 focus on responsive web design, mobile first, and whatever you can imagine. The idea is 

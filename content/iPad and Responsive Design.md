@@ -1,6 +1,7 @@
 title: The New iPad And Responsive Web Design
 date: 2012-03-11 12:00:00
 layout: post
+tags: ['iPad', 'Apple', 'responsive design']
 ---
 It is resolutionary. The new iPad got a display that provides more pixels
 than your HDTV. In your pocket, in your hand, everywhere you want it. So 

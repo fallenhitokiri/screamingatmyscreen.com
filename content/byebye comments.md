@@ -1,6 +1,7 @@
 title: Bye Bye Comments - It Was A Great Time But You Have To Go
 date: 2012-07-24 12:00:00
 layout: post
+tags: ['blog']
 ---
 Regular readers of my blog know that I experimented with all kinds of comment systems. Integrated in the blogging software, external services, social networks and just disabling them. After giving the last viable option I had a fair chance I finally came to a decision.
 <!--MORE-->

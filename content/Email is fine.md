@@ -1,6 +1,7 @@
 title: There Is Nothing Wrong Or Broken With Email
 date: 2012-07-12 12:00:00
 layout: post
+tags: ['email', 'it is dead']
 ---
 I checked my calendar. We had three weeks without someone claiming that email is broken and that we need to fix it. We have to fix something that worked for nearly 50 years? Why? 
 <!--MORE-->

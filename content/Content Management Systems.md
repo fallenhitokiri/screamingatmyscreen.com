@@ -1,6 +1,7 @@
 title: What Is Wrong With Content Management Systems?
 date: 2012-04-30 12:00:00
 layout: post
+tags: ['content management', 'blog']
 ---
 I am currently working on some projects and two them are kind of private or semi-private. 
 My private and my business domain will receive a redesign and a Django based

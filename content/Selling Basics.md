@@ -1,6 +1,7 @@
 title: Selling Your Service Or Product - The Basics
 date: 2012-11-27 18:03:00
 layout: post
+tags: ['business']
 ---
 Last week I was talking to 14 boys and girls about IT. Their school offered an orientation day and I was invited as a speaker. One of them was especially interested in selling products. Now this is something I wanted to talk about for a long time on my blog. Maybe you remember the ["talk about business"][tab] series?
 <!--MORE-->

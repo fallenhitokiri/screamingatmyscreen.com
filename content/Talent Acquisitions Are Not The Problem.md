@@ -1,6 +1,7 @@
 title: Talent Acquisitions Are Not The Problem
 date: 2012-07-21 12:00:00
 layout: post
+tags: ['news', 'Google', 'start-up']
 ---
 I do not think there was a way to miss it if you used the Internet the last 24 hours. [Sparrow][sparrow], an iOS and OSX mail client was acquired by Google. There is a lot of rage - a hugh fan and user base now sees their favorite mail client passing away. But what exactly is the problem? And can we solve it?
 <!--MORE-->

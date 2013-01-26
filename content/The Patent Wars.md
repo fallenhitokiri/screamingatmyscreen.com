@@ -1,6 +1,7 @@
 title: The Great Patent Wars - I Was There
 date: 2012-02-26 12:00:00
 layout: post
+tags: ['patents', 'life', 'business']
 ---
 Some day our children will ask us what was so special about our youth, 
 about our generation and what made us who we are. Back in the last 

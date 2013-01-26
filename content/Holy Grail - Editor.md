@@ -1,6 +1,7 @@
 title: "The Holy Grail: A Programmer's Editor"
 date: 2011-12-18 12:00:00
 layout: post
+tags: ['editor']
 ---
 I think everyone who has something to do with programming, system administration
 or is reading IT related message boards at least encountered one flamewar about

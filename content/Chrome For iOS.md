@@ -1,6 +1,7 @@
 title: Chrome For iOS
 date: 2012-06-29 12:00:00
 layout: post
+tags: ['browser', 'news']
 ---
 As most of you should know - Google released an iOS version of Chrome. Some people already waited for it, some do not see a point in it. I gave it a short try.
 <!--MORE-->

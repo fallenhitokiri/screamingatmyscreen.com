@@ -1,6 +1,7 @@
 title: First Day With An iPhone 4s
 date: 2012-02-09 12:00:00
 layout: post
+tags: ['iPhone', 'Apple']
 ---
 Yesterday I received my new iPhone. Kind of necessary since my old one
 is trying to die really, really hard since the rain accident. First thing

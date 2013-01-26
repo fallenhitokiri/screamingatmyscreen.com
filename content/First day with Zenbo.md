@@ -1,6 +1,7 @@
 title: First day with Zenbo
 date: 2011-12-12 12:00:00
 layout: post
+tags: ['drupan', 'project']
 ---
 Today is the first day with my server running Zenbo. Everything is fine and the only
 process currently running is [Lighttpd][1]. But let us first look at yesterday. This post will

@@ -1,6 +1,7 @@
 title: Code Challenge - The Ideas
 date: 2012-04-20 12:00:00
 layout: post
+tags: ['development']
 ---
 If you read the [post][1] about "code challenge" you know what I am talking about. If you
 did not, you should now. I thought about the challenge and what I could learn and

@@ -1,6 +1,7 @@
 title: Zenbo, Zenbo As A Service And Pricing
 date: 2012-10-12 12:00:00
 layout: post
+tags: ['drupan', 'project']
 ---
 After a week of working on Zenbo (and desperately searching for a new name, as this one is already protected by someone else) there are some news I want to share with you. Sadly not everything worked as expected and there were some private issues I had to take care of. But the good news are that I am on a good track for a release. Let me give you an overview what happened and what you can expect.
 <!--MORE-->

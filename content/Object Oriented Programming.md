@@ -1,6 +1,7 @@
 title: Object-Oriented Programming
 date: 2012-01-18 12:00:00
 layout: post
+tags: ['development', 'OOP']
 ---
 I have spent some time this weekend explaining Java - well to be more precise a Java
 problem - to my precious one and her class mate. There was one problem the whole five

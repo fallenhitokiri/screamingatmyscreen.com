@@ -1,6 +1,7 @@
 title: Time To Talk About Business
 date: 2012-05-10 12:00:00
 layout: post
+tags: ['business']
 ---
 I thought about this for quiet a while. The idea first came to my mind when I
 was reading Hacker News, HighScalability and all those other fancy sites that

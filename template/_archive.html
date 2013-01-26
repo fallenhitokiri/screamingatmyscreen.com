@@ -7,13 +7,13 @@
 {% block content %}
     <h1>Archive</h1>
 
-    {% if site.tags|count > 0 %}
+    <!--{% if site.tags|count > 0 %}
     <p id="tags"><strong>Tags:</strong>
         {% for tag in site.tags %}
             <a href="{{ site.tags[tag] }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
         {% endfor %}
     </p>
-    {% endif %}
+    {% endif %}-->
 
     <ul id="archive">
     {% for item in site.sorted %}

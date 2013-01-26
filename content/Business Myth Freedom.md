@@ -1,6 +1,7 @@
 title: Myth Of Freelancing - You Are Your Own Boss
 date: 2012-05-31 12:00:00
 layout: post
+tags: ['business', 'freelancing']
 ---
 I thought a good start when talking about [freelancing and running your own business][1]
 would be a cold shower for all those who fall for the promises and illusions some people

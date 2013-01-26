@@ -1,6 +1,7 @@
 title: Resolutionary, isn't it?
 date: 2012-03-08 12:00:01
 layout: post
+tags: ['iPad', 'Apple']
 ---
 It is the time of the year when men start to calculate their budget, women
 looking forward to their soon new toy, people hammering [F5] and newsfeeds

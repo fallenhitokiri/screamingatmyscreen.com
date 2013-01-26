@@ -1,6 +1,7 @@
 title: The Road To Zenbo 1.0
 date: 2012-08-14 12:00:00
 layout: post
+tags: ['drupan', 'project']
 ---
 Last weekend I pushed an early alpha of [Zenbo 1.0][zenbo] to GitHub. I received some feedback and questions. I want to address some of them and give you a short estimate what I will add till the first release and how development will look in general.
 <!--MORE-->

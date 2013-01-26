@@ -1,6 +1,7 @@
 title: Random Thoughts On iOS Development
 date: 2012-08-18 12:00:00
 layout: post
+tags: ['development', 'iOS', 'Apple']
 ---
 For some projects I started learning Objective-C and the Cocoa touch framework. The last few years I nearly exclusively worked in Python and some high level frameworks. I used to write a decent amount of C(++) so this is not entirely new but there are some things I want to talk about.
 <!--MORE-->

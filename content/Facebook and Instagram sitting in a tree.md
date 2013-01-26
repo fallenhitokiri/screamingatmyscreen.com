@@ -1,6 +1,7 @@
 title: Facebook And Instagram, Sitting In A Tree
 date: 2012-04-10 12:00:00
 layout: post
+tags: ['Facebook', 'Instagram', 'web', 'news']
 ---
 It is all over the news - Instagram was bought by Facebook for 1 Billion
 Dollars. That are a lot of zeros. And for every one of them I have seen

@@ -1,6 +1,7 @@
 title: Change, Change, Change And Fun
 date: 2012-02-09 12:00:01
 layout: post
+tags: ['private', 'life']
 ---
 This post contains ramblings about nearly everything that happened the last few
 weeks. Be prepared for massive and fast topic changes. I will talk about my new 

@@ -1,6 +1,7 @@
 title: Django And Generic Relations 
 date: 2012-06-08 12:00:00
 layout: post
+tags: ['Django', 'Python', 'code']
 ---
 The last few days more and more questions about generic relations appeared in #django.
 Most of the time people do not understand the limitations or how to work around them.

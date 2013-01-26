@@ -1,6 +1,7 @@
 title: In Defense Of Being Obsessed
 date: 2012-08-29 12:00:00
 layout: post
+tags: ['business', 'life', 'private']
 ---
 In nearly all kinds of media you hear about those obsessed people who are just bad, evil and likely terrorists or psychopaths. Why? Because they are obsessed. What they never tell you is that an obsession can be something great. Not if you want to live a boring, standard life like your neighbor and his neighbor and so on.
 <!--MORE-->
