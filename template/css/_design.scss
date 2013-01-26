@@ -224,6 +224,7 @@ a:hover {
         font-weight:300;
         line-height:0.9em;
         @include borders($grey2, 1px, 0, 0, 0, solid);
+        padding:1em 0 0 0;
     }
 
     #archive {
