@@ -217,6 +217,11 @@ a:hover {
     .post {
         margin:0 0 3em 0;
     }
+    
+    img {
+        width:600px;
+        height:auto;
+    }
 
     .subbox {
         color:$grey3;
@@ -287,6 +292,11 @@ a:hover {
             width:90%;
             margin:0 auto;
         }
+        
+        img {
+            width:100%;
+            height:auto;
+        }
 
         #archive {
             .preview {
@@ -350,6 +360,11 @@ a:hover {
         #wrapper {
             width:600px;
             margin:0 auto;
+        }
+        
+        img {
+            width:100%;
+            height:auto;
         }
     }
 }
