@@ -3,7 +3,7 @@ date: 2013-02-23 21:28:00
 layout: post
 tags: ["business"]
 ---
-At the moment women in IT is one of the most discussed topics I am aware of. There is no day without new tweets, tumbles and other stuff discussing the topic. After I read Ashes post I thought about talking about it from the perspective of an employer and someone who had more hiring talks than you can count the last ten years.
+At the moment women in IT is one of the most discussed topics I am aware of. There is no day without new tweets, tumbles and other stuff discussing the topic. After I read [Ashes][ashe] post I thought about talking about it from the perspective of an employer and someone who had more hiring talks than you can count the last ten years.
 <!--MORE-->
 
 This post is basically a collection of things I learned from hiring and managing employees and contributors (read: freelancers).
@@ -95,3 +95,5 @@ You are free to disagree with everything I wrote. You can disagree with the way 
 I am not free of guilt. Sometimes I just do not see a problem until someone points it out, sometimes I say something stupid without thinking of every possible interpretation. But I care wether or not someone is offended, I adjust and I try not to repeat mistakes.
 
 I do not have all the answers. I do not know how to solve the big problem. But I do know one thing: Even if you disagree with me, if you just make sure you are not a part of the problem (and even do something against it if possible), then you do not have to become an activist, and still we will see the problem getting smaller. It will not vanish this way, but it will help those who fight it.
+
+[ashe]: http://ashedryden.com/blog/call-for-perspectives-changing-our-hiring-processes-for-diversity
