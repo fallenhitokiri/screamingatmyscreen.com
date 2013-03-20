@@ -1,7 +1,7 @@
 title: One Weekend With Go
 date: 2013-03-20 23:07:00
 layout: post
-tags: [go, python, ruby, deployment]
+tags: [Go, Python, Ruby, deployment]
 ---
 After reading many positive things about the Go language I decided to give it a try. I spent one weekend reading about the basics, some more detailed stuff I am especially interested in and worked my way through the first examples and some tutorials. I have to admit I am a bit torn between "wow, great language" and "meh, not sure if I like it".
 <!--MORE-->
