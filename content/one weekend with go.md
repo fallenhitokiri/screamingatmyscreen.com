@@ -24,7 +24,7 @@ Every time I learn a new language the first thing I look at is some source code.
 Go is not bad. But it is also not Python. You have mustaches, stars for your pointers and some stuff which just looks plainly wrong at the beginning but which makes a lot of sense if you understand what actually happens. I would say it is okay. Not the most elegant language but still okay to work with.
 
 ### Statically vs dynamically typed
-I have to admit I prefer statically typed languages. Catching obvious error at compile time saves me a lot of trouble, testing and doing the same things over and over again. Go is statically typed. For me this is a point on the plus site.
+I have to admit I prefer statically typed languages. Catching obvious errors at compile time saves me a lot of trouble, testing and doing the same things over and over again. Go is statically typed. For me this is a point on the plus site.
 
 If you believe in dynamically typed languages and feel like someone smashed your kneecaps if you are forced to use something else Go is likely not for you.
 
