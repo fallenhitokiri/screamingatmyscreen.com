@@ -12,7 +12,7 @@ I was called by a potential client and asked to write tests for a Ruby on Rails 
 
 Bob has no idea about anything digital. But he loves to listen to buzzword bullshit bingo. And most of the time he believes he needs what he hears. He already has an intranet for his company and wanted to extend it with said project. And because every cool start-up uses it the project had to be done using Ruby on Rails. Without going into too much details it was "only" an API. Fetching information from various sources, merging them into one output stream to be included in the existing intranet.
 
-Bob was not satisfied with the one who developed the solution, we call him Jack, so he called me. He heard that it is important to test software and his system administrator told him that there are no tests for the API-project.
+Bob was not satisfied with the one who developed the solution, we call him Jack, so he called me. He heard that it is important to test software and his system administrator told him that there are no tests for the API-project. They plan to extend the project and add functionality. To do it "right" they insist on a full test coverage of the code base.
 
 After checking out the source code I was a bit surprised. It is based on Sinatra. I called Bob and he did not understand why it was not written in Ruby on Rails. He made it clear that he wants a Ruby on Rails application. I called Jack and he told me that he believed Sinatra was the better choice and that the contract did not specify the framework, even if the client explicitly talked about it the whole time.
 
