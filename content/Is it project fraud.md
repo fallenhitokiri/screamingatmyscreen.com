@@ -1,7 +1,7 @@
 title: Is it project fraud or saving the client?
 date: 2013-03-29 19:31:00
 layout: post
-tags: ["business", "ruby on rails", "sinatra"]
+tags: ["business", "Ruby on Rails", "sinatra"]
 ---
 Imagine the following situation. You are hired to develop an application using Ruby on Rails. But from your experience you decide that Sinatra would be better suited for the job. You just develop the application in Sinatra, deliver, no one notices it and everyone seems to be happy. Do you believe this is okay?
 <!--MORE-->
