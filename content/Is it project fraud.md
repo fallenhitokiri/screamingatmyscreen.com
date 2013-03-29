@@ -38,3 +38,7 @@ If you do not want to become good enough but still believe customers should get 
 What do you want your client to tell people asking about you? "He suggested a different technology, saved me money and delivered a great project" or "He delivered something I did not ask for."
 
 I would love to hear your opinion. Do you believe this was fraud? Do you believe you have to save a client from making the wrong decisions? How far can you go to save a client?
+
+Update: Discussion on [HackerNews][hn]
+
+[hn]: https://news.ycombinator.com/item?id=5462469
