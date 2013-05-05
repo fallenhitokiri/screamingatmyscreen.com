@@ -1,7 +1,7 @@
 title: The Cloud Is Fine - You Are Just Using It The Wrong Way
 date: 2013-05-05 20:13:00
 layout: post
-tags: ['cloud', 'backup']
+tags: ['cloud', 'backup', 'native clients']
 ---
 This week I have read another article that Google terminated an account without notice and without reason. It described the horrible life without GMail, Picasa, gdrive and all the other services Google offers. The conclusion and the comments were the same I always read when something like this happens: "The cloud is bad!". Well… This is just not true.
 <!--MORE-->
