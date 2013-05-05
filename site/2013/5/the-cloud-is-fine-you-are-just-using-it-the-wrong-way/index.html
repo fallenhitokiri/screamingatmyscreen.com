@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>
-    Is it project fraud or saving the client?
+    The Cloud Is Fine - You Are Just Using It The Wrong Way
 </title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -307,46 +307,46 @@
             <div id="wrapper">
 
                 
-    <p class="meta">posted on 2013 - 3 - 29 in <a href="/tag/business/">business</a>, <a href="/tag/ruby-on-rails/">Ruby on Rails</a>, <a href="/tag/sinatra/">sinatra</a></p>
-    <h1>Is it project fraud or saving the client?</h1>
-    <p>Imagine the following situation. You are hired to develop an application using Ruby on Rails. But from your experience you decide that Sinatra would be better suited for the job. You just develop the application in Sinatra, deliver, no one notices it and everyone seems to be happy. Do you believe this is okay?
+    <p class="meta">posted on 2013 - 5 - 5 in <a href="/tag/cloud/">cloud</a>, <a href="/tag/backup/">backup</a></p>
+    <h1>The Cloud Is Fine - You Are Just Using It The Wrong Way</h1>
+    <p>This week I have read another article that Google terminated an account without notice and without reason. It described the horrible life without GMail, Picasa, gdrive and all the other services Google offers. The conclusion and the comments were the same I always read when something like this happens: "The cloud is bad!". Well… This is just not true.
 <!--MORE--></p>
 
-<p>Just from the short introduction I would say no. But let me tell you the whole story.</p>
+<p>The first thing everyone should understand is that it is possible to enjoy all the features cloud providers offer and still access your data if one of them thinks it would be funny to check what happens if you just disable swapping on a production server or "just doing a quick fix without testing because it is just one line of code and what could possible go wrong?"</p>
 
-<p>I was called by a potential client and asked to write tests for a Ruby on Rails project. 75 controllers and 25 models (the number was specified by the developer on his final report) which never have seen one line of testing. The last time I talked to him about the project I should now add tests to I suggested giving the job to someone I know. But since I had two meetings with the client, let us call him Bob to make it a bit more personal, I knew a bit about him.</p>
+<h2>Use a client, not the webinterface</h2>
 
-<p>Bob has no idea about anything digital. But he loves to listen to buzzword bullshit bingo. And most of the time he believes he needs what he hears. He already has an intranet for his company and wanted to extend it with said project. And because every cool start-up uses it the project had to be done using Ruby on Rails. Without going into too much details it was "only" an API. Fetching information from various sources, merging them into one output stream to be included in the existing intranet.</p>
+<p>The trick is to not use webinterfaces for everything. I am not exactly sure why people do this in the first place since I have never seen anything with less usability than webinterfaces, but this is stuff for a different post. Want to read EMails? Open your mail application. Want to edit documents? There are Office suites, some of them are even free and kind of work. I could go on but I think you have an idea where I am going with this.</p>
 
-<p>Bob was not satisfied with the one who developed the solution, we call him Jack, so he called me. He heard that it is important to test software and his system administrator told him that there are no tests for the API-project. They plan to extend the project and add functionality. To do it "right" they insist on a full test coverage of the code base.</p>
+<p>What happens if file synchronization service terminates an account? Nothing. All my files are stored locally. What happens if a mail service terminates an account? You guessed right, nothing.</p>
 
-<p>After checking out the source code I was a bit surprised. It is based on Sinatra. I called Bob and he did not understand why it was not written in Ruby on Rails. He made it clear that he wants a Ruby on Rails application. I called Jack and he told me that he believed Sinatra was the better choice and that the contract did not specify the framework, even if the client explicitly talked about it the whole time.</p>
+<p>The problem with cloud providers locking accounts is not that you cannot access your files anymore, the problem is that most people do not have a local copy of the files.</p>
 
-<p>Now back to the main question: Is this fraud?</p>
+<p>Just because you have a local application synchronizing your files, emails and photos does not mean you cannot check your mails with a browser while visiting your parents. A webinterface can be handy sometimes and I also use them from time to time.</p>
 
-<p>From what I can tell Sinatra was an acceptable choice. I do not believe that it is true that a Ruby on Rails application would have taken significantly more time to develop and as a result be more expensive. We talk about "hammer API endpoints, fetch data, save to database, generate stuff from database, safe to database, provide an API to fetch generated stuff". Rails should be fine, too.</p>
+<p>First rule using the cloud: "Nothing is better than a file on your hard drive."</p>
 
-<p>The main problem we are talking about is pretty easy. Bob orders A and Jack believes B is the better choice. Since the contract does not specify A he choses B, knowing that Bob wants A.</p>
+<h2>Backups</h2>
 
-<p>Is it fraud? Maybe not from a legal point of view. (Disclaimer: I am not a lawyer. It is possible that spoken arrangements can be legally binding in some countries.) But in my opinion it is highly unprofessional and unethical.</p>
+<p>You have backups of all your files stored in the cloud, right? Software fails. Hardware fails. Humans fail. Just because not many people lost data stored in the cloud does not mean it is not possible. Still people, smart people who know that backups are important, have no copy of their mails or photos.</p>
 
-<h2>How to handle such a situation?</h2>
+<p>Having everything on your local system gives you some room for errors in the cloud. Of course, bad syncs can still happen and kill both datasets. This is no replacement for a real backup, but it can make data corruption on the server less dramatic and it makes real backups easier.</p>
 
-<p>If I am sure solution B is better for Bob it is my job to explain it to him in a way he can understand. If he still insists on Ruby on Rails it is either because there are reasons he did not and maybe does not want to mention or because I suck at explaining.</p>
+<p>Second rule using the cloud: "The cloud does not replace backups."</p>
 
-<p>This is an important lesson anyone planing a project with a client has to learn. If you are not able to convince the client you have the best solution for the given problem it is your fault, no the clients. Do not start with "the client is to stupid to understand that…". You are the one who is selling. It is your job to make sure he understands why he should trust you. If you are not able to do this because "selling is only for those who {have shitty products, do not know what they are doing, those people I hate,…} or you are too elitist to explain something in an understandable way it is not your clients fault.</p>
+<h2>But my provider does not offer…</h2>
 
-<p>If you cannot sell and do not want to learn how to sell properly there is only one way to go. Deliver what the client asked for. Maybe Sinatra is the better choice. But the client believes he gets a Ruby on Rails application, which he ordered, and this is what he should get. There is no reasoning to justify anything else.</p>
+<p>"native clients", "local synchronization", "pink unicorns",… It doesn't matter. For every provider which does not there are five which do. You have the choice what you are using. Maybe you do not get "shiny feature x" but what is more important: Accessing your files whenever you need them or having a certain feature you use once a year?</p>
 
-<p>If you want to help your client making the right decisions, which is in my opinion a good thing, it is your job to be good enough at selling your ideas.</p>
+<p>I understand the fascination of "everything runs in the browser". You trade some usability for the fact that everything you need to work is a browser. Only being able to work if you have a Internet connection and another company does a good job is a big disadvantage if you look at the history of nearly all cloud providers.</p>
 
-<p>If you do not want to become good enough but still believe customers should get what they need not what they want you have to options. Hire someone for the job or stop working directly with clients. But do not deliver something they did not ask for.</p>
+<p>Third rule using the cloud: "You have the choice what service you are using."</p>
 
-<p>What do you want your client to tell people asking about you? "He suggested a different technology, saved me money and delivered a great project" or "He delivered something I did not ask for."</p>
+<h2>Use the cloud for everything!</h2>
 
-<p>I would love to hear your opinion. Do you believe this was fraud? Do you believe you have to save a client from making the wrong decisions? How far can you go to save a client?</p>
+<p>This is no rant against cloud services. I use iCloud, Dropbox and other services on a regular basis but if one of them goes down, if one of them terminates my account I can continue working like nothing happened. My projects are still on my HD, my contacts are still on my phone and if everything fails at the same time I have a backup.</p>
 
-<p>Update: Discussion on <a href="https://news.ycombinator.com/item?id=5462469">HackerNews</a></p>
+<p>Using the cloud is a good idea. Using it brainlessly, especially for your business, is not.</p>
 
 
     <div class="subbox">

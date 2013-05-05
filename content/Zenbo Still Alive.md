@@ -1,7 +1,7 @@
 title: Working On Zenbo
 date: 2012-07-27 12:00:00
 layout: post
-tags: ['drupan, project']
+tags: ['drupan', 'project']
 ---
 I did not announce anything the last few month nor did I push anything to the [repository][github]. But I use Zenbo nearly every day.
 Currently it is in a horrible state for anyone beside me. But fear not, this will change shortly.
