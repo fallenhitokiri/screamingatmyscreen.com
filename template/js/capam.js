@@ -20,8 +20,6 @@ $(document).ready(function() {
 
     var getUserID = function() {
         cookie = document.cookie;
-        console.log(cookie);
-        console.log(cookie.indexOf('id='));
 
         if (cookie.length > 0) {
             if (cookie.indexOf('id=') !== -1) {
