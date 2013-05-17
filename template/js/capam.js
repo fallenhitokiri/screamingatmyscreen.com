@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var host = "http://capam.herokuapp.com";
+    var host = "http://capam.herokuapp.com/post/js/";
     var id_length = 128;
 
     function randomID() {
