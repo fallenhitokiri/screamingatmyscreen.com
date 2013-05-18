@@ -23,7 +23,7 @@ But Adobe could not care less about hobbyists. Most of them buy one package and 
 
 What are the options for hobbyists? The likely easiest one would be joining the rows of the not-so-legal "I found a copy online which needs no activation" group. But there are also good designed, functional paid alternatives like [Pixelmator][1], [Acron][2] or free software like Gimp which could be an alternative, depending on your point of view. I think Gimp vs. Photoshop is the vim vs. Emacs for digital artists.
 
-So what does this mean? Adobe wins. Professionals win. Hobbyists lose. It could be that easy. Of course some professionals who are comfortable with a slightly outdated version will be caught in crossfire, which sucks. For me it is okay. I can live with Creative Cloud, I enjoy the additional features and I do not pay more than I would while regularly upgrading.
+So what does this mean? Adobe wins. Professionals win. Hobbyists lose. It could be that easy if there were not some professionals and small agencies who are comfortable with a slightly outdated version that will be caught in crossfire, which sucks. For me it is okay. I can live with Creative Cloud, I enjoy the additional features and I do not pay more than I would while regularly upgrading.
 
 [1]: http://www.pixelmator.com
 [2]: http://www.flyingmeat.com/acorn/
