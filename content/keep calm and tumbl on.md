@@ -29,7 +29,7 @@ After you have a backup you should register a domain. No matter if it is "catslo
 
 Now you have to decide how to put your content online. The easiest way is using a hosted service like Wordpress or [PostHaven][4]. I think most people know that I am not a big fan of Wordpress. But you should still take a look at it. I heard rumors that there are people who kind of get along with it or something like that. There are many more options but you either know them already or you should really use something hosted which does not require any prior knowledge of websites, hosting and content management systems. You still depend on a 3rd party but since you own the domain you can easily move between services.
 
-There are two things you should know. You will not find a community like Tumblr again or a way to engage as easily as you are used to with other people. You will likely find full features content management systems confusing, be prepared to spend some time learning your new playground.
+There are two things you should know. You will not find a community like Tumblr again or a way to engage as easily as you are used to with other people. You will likely find full featured content management systems confusing, be prepared to spend some time learning your new playground.
 
 Now that you are online again you should start thinking about gaining some knowledge how to host a website yourself so you will never be in the situation that a service is shutting down and you have to do an "emergency-content-migration". If you do not know where to start feel free to drop me a line.
 
