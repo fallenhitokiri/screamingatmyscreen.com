@@ -13,7 +13,7 @@ It is a coincidence that it was one year ago that I wrote about [15 years of gam
 ## You do not own your game
 It is no secret that I hate games which require you to authenticate against DRM servers. They break, you need a working Internet connection to play single player games - the word working is the problem. Our ISP needed two weeks to fix a problem, two weeks where most of the current games just would not have worked - and if a publisher goes out of business the servers are likely going with them.
 
-One advantage of consoles was always that you have an (today likely an optical one) medium you insert into a box and start playing. No setup, no drivers to mess around with, just playing a game. Now this is gone. Install the game and bind it to your Xbox live account. And this is not the worst thing.
+One advantage of consoles was always that you have a (today likely an optical one) medium you insert into a box and start playing. No setup, no drivers to mess around with, just playing a game. Now this is gone. Install the game and bind it to your Xbox live account. And this is not the worst thing.
 
 Have you ever borrowed a game from a friend to play it for some weeks? Well, you are out of luck if he wants to use his Xbox live account. You cannot just borrow games anymore. They are bound to an account. This was the most basic thing if two people owned the same console, it was even the reason for friends to get the same consoles so they could share games.
 
