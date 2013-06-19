@@ -8,8 +8,146 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2013-06-13 20:28:31.770574 GMT</pubDate>
+        <pubDate>2013-06-19 21:07:22.426492 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>http.Request and goroutines</title>
+                <link></link>
+                <description><p>I was starting to write a web service using Go this weekend. I already deployed two services replacing a Flask and a Sinatra application but this time was different. It was the first time I found a part in the Go language which did not make sense immediately. Did you ever try to pass a http.Request to a goroutine? Do you want to know what happens if you do?
+<!--MORE--></p>
+
+<p>For me, the hardest part using a new language or framework is always the little differences between them and the, sometimes, strong opinions how things should work after all the years writing code. This weekend I encountered the first thing in Go which did not seem right. After some discussions in #go-nuts I understood the issue but I am still not entirely sold on the way it works.</p>
+
+<p>Just as a short side note before we start looking at the code I want to mention that the people in #go-nuts are great. It is one of the really helpful channels on FreeNode and one of the most newbie friendliest ones I am aware of.</p>
+
+<h2>Return as fast as possible</h2>
+
+<p>I want to replace an existing service which does just one simple thing. Accept a CORS request, process some data and save it to the database. The client does not need to know if it succeeded or anything else. It is basically fire and forget.</p>
+
+<p>For simplicity we just use curl to post some data</p>
+
+<pre><code>curl -i http://localhost:8080/api/add --data "foo=bar"
+</code></pre>
+
+<p>Since the client does not need to know what happens to our data we should finish the request as fast as possible. Goroutines are great and this is one of the cases where they are the right tool to use.</p>
+
+<p>If the processing is done outside the request handler it should be able to return nearly immediately since spinning up a goroutine is insanely fast. The final service could use channels and be a bit more sophisticated but I wanted to extend it slowly.</p>
+
+<pre><code>package main
+
+import (
+    "github.com/gorilla/mux"
+      "log"
+    "net/http"
+    "time"
+)
+
+func main() {
+    log.Println("Starting server...")
+
+    router := mux.NewRouter()
+    router.HandleFunc("/api/add", AddHandler).Methods("POST")
+
+    http.Handle("/api/", router)
+
+    log.Println("Now listening on port 8080")
+    http.ListenAndServe(":8080", nil)
+}
+
+func AddHandler(respWriter http.ResponseWriter, request *http.Request) {
+    respWriter.Header().Set("Content-Type", "application/json")
+    go PrintStuff(request)
+    respWriter.Write([]byte("Thanks\n"))
+}
+
+func PrintStuff(request *http.Request) {
+    request.ParseForm()
+    time.Sleep(time.Second * 3)
+    log.Println(request.PostForm)
+}
+</code></pre>
+
+<p>Pretty obvious code, isn't it? We spin up a go routine and return a "Thanks". Let us look at the output</p>
+
+<pre><code>envy% go run src/apiserver/server1.go
+2013/06/19 17:58:18 Starting server...
+2013/06/19 17:58:18 Now listening on port 8080
+2013/06/19 17:58:23 map[]
+</code></pre>
+
+<p>Why is our map empty? We posted <code>foo=bar</code>! The problem is that the request body is closed, the handler finished executing before our goroutine started processing everything. (At least this is the final explanation I got. If this is still not entirely correct please send me a mail or tweet)</p>
+
+<p>Calling <code>ParseForm()</code> before spinning up the goroutine on the other hand works fine. First we change our code</p>
+
+<pre><code>func AddHandler(respWriter http.ResponseWriter, request *http.Request) {
+    respWriter.Header().Set("Content-Type", "application/json")
+    request.ParseForm()
+    go PrintStuff(request)
+    respWriter.Write([]byte("Thanks\n"))
+}
+
+func PrintStuff(request *http.Request) {
+    time.Sleep(time.Second * 3)
+    log.Println(request.PostForm)
+}
+</code></pre>
+
+<p>And after running curl we should see</p>
+
+<pre><code>envy% go run src/apiserver/server1.go
+2013/06/19 18:04:21 Starting server...
+2013/06/19 18:04:21 Now listening on port 8080
+2013/06/19 18:04:26 map[foo:[bar]]
+</code></pre>
+
+<p>Now this solves our problem, right? Kind of but not in an elegant way.</p>
+
+<h3>Half usable request</h3>
+
+<p>This is the part I do not like. I cannot call <code>ParseForm()</code> but I can access <code>PostForm</code>. I would prefer an all or nothing approach. </p>
+
+<p>I am also not sure if everyone would come to the conclusion why this happens after "just" reading the documentation. The last part of the <code>Handler</code> interface gives a hint but neither <code>http.Request</code> nor <code>ParseForm()</code> mention anything related. It is possible that I missed something or just read it wrong but judging from the reactions I got after asking about this my idea was not so obscure.</p>
+
+<p>As I said it may be a problem with being opinionated and having seen other frameworks and languages with a different behavior. I still believe that if I can do "a" I should be able to do "b" on a struct.</p>
+
+<h3>A better solution</h3>
+
+<p>I do not talk about best practices, I am not experienced enough with Go to do that, but I think you should just ignore the request outside the handler. If only some things are possible you should consider it gone. So we have to pass our data to the goroutine in a different way.</p>
+
+<p>Using a simple map our code would look like this</p>
+
+<pre><code>func AddHandler(respWriter http.ResponseWriter, request *http.Request) {
+    respWriter.Header().Set("Content-Type", "application/json")
+    request.ParseForm()
+
+    body := make(map[string][]string)
+    body["foo"] = request.PostForm["foo"]
+    go PrintStuff(body)
+
+    respWriter.Write([]byte("Thanks\n"))
+}
+
+func PrintStuff(body map[string][]string) {
+    time.Sleep(time.Second * 3)
+    log.Println(body)
+}
+</code></pre>
+
+<p>And let us look at the output</p>
+
+<pre><code>envy% go run src/apiserver/server1.go
+2013/06/19 18:26:51 Starting server...
+2013/06/19 18:26:51 Now listening on port 8080
+2013/06/19 18:26:58 map[foo:[bar]]
+</code></pre>
+
+<p>As expected. Moral of the story? Do not pass a request to a goroutine.</p>
+</description>
+                <pubDate>2013-06-19 21:02:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -541,70 +679,6 @@ The best advice I can give you: diversity is great. Different perspectives, diff
             </item>
             
         
-            
-            <item>
-                <title>I am the product - and that is okay</title>
-                <link></link>
-                <description><p>There are two types of online service you can use. On one you are the customer on the other you are the product. Lately, thanks to Instagram, there has been a lot of discussion if it is okay to provide a service to people just to sell their informations. Is this a valid business model? Is it the only business model which could work.
-<!--MORE--></p>
-
-<p>Before we continue, you should read this <a href="http://xkcd.com/1150/">XKCD comic</a> about Instagram. As I already said on <a href="http://news.ycombinator.com/item?id=4952378">Hacker News</a> this comparison is IMHO not suitable. But let us start from the beginning.</p>
-
-<p>I think we do not have to talk a lot about the different service models, we are all familiar with both of them. A direct competition for example is Twitter and App.net. On Twitter you are the product, on App.net you are a customer. As most of you know I am not the biggest fan of Twitter (I still use it, though). Some of their recent moves are IMHO a direct result of the fact that they still found no way to make a sustainable business with what they have. But why do I not just move to App.net?</p>
-
-<p>Because sometimes it is okay to be the product. We are basically talking about your choice if you use service A, you are the customer, or B, you are the product.</p>
-
-<h2>Are you willing to pay?</h2>
-
-<p>The first question you have to ask yourself is if you are willing to pay for said service. You cannot get a service for free and believe developers and servers are paid by magical unicorns that shit money. I am not really sure what people expect when they get something for free. Did their parents not teach them not to take candy from the strange looking old man pointing to his minivan?</p>
-
-<p>Of course, sometimes you get stuff for free with no strings attached, but this is mostly good will or a strategy to sell related services, features, whatever. If there is no obvious way how a company is making money you are likely seeing a "service B" type company.</p>
-
-<p>If you are not willing to pay you have two options: be the product or do not use the service at all.</p>
-
-<h2>What can happen if you are the product?</h2>
-
-<p>This is a tricky question because it depends on you. I know this sucks, taking responsibility for your own actions and stuff. I cannot believe I even suggest this in the modern age. But let us imagine, for one second, that we were all brought up to be intelligent adults.</p>
-
-<p>We are aware of the fact that we are dealing with a company of type B. We are the product. Here comes a really crazy thought. We just put informations up we do not care about if they are sold.</p>
-
-<p>If Instagram can make a business model out of selling pictures of my fianceés cat, my morning coffee and some places I attend this is fine. I am not willing to pay for the service and they sell something I do not care about if it is sold.</p>
-
-<p>What if Facebook sold my phone number to telephone marketers? I would hate that. I do not like being cold called. But wait - here is the tricky part: They do not have my number because I never uploaded it. Shocking, right? I do care about this piece of information, so I keep it as private as I think it is necessary.</p>
-
-<p>This is a pretty old rule we all know. Only upload informations you are willing to share with the world. Each system has bugs, every company can change, everyone can once mess up privacy settings while adding someone to the "screw this guy" group.</p>
-
-<h2>"But there are no alternatives!"</h2>
-
-<p>This is my favorite argument. Show me one service your life depends on, which only exists because it is selling <em>all</em> your private informations. Sorry, but you are not forced to use anything the Internet has to offer. Joking aside, I know, in reality, we want to use those fancy services to stay in touch with people or get the latest news in real time.</p>
-
-<p>If there is really no alternative of service type A you can still get an account on evil service B. Just do not upload anything. If you fear someone would sell your spam email account together with your name you really should not use anything which requires registration. As long as you upload nothing what can happen? They could try to track your surf behavior and show you related adds. Just use stealth mode and log out of the service.</p>
-
-<p>If you start sharing informations or just engage in conversations - what exactly can happen? They could read them, sell them, most likely automatically search for keywords and show you ads. Even if they sell your complete conversation history: Just do not share nuclear weapon codes over Facebook. In the real world no one cares if you just invited five friends over to dinner.</p>
-
-<h2>Uptopia</h2>
-
-<p>Of course, I would love to see a world with free services for everyone. Services which can be used to do "the right" or "good" things. I think you know the examples - how reports or freedom fighters use those services to show cruel dictatorship and so on. Services where you own your data. Where you are free to post - as long as it is neither inhuman or illegal - whatever you want without fearing consequences from society, employers or governments.</p>
-
-<p>But this is utopia. In the world we live in we can only get such a service if the company behind it can actually pay the bills and satisfy laws and regulations.</p>
-
-<p>Let us imagine App.net would be this company. A company of type A. We all get an account, abandon Twitter and enjoy our life. What happens to those, who cannot pay $5 but have something important to say to the rest of the world? Should everyone else pay $50 to compensate them?</p>
-
-<p>As a company which wants to open up for <em>everyone</em> you need a business model which either depends on some people paying for others or you start making money in a non traditional way. What do you think, which one is likelier to work out?</p>
-
-<h2>I am a happy, little product!</h2>
-
-<p>There are two easy rules:</p>
-
-<ul>
-<li>Only upload what you are willing to share with the whole world</li>
-<li>If you do not pay for the service you are the product</li>
-</ul>
-
-<p>Free services have informations and data from me. And I'd like to repeat that I have no problem if they start selling it. It is not like the XKCD comic where I lose something. I still have my data. It is not gone. My images will not vanish from my phone and hard drive because Instagram sells them. The only result is a company making money, providing me a service I like and I am not willing to pay for, for free. Everyone wins.</p>
-</description>
-                <pubDate>2013-01-20 16:52:00</pubDate>
-            </item>
             
         
             

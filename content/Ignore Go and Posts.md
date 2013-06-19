@@ -1,7 +1,7 @@
 title: Why You Should Ignore (Most) Posts About Go
 date: 2012-03-20 12:00:00
 layout: post
-tags: ['development', 'Go']
+tags: ['development', 'golang']
 ---
 A friend told me that it is always a good idea to start a post with some 
 assumptions and a clear, hard statement and elaborate your point of view
