@@ -333,7 +333,7 @@
     <p>I was starting to write a web service using Go this weekend. I already deployed two services replacing a Flask and a Sinatra application but this time was different. It was the first time I found a part in the Go language which did not make sense immediately. Did you ever try to pass a http.Request to a goroutine? Do you want to know what happens if you do?
 <!--MORE--></p>
 
-<p>For me, the hardest part using a new language or framework is always the little differences between them and the, sometimes, strong opinions how things should work after all the years writing code. This weekend I encountered the first thing in Go which did not seem right. After some discussions in #go-nuts I understood the issue but I am still not entirely sold on the way it works.</p>
+<p>For me, the hardest part using a new language or framework is always the little differences between them and being a bit opinionated after all the years of writing code in different languages. This weekend I encountered the first thing in Go which did not seem right. After some discussions in #go-nuts I understood the issue but I am still not entirely sold on the way it works.</p>
 
 <p>Just as a short side note before we start looking at the code I want to mention that the people in #go-nuts are great. It is one of the really helpful channels on FreeNode and one of the most newbie friendliest ones I am aware of.</p>
 
@@ -392,7 +392,7 @@ func PrintStuff(request *http.Request) {
 2013/06/19 17:58:23 map[]
 </code></pre>
 
-<p>Why is our map empty? We posted <code>foo=bar</code>! The problem is that the request body is closed, the handler finished executing before our goroutine started processing everything. (At least this is the final explanation I got. If this is still not entirely correct please send me a mail or tweet)</p>
+<p>Why is our map empty? We posted <code>foo=bar</code>! The problem is that the request body is closed, the handler finished executing before our goroutine started processing everything. (At least this is the final explanation I got. If this is still not entirely correct please send me a mail or tweet so I can update the post)</p>
 
 <p>Calling <code>ParseForm()</code> before spinning up the goroutine on the other hand works fine. First we change our code</p>
 
