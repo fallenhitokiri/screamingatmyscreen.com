@@ -8,8 +8,97 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2013-06-19 22:50:57.931727 GMT</pubDate>
+        <pubDate>2013-07-03 19:15:01.124553 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>Should I rewrite my app in Go for better scalability?</title>
+                <link></link>
+                <description><p>In the past few months we have seen many articles about big companies and well known start-ups rewriting a part of their infrastructure in Go. And all articles have one thing in common. They tell you how much faster the app is, how many servers they could turn off and how awesome Go is. Should you do the same and rewrite your app in Go?
+<!--MORE--></p>
+
+<p>I have chosen the title because it is a questions I received two times now and I thought a bit longer answer could not hurt. The answer is sadly not just a simple 'yes' or 'no' but more an "it depends on…" type.</p>
+
+<h2>Web development and Go</h2>
+
+<p>There is a great number of different frameworks which are comparable to frameworks you likely know and have used. It starts with pretty simple stuff proving routing and sessions to full featured frameworks which position themselves as counterpart to Ruby on Rails or Django. You will also find libraries for nearly anything you can imagine.</p>
+
+<p>The downside is that they are pretty young, not nearly as feature rich as the libraries you usually use with other languages and not always stable enough for production. If you heavily depend on third party libraries doing the majority of your work and are not willing to fix someone else's code or reinvent the wheel you will likely have a hard time using Go for bigger applications.</p>
+
+<h2>Replacing a Ruby on Rails or Django application</h2>
+
+<p>Do not do this. It is really that easy. If you have a non trivial application using multiple models, controllers and views  it will take a lot of time to rewrite everything and you will not have the same comfort as you have with those two frameworks. All the time you would waste for the rewrite could be invested in cleaning up your codebase, adding new features and improving the performance of your existing app.</p>
+
+<p>The question is not if it is possible - but to answer it: yes, it is - the question is if it is a good idea and a good investment of your time.</p>
+
+<h2>Start thinking SOA</h2>
+
+<p>If you already have a service oriented architecture or if you are planning to split parts away from your gigantic application into smaller services you should consider using Go. I already deployed three services using it and I am quite satisfied with the results.</p>
+
+<h3>From Flask to Gorilla</h3>
+
+<p>There was a service which I hacked together in two or three hours. Nothing impressive. It did three things:</p>
+
+<ol>
+<li>Receive data (http POST / JSON)</li>
+<li>Store data (redis)</li>
+<li>On request process data and send it (http GET / JSON)</li>
+</ol>
+
+<p>The service is nothing spectacular or impressive and I believe everyone who is not drunk and has used Python and Flask for more than three hours would have been able to implement it. It is in production for nearly a year and works flawless, but more people started using it and the server sees a lot of load recently, sometimes taking more time than acceptable to respond to requests.</p>
+
+<p>The easy solution would be moving redis to its own server and adding a second application server. I decided to rewrite it in Go. It took a bit more time, but it worked. After I flipped the switch and put it in production the server load moved down, response times got faster and looking at the load it could even be deployed to a smaller server.</p>
+
+<h3>heroku ps:scale web=+2</h3>
+
+<p>In January a friend asked me to help him with a project. He and his company were a bit behind the timeline and they could not afford to be late with this one. They had a solid codebase and already used a SOA. I worked on two services.</p>
+
+<p>Last month we met for a coffee and talked about the Flask application I recently replaced. He was curious why the service was down the first time in a year. He thought about hiring me to replace some of the services with a rewrite in Go. After a short talk about the advantages and disadvantages we came to the conclusion that it would be best to just add additional dynos.</p>
+
+<p>First let us start with some simple math. Two additional Heroku dynos cost them $71 / month. If he would hire me to replace a service we would talk about ~$100 / hour (roughly, we bill each other in Euro). The services are far from trivial, but for the sake of those who do not like complex math imagine I would only need one day to write, test and deploy one service. Two days, with 8 hours of work, are $1600. For this amount of money they could pay the two additional dynos for two years. But what if they unexpectedly need to scale further? Let us add two additional dynos bringing us to $143 / month. We are still around a year of Heroku costs vs development costs.</p>
+
+<p>Another thing to factor in is that neither he nor one of his employees is currently using Go or planning to learn it. Extending or fixing something on one of the services would lead to additional costs.</p>
+
+<h3>When I would consider using Go</h3>
+
+<p>If I would start from scratch or add a new service to an existing infrastructure - and if more people are working on a project someone beside me is familiar with Go - I would not hesitate using it if I would not need many third party libraries.</p>
+
+<h2>Stop talking about scalability and start thinking about costs</h2>
+
+<p>There are some <a href="http://www.techempower.com/benchmarks/#section=data-r6">impressive benchmarks</a> clearly showing what Go is capable of. What some people seem to miss is the fact that more requests per second does not mean it scales better. It just means you can process more requests per second and have to worry about scaling later than sooner.</p>
+
+<p>It is possible that your database will be the bottleneck before you need additional application servers, it could be possible that you will be IO bound but just processing more req/s will not save you from the fact that you need a plan for scaling and in an ideal world a clean codebase enabling you to do so.</p>
+
+<p>What you really should consider, especially if you are just starting with the development of the next world disrupting, society changing, kitten picture sharing service, is the costs associated with developing and running the service. If you cannot afford the server costs all your work, your scaling strategy and everything else is worth nothing.</p>
+
+<p>Most people choose to use Ruby on Rails or Django for a minimal viable product. Fast to develop in, many libraries, cheap contractors, support by many big hosting providers, lots of tutorials,… There are many advantages. But what would you gain if you invest a bit more time in your MVP?</p>
+
+<p>We all know benchmarks suck and we should ignore them but let us assume that Go performs three times better than the same application written in another language. If only half of the benchmarks we have seen are not entirely wrong this should be a safe assumption.</p>
+
+<p>Your typical stack to start with likely looks like this. One server for your app, one for your database. You could put both on the same system but you want to be on the safe side when the millions of cat lovers storm your service. Now someone tells you you should have some backup system if there goes something wrong. You add another app server and a database server. You are successful. More and more users joins your service so you start adding app servers.</p>
+
+<p>This is exactly the moment where it would pay off if you would have invested more time in your MVP. While your typical app can handle 5000 users with one server your Go app now handles 15000. If you are growing fast this can be a lot of money you will safe.</p>
+
+<h3>At least in theory</h3>
+
+<p>Please remember I am not telling you to use Go, no matter what. I am not advocating to throw away RoR or Django. I am not even saying that those benchmarks and theoretical numbers can be reached. We just do not have enough data and real wold examples to prove anything.</p>
+
+<p>And while "invest more time" does sound like an okay tradeoff you should remember that Go and its libraries are young. If do not already now what you will be using, maybe played around with it and have a vague idea if you would have to implement fifty percent of the features you expect from your ORM yourself you could have a bad time seeing a competitor releasing "your product" after a night of heavy drinking and writing PHP.</p>
+
+<p>If you are just starting your future career as developer and want to decide which language you should learn I would suggest you go for Ruby or Python. They are both mainstream and if your kitten picture sharing service does not take off you can easily find a job or some freelance work to make some money for your next ground braking idea.</p>
+
+<h2>Conclusion</h2>
+
+<p>Go is a solid choice. After getting used to it you can likely write code as fast as in another language, it has a promising community and libraries are slowly maturing. While Go itself is pretty robust and feature complete you will have to invest time and effort if you are planning to use third party libraries.</p>
+
+<p>You can succeed and gain many advantages if you choose Go, you can end up with a horrible mess and hate yourself every day for doing something unbelievable stupid.</p>
+
+<p>You should carefully consider your options and the pros and cons. I am currently happy with Go and I will continue using it when it is appropriate but it is not the last language I will ever use and it is not the right tool for every project.</p>
+</description>
+                <pubDate>2013-07-03 19:32:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -638,45 +727,6 @@ The best advice I can give you: diversity is great. Different perspectives, diff
             </item>
             
         
-            
-            <item>
-                <title>Digital Ocean - good intensions, bad execution</title>
-                <link></link>
-                <description><p>Digital Ocean offers cloud servers with SSD storage. Sounds great, right? They also try to be active on many social media channels and sites like Hacker News. They answer support tickets pretty quickly. But I am still not sure if I really want to give them my credit card number. Let me explain what happened.
-<!--MORE--></p>
-
-<p>If you use the Internet for more than two months you have likely seen many complains about anything. You learn to filter most of them. Sometimes you only get one side of the story, sometimes critical parts are missing, sometimes something just went wrong and people expect companies to never ever make a mistake. But what if a company admits and tries to solve a problem and just makes things worse?</p>
-
-<p>Some time ago <a href="https://www.digitalocean.com">Digital Ocean</a> wrote a post which made it to the front page of HN that they now offer servers with SSDs. SSDs always sound good, right? But I never heard of them so I browsed around the site.</p>
-
-<p>One thing I noticed was the offering of "unlimited bandwidth". This is a nice thought but I think we all know this cannot work. Either there are strings attached or they go out of service or cancel your account. After browsing the site I read the comments thread on HN and I was not the only one who thought there is something wrong with this statement.</p>
-
-<p>They were offering a free test node and I thought about a UK and US based vServer so I wanted to give them a try. Maybe AWS micro, Linode and others are not the only option. The small server are potent enough for my needs. I registered and account but before I could spin up an instance I had to attend a client meeting.</p>
-
-<p>In the evening I logged in and wanted to start a server.</p>
-
-<blockquote>
-  <p>Your account hast been suspended.</p>
-</blockquote>
-
-<p>Why?! I did <em>nothing</em>. Maybe the initial offering with test servers and the fact that it was on HN was too much for them. First thing: Back to the HN thread. I found the limitation of the trial account on HN, not on their site. Three hours after you signed up. Seriously? You are kidding, right? A three hour trial after someone hits "Sign up" is nearly as worthless as no trial period, if not worse, if there is no hint how the trial works.</p>
-
-<p>I wrote a support ticket and got a response that the three hours are common and that I will receive a credit for $1.25. But I would first have to give them my credit card number to get the credit. And they would authorize $1.23. On HN they commented this would be a limitation of the accounting software. </p>
-
-<p>Looking at the site today they changed the bandwidth part. So they really try to learn from mistakes and improve. This is the good part. But do I want to give my credit card to a company trying to sell me a cloud product which cannot get an accounting software to work the way they want and are obviously not really good in communicating essential parts of their product? Especially a test period which is unbelievable stupid? "Create a free account" equals "your test period starts now, no matter what you do".</p>
-
-<p>They are really communicative, especially with automatically generated mails. Sadly they all went to the spam folder - which I, and this is something which is 100% my fault, do not check regularly. I was also not used to have one. But Outlook.com is another story.</p>
-
-<p><img src="digital-ocean.png" alt="Spam folder, full of Digital Ocean mails" /></p>
-
-<p>Etel from their support team reacted fast, delivered a solution and was really friendly. But this will not change the fact that everything else just smells bad for me. I now have around $22 promo code credits in my account and <em>still</em> cannot test a droplet because I did not give them my credit card to test a service which currently should cost me nothing. And I cannot see how much credits I really have. After adding the promo code I only have seen a "added!" message. No way to check my current credits or see if they were really added to my account.</p>
-
-<p>From what I can tell the product is great, the company fast in working through support tickets, friendly, solution oriented, but they cannot work around internal limitations. They are in a market which has some serious competition. AWS does not get more expensive, Hetzner and Linode are already cheap. They have a solid product but I still have a bad feeling about giving away informations which they could use to take money from me.</p>
-
-<p>If you do not mind giving away credit card informations, are looking for a cheap host which seems to perform really good, get one of the promo codes they toss around and give them a try. I had the chance to see a friend doing a load test and the instance performed really good. Maybe I am just a bit too quirky when it comes to credit card informations, maybe I am just spoiled from Hetzner. But even if I am currently not their biggest fan they seem to deliver and treat customers well.</p>
-</description>
-                <pubDate>2013-02-12 19:14:00</pubDate>
-            </item>
             
         
             
