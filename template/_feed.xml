@@ -14,7 +14,7 @@
             {% if loop.index <= 10 %}
             <item>
                 <title>{{item.meta['title']}}</title>
-                <link>http://screamingatmyscreen{{ item.url }}</link>
+                <link>http://screamingatmyscreen.com{{ item.url }}</link>
                 <description>{{item.markup}}</description>
                 <pubDate>{{item.meta['date']}}</pubDate>
             </item>
