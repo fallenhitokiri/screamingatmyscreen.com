@@ -3,8 +3,8 @@
 <rss version="2.0">
 
     <channel>
-        <title>{{ site.config['name'] }}</title>
-        <link>{{ site.config['url'] }}</link>
+        <title>screaming at my screen!</title>
+        <link>http://screamingatmyscreen.com/</link>
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
@@ -14,7 +14,7 @@
             {% if loop.index <= 10 %}
             <item>
                 <title>{{item.meta['title']}}</title>
-                <link>{{item.meta['url']}}</link>
+                <link>http://screamingatmyscreen{{ item.url }}</link>
                 <description>{{item.markup}}</description>
                 <pubDate>{{item.meta['date']}}</pubDate>
             </item>
