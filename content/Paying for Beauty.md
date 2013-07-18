@@ -1,7 +1,7 @@
 title: Is it stupid to pay for beautiful things?
 date: 2013-07-18 18:15:00
 layout: post
-tags: ["design", "Apple"]
+tags: ["design", "Apple", "editor"]
 ---
 Last week Amar Bose died. As expected a thread on every major discussion platform emerged. Sadly I have seen the same pointless discussion, as you would normally find in an Apple-centric thread, claiming that people buying Bose or Apple and paying for design are obviously stupid.
 <!--MORE-->
