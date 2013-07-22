@@ -6,7 +6,7 @@ tags: ["Adobe", "cloud"]
 … so we put a downloader in your download to download a downloader to download the application you want. I have to admit that I do not like Adobe but they managed to move the current trend of downloading an application to download the application you want to a whole new level of stupidity.
 <!--MORE-->
 
-If you want to install Photoshop with the current Creative Cloud system you have to login on the website to download Creative Cloud Desktop (let us call it CCD), you get CCD_setup. After that you download the CCD_Installer with the CCD_setup. When the download of CCD_Installer is finished CCD_setup notices that it is not running with administrator privileges, closes itself and gives you an error.
+If you want to install Photoshop with the current Creative Cloud system you have to login on the website to download Creative Cloud Desktop (let us call it CCD), you get CCDsetup. After that you download the CCD_Installer with the CCDsetup. When the download of CCDinstaller is finished CCDsetup notices that it is not running with administrator privileges, closes itself and gives you an error.
 
 Rerun the program with sufficient privileges so it can download the whole setup **again** and install CCD. Now after you login in CCD you can download and install the Adobe application you want.
 
