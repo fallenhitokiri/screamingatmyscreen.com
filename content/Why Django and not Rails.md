@@ -18,20 +18,20 @@ we are currently planning would have been possible in both frameworks and that
 the initial development and hosting costs would have been the same. So why
 was there a reason to choose "a" over "b"?
 
-##Frameworks
+## Frameworks
 Django and Ruby On Rails are just frameworks. They roughly provide the same
 features and have shortcomings. No matter how much you love your framework
 you will always find something the other is doing better. But since
 they are just frameworks there is something else you should consider. The
 language underneath.
 
-###Other Frameworks
+### Other Frameworks
 I know that there are many frameworks out there. But they are neither as
 complete as those two nor are they as feature rich. There are times when the 
 flexibility they give you is an advantage, most of the time they just make your
 work more complicated.
 
-###Language
+### Language
 There are some differences between Python and Ruby and I believe you
 already know them. Just for the occasional reader doing some research a
 short recap.
@@ -50,13 +50,13 @@ important: You will finally believe in magic. There are many things just
 happening or possible you cannot even imagine. The most abstract constructions
 just work somehow.
 
-###Third Party Libraries
+### Third Party Libraries
 Some of you know what I am thinking of 3rd party libraries. You will use them
 and you will have problems. But my experience is that Python libraries tend
 to be more powerful or mature. It might be possible that there are some
 exceptions. I do not claim to know them all.
 
-###Little Helpers
+### Little Helpers
 There are some tools that will make your life easier. They will help you
 maintain and deploy your code. If you take some time to learn them they will
 return it in saving you many hours. Precious hours you can use to chill with your
@@ -71,7 +71,7 @@ Let us call this a draw. If you prefer one language over another you know what
 framework you will be using. If you do not care and see advantages in both of
 them it gets really interesting.
 
-##Django - Tuxedo And A Top Hat
+## Django - Tuxedo And A Top Hat
 I think the best description is on the front page. 
 
   The Webframework for perfectionists with deadlines
@@ -81,7 +81,7 @@ in the capabilities of Django you are blazing fast. And you cannot produce
 something that is unmaintainable. You have all the cool stuff like helpers, a
 working ORM, a great admin interface and more.
 
-###Object-relational Mapper
+### Object-relational Mapper
 If you hate SQL, and let us be honest, every sane person does, you love an ORM.
 Thanks to Djangos default implementation you write your database as Python class
 and query it using Python. You do not have to write one line SQL by yourself.
@@ -99,13 +99,13 @@ The sad part is that you still need a third party library for migrations. I
 suggest you take a look at [South][4]. It works out of the box and I never had a
 major problem with it.
 
-###Admin Interface
+### Admin Interface
 If you are taking care of the website or your client does not matter. You need a
 way to manage all the content. If you do not have to write it you save time. It
 is powerful, customizable and I think in most cases there is no need for something
 else. If it saves you time and work and if it is working it is good.
 
-###Community And Known Projects
+### Community And Known Projects
 There is a reason why I said grey suit and top hat. One of the front page examples
 is the [Washington Post][5]. I think I have read about some gaming sites and 
 [Curse][6] being the largest that also use it.
@@ -115,7 +115,7 @@ time just not spectacular. It is used by regular people to power some sites. The
 is nothing fancy about it. It is just a tool in a tool chain to build stuff. Most
 of the time you only read a short and boring note about it.
 
-##Ruby On Rails - Get Your Hawaii Shirt And A Joint
+## Ruby On Rails - Get Your Hawaii Shirt And A Joint
 The main reason so many people love RoR is "convention over configuration". Stuff
 just works. You write one line of code and you do so much things you do not even
 know about. And that is the point where RoR can get a pain in the ass. If something
@@ -124,13 +124,13 @@ it fails miserably. Sometimes you have to look behind the magic and at this poin
 you realize that the cute girl that was just cut in half has something between her
 legs you did not want to know.
 
-###Migrations Are Great
+### Migrations Are Great
 I think RoR was the first project that did migrations right. And they are way ahead
 of their competitors. At least the last time I checked. Maybe they caught up, maybe
 they are better in some scenarios but most of the time migrations done by RoR are
 just awesome.
 
-###IDEs - If You Like Them You Win
+### IDEs - If You Like Them You Win
 If you like IDEs go with RoR. There are so many of them and most just rock. 
 They help you developing and deploying your applications, at least to a certain 
 point. They match perfectly and "just work". And I currently did not see an 
@@ -140,13 +140,13 @@ I do not really like IDEs but after I worked with RubyMine for some days I have
 to admit that I would buy it if I would be using RoR on a regular basis. Or to
 be more precise: I would at least consider it.
 
-###Deployment
+### Deployment
 Please, do not get me started. There are so many ways to deploy RoR you cannot
 really count them. If you are looking for easy deployment go with RoR. There are
 a lot of tools, tutorials, they just cover nearly every insane deployment
 scenario you can imagine. 
 
-###Community And Known Projects
+### Community And Known Projects
 Looking at those fancy startups they all seem to prefer RoR. They tell you
 how great it is, why their product is only possible because RoR and other
 cool tools and that they all love everything about their setup. They are young,
@@ -163,7 +163,7 @@ you get some money and start paying your debt. In the most critical timeframe,
 when you have no money, no product and when you need both of them, RoR helps
 you to get stuff done.
 
-##Make Up Your Mind
+## Make Up Your Mind
 The basic decision you have to make, from a technical point, is what your
 priorities are. Do you want a fast release? Do you prefer an easy to understand
 system? Do you want to play with all the cool kids or with the boring dudes in
@@ -179,7 +179,7 @@ product is ready not while I am working on it. I can afford using Django.
 This is the most important thing in the process of evaluating the right framework. 
 But there are other things.
 
-###Sometimes You Need Additional People For Your Project
+### Sometimes You Need Additional People For Your Project
 If I have a project that has to be done in a short timeframe, if I have more than
 one project in a certain period of time or if I just have other reasons why I
 cannot work on it myself I need to hire someone. 
@@ -193,7 +193,7 @@ If I work with other people I end up having to maintain the code of all of them.
 So preferably I can easily read and understand the code and if I have an additional
 wish I do not have to solve a rubik cube to understand the magic.
 
-###Deployment
+### Deployment
 I do not deploy really often. When the system is working there is nearly no reason 
 to touch it beside the usual updates or additions. If I would have to, or would have an
 advantage if I did, deploy several times a week or even a day I would consider this
@@ -202,7 +202,7 @@ point. But it is not necessary, so one of RoR biggest advantages are just gone.
 I do not think there are really big differences beside the tools. When you have
 everything on your server the setups are done in a few minutes.
 
-###Decision
+### Decision
 I went for Django. I prefer solid products that are easy to maintain. I do not say
 that you cannot get this with Ruby on Rails but it will be a lot harder. If I would
 be in another situation it could be that I would have gone for RoR.
