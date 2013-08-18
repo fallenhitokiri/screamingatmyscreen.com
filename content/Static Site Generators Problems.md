@@ -107,4 +107,4 @@ If you like this article and the idea [share it on Twitter][12] or whatever soci
 [9]: https://github.com/fallenhitokiri/drupan/issues/14
 [10]: mailto:timo@screamingatmyscreen.com
 [11]: http://news.ycombinator.com
-[12]: http://www.twitter.com
+[12]: http://twitter.com/intent/tweet?url=http://screamingatmyscreen.com/2013/8/the-joy-and-pain-of-using-a-static-site-generator-for-private-and-client-work/&text=The joy and pain of using a static site generator&via=fallenhitokiri
