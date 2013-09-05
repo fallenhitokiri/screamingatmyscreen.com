@@ -46,7 +46,7 @@ You can [share this post on Twitter][3] or [discuss it on HackerNews][4].
 
 [1]: http://www.garron.me/en/blog/provide-share-buttons-without-exposing-your-visitors.html
 [2]: http://wp.smashingmagazine.com/2012/02/22/25-social-media-plugins-wordpress/
-[3]: http://twitter.com/intent/tweet?url=http://screamingatmyscreen.com/2013/8/the-joy-and-pain-of-using-a-static-site-generator-for-private-and-client-work/&text=The joy and pain of using a static site generator&via=fallenhitokiri
-[4]: https://news.ycombinator.com/item?id=6233059
+[3]: http://twitter.com/intent/tweet?url=http://screamingatmyscreen.com/2013/9/share-buttons-and-your-readers/&text=The Share buttons and your readers&via=fallenhitokiri
+[4]: https://news.ycombinator.com/item?id=6334895
 [desktop]: social1.png
 [iphone]: social2.png
