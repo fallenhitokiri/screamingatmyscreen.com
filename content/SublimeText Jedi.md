@@ -31,7 +31,7 @@ Open Sublime Text and the project you are working on and save it as a project us
 			          "follow_symlinks": true,
 			          "path": "my-project"
 		        }
-	      ],
+	     ],
         "settings": {
             "python_interpreter_path": "/Users/tizi/my-project/venv/bin/python"
         }
