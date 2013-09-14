@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+    Sublime Text as Python IDE - jedi
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding, django, flask, ruby, objective-c, ios, c, blaze it, drupan" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
+
+        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.screamingatmyscreen.com/feed/" />
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/js/jquery.iecors.js"></script>
+        <script type="text/javascript">var token = "screamingatmyscreen.com";</script>
+        <script src="/js/capam.js"></script>
+    </head>
+    
+    <body>
+
+        <div id="sidebar">
+
+
+            <p id="name"><a href="/">screaming at my screen</a></p>
+
+            <div id="me">
+
+                <div id="picture"></div>
+
+                <div id="about"><p id="who"><strong>Timo Zimmermann</strong></p>
+                    <p>I am a web and iOS developer running my own business, doing some freelance work, practicing
+                        martial arts and enjoying video games. I believe I have seen the whole internet once, maybe twice.</p>
+                </div>
+                <!--about-->
+
+            </div>
+            <!--me-->
+
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/about/">About</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        </div>
+        <!--sidebar-->
+
+        <div id="main">
+
+            <div id="wrapper">
+
+                
+    <p class="meta">posted on 2013 - 9 - 14 in <a href="/tag/python/">Python</a>, <a href="/tag/development/">development</a>, <a href="/tag/editor/">editor</a></p>
+    <h1>Sublime Text as Python IDE - jedi</h1>
+    <p>I used Sublime Text exclusively for the last two weeks. The major drawback, beside the not really native user interface, was the way jedi works. After tweeting that the integration in vim using YouCompleteMe is way better I received the question how to properly configure Sublime Text to use jedi multiple times, so let me give you a short walkthrough.
+<!--MORE--></p>
+
+<p>As a side note: Surprisingly I was only asked once via Twitter but three times via email. I respond on Twitter and email. Mailing me, hoping to increase your chance to receive an answer doesn't work. I react on both channels when I have time.</p>
+
+<p>If you are not sure why you want <a href="https://github.com/davidhalter/jedi">jedi</a> - believe me, you do - let me show you two screenshots with and without jedi. Without jedi editing a file looks like this</p>
+
+<p><img src="nojedi1.gif" alt="nojedi1" />
+<img src="nojedi2.gif" alt="nojedi2" /></p>
+
+<p>Now if we configure jedi properly and it looks like this</p>
+
+<p><img src="jedi1.gif" alt="jedi1" />
+<img src="jedi2.gif" alt="jedi2" /></p>
+
+<p>I don't know how you work and what your preferences are, but I prefer a working autocompletion and not one who only completes words in the same file or open files - I'm looking at you TextMate. Makes it a lot easier working on larger codebases if you do not have to remember every single class attribute, method and argument.</p>
+
+<p>First have to install <a href="https://github.com/srusskih/SublimeJEDI">SublimeJedi</a>. It looks like the people who asked why it isn't working for them are either using virtualenv or never used the projects functionality and don't know how to configure a project in Sublime Text. This are basically the only two options I can think of.</p>
+
+<p>Open Sublime Text and the project you are working on and save it as a project using <code>Project -&gt; Save Project as…</code>. The only thing left to do is editing your project file using <code>Project -&gt; Edit Project</code>. The most basic configuration looks like this</p>
+
+<pre><code>{
+    "folders":
+    [
+            {
+                  "follow_symlinks": true,
+                  "path": "my-project"
+            }
+      ],
+    "settings": {
+        "python_interpreter_path": "/Users/tizi/my-project/venv/bin/python"
+    }
+}
+</code></pre>
+
+<p>Now jedi will use the Python interpreter from the virtual environment I created in <code>my-project/venv</code>. It will also index and complete all packages you install in your virtual environment. For more configuration options I suggest reading the documentation of SublimeJedi. Now that you have understood the configuration is should be fairly easy to add the additional options if needed.</p>
+
+
+    <div class="subbox">
+        <p>I would love to talk to you about this post, your ideas or awesome projects.</p> 
+        <p>I am <a href="http://www.twitter.com/fallenhitokiri/">@fallenhitokiri</a> on Twitter and 
+            <a href="https://github.com/fallenhitokiri/">GitHub</a> or 
+            you can send me a <a href="mailto:timo (at) screamingatmyscreen (dot) com">mail</a>.</p>
+    </div>
+
+
+            </div>
+            <!--wrapper-->
+
+        </div>
+        <!--main-->
+
+    </body>
+</html>

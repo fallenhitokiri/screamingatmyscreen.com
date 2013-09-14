@@ -8,8 +8,53 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2013-09-05 17:53:23.933636 GMT</pubDate>
+        <pubDate>2013-09-14 18:34:03.838737 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>Sublime Text as Python IDE - jedi</title>
+                <link>http://screamingatmyscreen.com/2013/9/sublime-text-as-python-ide-jedi/</link>
+                <description><p>I used Sublime Text exclusively for the last two weeks. The major drawback, beside the not really native user interface, was the way jedi works. After tweeting that the integration in vim using YouCompleteMe is way better I received the question how to properly configure Sublime Text to use jedi multiple times, so let me give you a short walkthrough.
+<!--MORE--></p>
+
+<p>As a side note: Surprisingly I was only asked once via Twitter but three times via email. I respond on Twitter and email. Mailing me, hoping to increase your chance to receive an answer doesn't work. I react on both channels when I have time.</p>
+
+<p>If you are not sure why you want <a href="https://github.com/davidhalter/jedi">jedi</a> - believe me, you do - let me show you two screenshots with and without jedi. Without jedi editing a file looks like this</p>
+
+<p><img src="nojedi1.gif" alt="nojedi1" />
+<img src="nojedi2.gif" alt="nojedi2" /></p>
+
+<p>Now if we configure jedi properly and it looks like this</p>
+
+<p><img src="jedi1.gif" alt="jedi1" />
+<img src="jedi2.gif" alt="jedi2" /></p>
+
+<p>I don't know how you work and what your preferences are, but I prefer a working autocompletion and not one who only completes words in the same file or open files - I'm looking at you TextMate. Makes it a lot easier working on larger codebases if you do not have to remember every single class attribute, method and argument.</p>
+
+<p>First have to install <a href="https://github.com/srusskih/SublimeJEDI">SublimeJedi</a>. It looks like the people who asked why it isn't working for them are either using virtualenv or never used the projects functionality and don't know how to configure a project in Sublime Text. This are basically the only two options I can think of.</p>
+
+<p>Open Sublime Text and the project you are working on and save it as a project using <code>Project -&gt; Save Project as…</code>. The only thing left to do is editing your project file using <code>Project -&gt; Edit Project</code>. The most basic configuration looks like this</p>
+
+<pre><code>{
+    "folders":
+    [
+            {
+                  "follow_symlinks": true,
+                  "path": "my-project"
+            }
+      ],
+    "settings": {
+        "python_interpreter_path": "/Users/tizi/my-project/venv/bin/python"
+    }
+}
+</code></pre>
+
+<p>Now jedi will use the Python interpreter from the virtual environment I created in <code>my-project/venv</code>. It will also index and complete all packages you install in your virtual environment. For more configuration options I suggest reading the documentation of SublimeJedi. Now that you have understood the configuration is should be fairly easy to add the additional options if needed.</p>
+</description>
+                <pubDate>2013-09-14 18:34:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -660,47 +705,6 @@ func PrintStuff(body map[string][]string) {
             </item>
             
         
-            
-            <item>
-                <title>Keep Calm And Tumble On</title>
-                <link>http://screamingatmyscreen.com/2013/5/keep-calm-and-tumble-on/</link>
-                <description><p>It is all over the news. Yahoo bought Tumblr for $1.1 billion. As usual, after a service is acquired, people fear that Tumblr is dying, starts attaching ads to every <code>&lt;div&gt;</code>, changes colors to match Yahoos purple and, of course, someone starts making profit of cat pictures, rants about food and deep, emotional, whiny black and white memes 13 years old use to tell the world their parents do not love them because they bought them the white and not black iPhone.
-<!--MORE--></p>
-
-<p>You should really read Marissa Mayers <a href="http://marissamayr.tumblr.com/post/50902274591/im-delighted-to-announce-that-weve-reached-an">post on Tumblr</a>. There are some statements which should be considered.</p>
-
-<p>First I am aware of the fact that Yahoo proved to be run by people who do not really understand what this fancy thing called Internet is and how it works. Just replacing a CEO will not change the company culture but it is a good start and as far as I know we have no evidence to support the claim that Marissa Mayers does not know what she is doing.</p>
-
-<p>Second it looks like Marissa Mayers and David Karp plan on working together without changing the roadmap Tumblr already had.</p>
-
-<p>They will work together to make sure Tumblr generates money. Lots of money, of course. But does not have to be bad. I already <a href="http://www.screamingatmyscreen.com/2013/1/i-am-the-product-and-that-is-okay/">wrote about the fact</a> that you either pay for a product or that you are the product. I doubt Tumblr would survive if they asked people for money. So they have to use advertisement and they already failed trying it.</p>
-
-<p>Yahoo on the other hand knows how advertisement works and if they work closely with people who know how the Internet, services and how Tumblr works this could be a win-win situation.</p>
-
-<p>The alternative would be Tumblr burning the last money they have, starting to lose money and going out of business or just selling what is left to someone who does not care what happens to the users.</p>
-
-<p>If all this fails there is one thing we should remember: Flickr. After it was bought nothing changed. If this is good or not is stuff for another post, but things did not get worse, it is still usable and as far as I know people did not lose anything.</p>
-
-<h2>But I want to migrate away!</h2>
-
-<p>If you really think you have to move your content to another platform, here are some easy steps.</p>
-
-<p>First download your content with <a href="http://mwunsch.tumblr.com/post/50840768162/backup-your-tumblr-with-tumblr-rb-v2-1-0">tumblr-rb</a>. It is always a good idea to have a backup of what you created.</p>
-
-<p>After you have a backup you should register a domain. No matter if it is "catslookinglikehistoricdictators" or "ihavenoideawhatiamdoing". Make sure you have a domain. After your tumblr account is gone how will people find your new site? If you do not own the domain, you lose nearly everything if you move to a different service. I am currently not aware of one which does not let you use your own domain.</p>
-
-<p>Now you have to decide how to put your content online. The easiest way is using a hosted service like Wordpress or <a href="https://posthaven.com">PostHaven</a>. I think most people know that I am not a big fan of Wordpress. But you should still take a look at it. I heard rumors that there are people who kind of get along with it or something like that. There are many more options but you either know them already or you should really use something hosted which does not require any prior knowledge of websites, hosting and content management systems. You still depend on a 3rd party but since you own the domain you can easily move between services.</p>
-
-<p>There are two things you should know. You will not find a community like Tumblr again or a way to engage as easily as you are used to with other people. You will likely find full featured content management systems confusing, be prepared to spend some time learning your new playground.</p>
-
-<p>Now that you are online again you should start thinking about gaining some knowledge how to host a website yourself so you will never be in the situation that a service is shutting down and you have to do an "emergency-content-migration". If you do not know where to start feel free to drop me a line.</p>
-
-<h2>What should we do now?!</h2>
-
-<p>Time will show what happens to tumblr. But what should we do till we know if migrating to another service is necessary? Keep calm and tumble on.</p>
-</description>
-                <pubDate>2013-05-20 17:15:00</pubDate>
-            </item>
             
         
             
