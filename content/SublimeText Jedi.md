@@ -3,10 +3,8 @@ date: 2013-09-14 18:34:00
 layout: post
 tags: ["Python", "development", "editor"]
 ---
-I used Sublime Text exclusively for the last two weeks. The major drawback, beside the not really native user interface, was the way jedi works. After tweeting that the integration in vim using YouCompleteMe is way better I received the question how to properly configure Sublime Text to use jedi multiple times, so let me give you a short walkthrough.
+I used Sublime Text exclusively for the last two weeks. The major drawback, beside the not really native user interface, was the way jedi works. After tweeting that the integration in vim using YouCompleteMe is way better I received the question how to properly configure Sublime Text to use jedi - let me give you a short walkthrough.
 <!--MORE-->
-
-As a side note: Surprisingly I was only asked once via Twitter but three times via email. I respond on Twitter and email. Mailing me, hoping to increase your chance to receive an answer doesn't work. I react on both channels when I have time.
 
 If you are not sure why you want [jedi][jedi] - believe me, you do - let me show you two screenshots with and without jedi. Without jedi editing a file looks like this
 
