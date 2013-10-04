@@ -1,7 +1,7 @@
 title: Learning Scala Week 2
 date: 2013-10-04 19:08:00
 layout: post
-tags: ["scala", "development"]
+tags: ["Scala", "development"]
 ---
 I am a bit late with my week two summary but let's do it anyway. Week three will be ready on Sunday. I stopped attending the Coursera class. I fought against the tools and I even managed to actually learn some Scala.
 <!--MORE-->
