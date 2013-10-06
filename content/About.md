@@ -7,7 +7,7 @@ Hi, I am Timo Zimmermann and this is my private domain.
 
 *this is currently in work*
 
-##Web 2.0
+## Web 2.0
 As you might have guessed I have several accounts across various social network sites.
 
  * [Twitter][2]
@@ -19,7 +19,7 @@ There is no point in searching me on Facebook. I only add people I meet on a reg
 basis and I would shake hands with when I meet them. If you do not have me on your
 Facebook friend list it is likely that you do not belong in this category.
 
-###Contact
+### Contact
 If you cannot guess how to contact me now or if you are a known Web 2.0 hater you
 can send a mail to timo (aet) screamingatmyscreen (doet) com or a letter
 
