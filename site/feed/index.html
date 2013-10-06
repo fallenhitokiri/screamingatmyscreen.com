@@ -8,8 +8,27 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2013-10-04 19:16:27.169496 GMT</pubDate>
+        <pubDate>2013-10-06 19:24:11.806794 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>Learning Scala - Week 3</title>
+                <link>http://screamingatmyscreen.com/2013/10/learning-scala-week/</link>
+                <description><p>Another week with Scala. After ditching the Coursera course I just started working a bit with the language and building some smaller applications. I looked at Scalatra and Play, deployed a test application and finally uninstalled Eclipse. Let us talk about web applications.
+<!--MORE--></p>
+
+<p>Naturally I am most interested in anything web related. It is my job, I enjoy doing it and it is the area where I am most likely to use a new programming language, framework or technology. So how does Scala compare to what I am currently using - Django, Node.js and Golang?</p>
+
+<p>Deploying Scala is pretty easy. Just throw it at a servlet container or embed Jetty and start your war file using <code>java</code>. Pretty simple. Compiled, one file, all the joy of Golang - a pleasure compared to Django - with more and better third party libraries than Go but not with the same development speed. This is highly unscientific and only based on my experience but compared to Golang the learning curve feels a lot steeper and I have to open the API reference or Google more often.</p>
+
+<p>I did not run any benchmarks and if I did, we all know they would likely be wrong. If we stick with <a href="http://www.techempower.com/benchmarks/#section=data-r6&amp;hw=i7&amp;test=db&amp;f=2niog-8vn0g0-0">TechEmpower</a> for framework and performance comparisons we can say that Scala and Go are, especially using a framework, both a solid choice if you need to write performant services. But judging from the adoption of Scala it will likely be a lot easier to find developers who already have experience deploying Scala applications to production and knowing how the language and tools behave if you throw more than 5 requests / second at it.</p>
+
+<p>As some of you could know, I am a fan of Golang. But if you are operating on a tight deadline, have a team who has to work on the codebase and if the Go standard library is not enough to get the job done I would currently suggest you take a look at Scala. Compared to Go it is ready for its prime time. Libraries are just more stable, tested and well maintained, often thanks to the fact that you can "just" use a Java library. I know, bad practice and stuff, but sometimes shipping is more important than writing yet another ORM.</p>
+</description>
+                <pubDate>2013-10-06 19:25:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -537,142 +556,6 @@ You run Ruby 1.93-p123. Your hosting provider only supports Ruby 1.02-p134 which
             </item>
             
         
-            
-            <item>
-                <title>http.Request and goroutines</title>
-                <link>http://screamingatmyscreen.com/2013/6/http-request-and-goroutines/</link>
-                <description><p>I was starting to write a web service using Go this weekend. I already deployed two services replacing a Flask and a Sinatra application but this time was different. It was the first time I found a part in the Go language which did not make sense immediately. Did you ever try to pass a http.Request to a goroutine? Do you want to know what happens if you do?
-<!--MORE--></p>
-
-<p>For me, the hardest part using a new language or framework is always the little differences between them and being a bit opinionated after all the years of writing code in different languages. This weekend I encountered the first thing in Go which did not seem right. After some discussions in #go-nuts I understood the issue but I am still not entirely sold on the way it works.</p>
-
-<p>Just as a short side note before we start looking at the code I want to mention that the people in #go-nuts are great. It is one of the really helpful channels on FreeNode and one of the most newbie friendliest ones I am aware of.</p>
-
-<h2>Return as fast as possible</h2>
-
-<p>I want to replace an existing service which does just one simple thing. Accept a CORS request, process some data and save it to the database. The client does not need to know if it succeeded or anything else. It is basically fire and forget.</p>
-
-<p>For simplicity we just use curl to post some data</p>
-
-<pre><code>curl -i http://localhost:8080/api/add --data "foo=bar"
-</code></pre>
-
-<p>Since the client does not need to know what happens to our data we should finish the request as fast as possible. Goroutines are great and this is one of the cases where they are the right tool to use.</p>
-
-<p>If the processing is done outside the request handler it should be able to return nearly immediately since spinning up a goroutine is insanely fast. The final service could use channels and be a bit more sophisticated but I wanted to extend it slowly.</p>
-
-<pre><code>package main
-
-import (
-    "github.com/gorilla/mux"
-      "log"
-    "net/http"
-    "time"
-)
-
-func main() {
-    log.Println("Starting server...")
-
-    router := mux.NewRouter()
-    router.HandleFunc("/api/add", AddHandler).Methods("POST")
-
-    http.Handle("/api/", router)
-
-    log.Println("Now listening on port 8080")
-    http.ListenAndServe(":8080", nil)
-}
-
-func AddHandler(respWriter http.ResponseWriter, request *http.Request) {
-    respWriter.Header().Set("Content-Type", "application/json")
-    go PrintStuff(request)
-    respWriter.Write([]byte("Thanks\n"))
-}
-
-func PrintStuff(request *http.Request) {
-    request.ParseForm()
-    time.Sleep(time.Second * 3)
-    log.Println(request.PostForm)
-}
-</code></pre>
-
-<p>Pretty obvious code, isn't it? We spin up a go routine and return a "Thanks". Let us look at the output</p>
-
-<pre><code>envy% go run src/apiserver/server1.go
-2013/06/19 17:58:18 Starting server...
-2013/06/19 17:58:18 Now listening on port 8080
-2013/06/19 17:58:23 map[]
-</code></pre>
-
-<p>Why is our map empty? We posted <code>foo=bar</code>! The problem is that the request body is closed, the handler finished executing before our goroutine started processing everything. (At least this is the final explanation I got. If this is still not entirely correct please send me a mail or tweet so I can update the post)</p>
-
-<p>Calling <code>ParseForm()</code> before spinning up the goroutine on the other hand works fine. First we change our code</p>
-
-<pre><code>func AddHandler(respWriter http.ResponseWriter, request *http.Request) {
-    respWriter.Header().Set("Content-Type", "application/json")
-    request.ParseForm()
-    go PrintStuff(request)
-    respWriter.Write([]byte("Thanks\n"))
-}
-
-func PrintStuff(request *http.Request) {
-    time.Sleep(time.Second * 3)
-    log.Println(request.PostForm)
-}
-</code></pre>
-
-<p>And after running curl we should see</p>
-
-<pre><code>envy% go run src/apiserver/server1.go
-2013/06/19 18:04:21 Starting server...
-2013/06/19 18:04:21 Now listening on port 8080
-2013/06/19 18:04:26 map[foo:[bar]]
-</code></pre>
-
-<p>Now this solves our problem, right? Kind of but not in an elegant way.</p>
-
-<h3>Half usable request</h3>
-
-<p>This is the part I do not like. I cannot call <code>ParseForm()</code> but I can access <code>PostForm</code>. I would prefer an all or nothing approach. </p>
-
-<p>I am also not sure if everyone would come to the conclusion why this happens after "just" reading the documentation. The last part of the <code>Handler</code> interface gives a hint but neither <code>http.Request</code> nor <code>ParseForm()</code> mention anything related. It is possible that I missed something or just read it wrong but judging from the reactions I got after asking about this my idea was not so obscure.</p>
-
-<p>As I said it may be a problem with being opinionated and having seen other frameworks and languages with a different behavior. I still believe that if I can do "a" I should be able to do "b" on a struct.</p>
-
-<h3>A better solution</h3>
-
-<p>I do not talk about best practices, I am not experienced enough with Go to do that, but I think you should just ignore the request outside the handler. If only some things are possible you should consider it gone. So we have to pass our data to the goroutine in a different way.</p>
-
-<p>Using a simple map our code would look like this</p>
-
-<pre><code>func AddHandler(respWriter http.ResponseWriter, request *http.Request) {
-    respWriter.Header().Set("Content-Type", "application/json")
-    request.ParseForm()
-
-    body := make(map[string][]string)
-    body["foo"] = request.PostForm["foo"]
-    go PrintStuff(body)
-
-    respWriter.Write([]byte("Thanks\n"))
-}
-
-func PrintStuff(body map[string][]string) {
-    time.Sleep(time.Second * 3)
-    log.Println(body)
-}
-</code></pre>
-
-<p>And let us look at the output</p>
-
-<pre><code>envy% go run src/apiserver/server1.go
-2013/06/19 18:26:51 Starting server...
-2013/06/19 18:26:51 Now listening on port 8080
-2013/06/19 18:26:58 map[foo:[bar]]
-</code></pre>
-
-<p>As expected. Moral of the story? Do not pass a request to a goroutine.</p>
-</description>
-                <pubDate>2013-06-19 21:02:00</pubDate>
-            </item>
             
         
             
