@@ -1,4 +1,4 @@
-title: Learning Scala - Week 2
+title: "Learning Scala - Week 2: Coursera And Scala Related Tools"
 date: 2013-10-04 19:08:00
 layout: post
 tags: ["Scala", "development"]

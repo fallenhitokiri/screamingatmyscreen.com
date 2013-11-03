@@ -1,4 +1,4 @@
-title: Learning Scala - Week 3
+title: "Learning Scala - Week 3: Webdevelopment"
 date: 2013-10-06 19:25:00
 layout: post
 tags: ["Scala", "development"]
