@@ -9,7 +9,7 @@ I hope you all had an awesome start in this new year and that you have the chanc
 But not having any life changing plans for 2014 does not mean that I have not planned some projects for this year. I want to give you a quick idea what you can expect to see the next 12 months.
 
 - a new version of drupan will be released making the generation of blog unrelated sites a lot easier
-- an entirely new blogging platform - if you read my past CMS rants you could figure out what it will look like, but I will also blog about it the next few days
+- an entirely new blogging platform - if you read my [past CMS rant](http://www.screamingatmyscreen.com/2013/8/the-joy-and-pain-of-using-a-static-site-generator-for-private-and-client-work/) you could figure out what it will look like, but I will also blog about it the next few days
 - I will publish my first book
 - currently it looks like a side project could turn into a service I open for everyone, maybe release it on GitHub, not aiming for profit
 
