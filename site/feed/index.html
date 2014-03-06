@@ -8,8 +8,53 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2014-02-26 19:58:14.411761 GMT</pubDate>
+        <pubDate>2014-03-06 19:55:59.432274 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>iMessage is more than secure enough</title>
+                <link>http://screamingatmyscreen.com/2014/3/imessage-is-more-than-secure-enough/</link>
+                <description><p>Apple published a <a href="http://images.apple.com/iphone/business/docs/iOS_Security_Feb14.pdf">iOS security whitepaper</a>. One thing that was discussed a lot is iMessage. Since mainstream media thought it would be a good idea to report about it some people became insecure if it is a good idea to use iMessage or if it should be considered insecure. Let us try to figure out if you should be worried while using iMessage or not.
+<!--MORE--></p>
+
+<p>I will start with the conclusion and try to explain the thought process how I came to it: iMessage is not secure. But it is likely one of the most secure systems people are willing to use and it is, most of the time, good enough.</p>
+
+<h2>Possible attacks</h2>
+
+<p>Your device requests the public keys for the recipient and all of your devices from Apples servers. It uses the public keys to encrypt the messages you send. You can not verify which keys are used, you cannot pin them and you cannot check how many are returned for a request. So it would be possible that they just send you one additional key for a private key they use to encrypt the messages.</p>
+
+<p>Another point to criticize is that Apple is securing the connection using TLS, but they are not using certificate pinning. So a possible attack is as "easy" as getting a certificate from a trusted CA. If you believe this is an unlikely scenario - ask the <a href="http://arstechnica.com/security/2013/12/french-agency-caught-minting-ssl-certificates-impersonating-google/">French cyberdefense agency  and Google</a>.</p>
+
+<p>One thing to remember is that if you use iCloud to backup your devices, Apple can likely read your messages.</p>
+
+<p>And last but not least: iOS, OSX and iMessage are not Open Source. So it is not possible that a 3rd party verifies the security of the implementation. While you never know what a review would uncover, if anything, reviews never hurt and likely increase the quality of the implementation.</p>
+
+<h3>Resources</h3>
+
+<p>There are some resources to read if you are interested in the topic and want to read about the possible attacks in detail.</p>
+
+<ul>
+<li><a href="http://images.apple.com/iphone/business/docs/iOS_Security_Feb14.pdf">Apples iOS security whitepaper</a></li>
+<li><a href="http://blog.cryptographyengineering.com/2013/06/can-apple-read-your-imessages.html">Matthwe Greens - Can Apple read your iMessage</a></li>
+<li><a href="https://news.ycombinator.com/item?id=7315964">Hacker News thread</a> about the whitepaper</li>
+</ul>
+
+<p>This will cover all points and provide links to additional material.</p>
+
+<h2>How concerned should you be?</h2>
+
+<p>That is the big question. All attacks outlined require skill, time, money and a lot of effort. iMessage will not prevent a government agency eavesdropping. But it also does not have to. If one of the agencies wants to know your secrets they will find a way - depending on how badly they want to know there is always <a href="http://xkcd.com/538/">the wrench</a>. So if you are trying to oppose a dictatorship or want to plan highly illegal things, I would not rely on iMessage.</p>
+
+<p>Do you want to tell a non-technical, even if tech-savvy but not into encryption, coworker a password but you have to do it over the Internet? Want to tell your parents how your illness is developing? Chatting about how super awesome your little kitten is? iMessage is fine. The effort required to eavesdrop is just too much to just do it for random surveillance, even for big government agencies. And do not worry about other companies trying to gain insight on business critical things - bribing an unsatisfied, underpaid secretary is easier and cheaper.</p>
+
+<p>Apple set the bar pretty high. I would not send nuclear launch codes over it, especially the really <a href="http://arstechnica.com/tech-policy/2013/12/launch-code-for-us-nukes-was-00000000-for-20-years/">secure ones</a>. But basically everything else. I care about people and computers intercepting my communication, creating profiles and selling it to marketing agencies. I care about potential profiles created by organizations for whatever purpose. I care about companies trying to get business critical information. And this are things highly unlikely to happen using iMessage.</p>
+
+<p>iMessage is the easiest, while still secure, way to communicate right now. It does not require people to learn about encryption. It is <a href="http://screamingatmyscreen.com/2013/11/gnupg-is-still-too-hard-to-use/">not hard</a> to use. It protects the messages good enough from all risks ordinary, private people and most companies should worry about. And again: it does not require people to learn <em>anything</em>. This is by far the most important point. No lazy passwords. No explanation about private and public keys. It just works(tm).</p>
+</description>
+                <pubDate>2014-03-06 19:56:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -277,57 +322,6 @@
             </item>
             
         
-            
-            <item>
-                <title>Share buttons and your readers</title>
-                <link>http://screamingatmyscreen.com/2013/9/share-buttons-and-your-readers/</link>
-                <description><p>We all know them. We all hate them for various reasons. But they will not go away and there are good reasons why they stick around. I am talking about those little buttons you see on many blog posts or news sites these days. Buttons to quickly share an article via many different social media sites. The problem is not that they exist or that people use them. The problem is that people most of the time do not understand the consequences and implementations. Let us talk about some things we should consider best practice.
-<!--MORE--></p>
-
-<p>Before we start with the implementation we should talk about the reasons for those buttons. Do they really increase shares, likes, pins and whatever else it is called? If you ask someone wit the letters S, E and O on his business card the answer will be "yes". I tried having a Twitter button below my posts and they were shared a lot more than without one. Does this prove anything? No. This is one blog with tech-savvy readers. The only thing you could state is that my readers seem to be lazy when it comes to sharing content. If it is just one click away they were more likely to do it than now.</p>
-
-<p>If you include one is entirely up to you. But please do it "right" (™). Yes, there is a right way to implement it. There is also a "a little bit less right" way, but this one is a lot easier.</p>
-
-<p>A last note: I assume you care about your users and readers. If this is not the case just stop reading, you will waste your time.</p>
-
-<h2>Why you should care</h2>
-
-<p>I had a link in my Twitter timeline and wanted to read it. What did I see? Text. Good so far, as I was prepared to read something. What I was not prepared for was the fact that after some time a JavaScript will be done downloading and rendering and displays a button right in the middle of the viewport (which is not endless on a smartphone).</p>
-
-<p><img src="social1.png" alt="desktop" /></p>
-
-<p>Now you can start arguing that mobile users are a minority. This could be true for your blog, today, but I would not take bets that it stays this way. But the sad truth is that most of those sharing plugins are just entirely broken. Even bigger screens (not just slightly bigger as in tablet but bigger as in laptop or desktop screen) show the same thing: The button is rendered in the middle of the content.</p>
-
-<p><img src="social2.png" alt="iphone" /></p>
-
-<p>While this can be a minor annoyance on bigger screens it just plainly sucks on smaller ones. No matter how big the screen actually is I always find it irritating if there is something rendered in the middle of the content I want to read.</p>
-
-<h2>The right way</h2>
-
-<p>Guillermo Garron wrote an easy to follow <a href="http://www.garron.me/en/blog/provide-share-buttons-without-exposing-your-visitors.html">article</a> about the right way. The idea is pretty simple: Instead of including a JavaScript from a 3rd party you just add a link which opens the sharing form in the browser. You will not have the numbers how often an item was shared but since they are (most of the time) inaccurate anyway, it would not be a big deal for me.</p>
-
-<p>'Why is this the right way?' you may ask. Excellent question. This way you do not include 3rd party JavaScripts in your site. You are not automatically giving the data of users visiting your site away to Twitter, Facebook and whoever else you include. It is not much, but it is a start to prevent the senseless data collecting going on.</p>
-
-<p>Another advantage is that your site could load a bit faster. No additional JavaScript to be downloaded and rendered. No dependency on 3rd party servers which could be broken and not respond, blocking a connection. I know this is unlikely for those providers but history shows that it can happen.</p>
-
-<h2>The not so right way</h2>
-
-<p>I am aware of the fact that not everyone is willing to edit the template. Especially if one has never written one line of HTML and CSS. One way is to depend on 3rd party libraries. You still hand over your users data to someone but at least you can make sure your users can read your content without any annoying buttons popping up in the middle of the screen.</p>
-
-<p>Smashing Magazine has <a href="http://wp.smashingmagazine.com/2012/02/22/25-social-media-plugins-wordpress/">a list</a> of some popular solutions with Wordpress integration. I am aware that there are other publishing platforms than Wordpress but it powers a fair share of the Internet and is a good example. Some of them also work on other platforms.</p>
-
-<p>Sociable, Shareaholic and Sharebar do a decent job. I would suggest putting the share buttons at the end of your article. It is unlikely that users share your post before they have read it. At least I am not aware of a user who ever thought "wow, this article sucks but look at this sentence! Thank god there is a share button so I can share exactly this sentence right now, even if I will not read the rest of the article!".</p>
-
-<p>So seriously, there are not many reasons for sharing icons who are always on the screen. If you have thousands of comments and people read those before sharing it can be a viable option. But I doubt this is the norm.</p>
-
-<h2>It does not really matter</h2>
-
-<p>Most of the time users will not care about the small details I talked about. But what many notice is if they can read the content you published, which took time and effort, or if parts of it are always overlapped by some social media icons which distract the reading experience. They care, if they can just read text or always have to scroll a bit more up or downwards to find the spot were the paragraph they want to read is not covered.</p>
-
-<p>You can <a href="http://twitter.com/intent/tweet?url=http://screamingatmyscreen.com/2013/9/share-buttons-and-your-readers/&amp;text=Share buttons and your readers&amp;via=fallenhitokiri">share this post on Twitter</a> or <a href="https://news.ycombinator.com/item?id=6334895">discuss it on HackerNews</a>.</p>
-</description>
-                <pubDate>2013-09-05 17:51:00</pubDate>
-            </item>
             
         
             
