@@ -35,4 +35,4 @@ Apple set the bar pretty high. I would not send nuclear launch codes over it, es
 
 iMessage is the easiest, while still secure, way to communicate right now. It does not require people to learn about encryption. It is [not hard](http://screamingatmyscreen.com/2013/11/gnupg-is-still-too-hard-to-use/) to use. It protects the messages good enough from all risks ordinary, private people and most companies should worry about. And again: it does not require people to learn *anything*. This is by far the most important point. No lazy passwords. No explanation about private and public keys. It just works(tm).
 
-You can discuss this on article [HackerNews](https://news.ycombinator.com/item?id=7355798).
+You can discuss this article on [HackerNews](https://news.ycombinator.com/item?id=7355798).
