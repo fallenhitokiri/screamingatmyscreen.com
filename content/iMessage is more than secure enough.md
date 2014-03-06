@@ -1,4 +1,4 @@
-title: iMessage is more than secure enough
+title: iMessage is secure enough
 date: 2014-03-06 19:56:00
 layout: post
 tags: ["apple", "security"]
