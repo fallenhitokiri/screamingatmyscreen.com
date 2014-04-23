@@ -8,8 +8,32 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2014-03-06 20:00:27.117860 GMT</pubDate>
+        <pubDate>2014-04-23 21:20:19.278400 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>A robot for... me?!</title>
+                <link>http://screamingatmyscreen.com/2014/4/a-robot-for-me/</link>
+                <description><p>With colleagues it is sometimes as with babies. Everyone thinks he got the best, cutest and most fun to be around. But honestly: if this would be a game, I would win ;) . On Valentines Day my colleagues surprised me with a self-made telepresence device.
+<!--MORE--></p>
+
+<p>Just read the <a href="http://blog.printf.net/articles/2014/03/18/a-robot-for-timo/">blog post</a> Chris wrote and the <a href="http://hackaday.com/2014/03/27/telepresence-robot-proves-its-a-small-world-after-all/">short article</a> on Hack A Day. It should give you a good idea how it works and what the project looks like. Something I personally like is that <a href="https://github.com/flightcar/broadway-nodejs">two</a> <a href="https://github.com/flightcar/broadway-ios-remote">parts</a> of the project "borrowed" from things we built for a different purpose. </p>
+
+<p>There are some things I will talk about in a later post. I really have some catching up to do with all the posts, @sternenkind moving in just took way longer than expected, which is also the reason why I did not have time to work on two features I want to see:</p>
+
+<ul>
+<li>a desktop client to control the robot</li>
+<li>fixed position movement - move from one pre defined position to another one</li>
+</ul>
+
+<p>There were some hilarious scenes, people stop by for a quick chat and if you can just discuss a problem or an idea without first initiating a video call, which is, surprisingly, still a hassle in 2014. It can be really helpful.</p>
+
+<p>If you want to stay up to date you can follow <a href="https://github.com/flightcar">FlightCar on GitHub</a> or the individual repositories prefixed with <code>broadway-</code>. The current implementation works great and is a lot of fun to use. If you have someone remote and are looking for a a way to still have them in your office I would suggest you give it a try.</p>
+</description>
+                <pubDate>2014-04-23 21:10:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -281,47 +305,6 @@
             </item>
             
         
-            
-            <item>
-                <title>Sublime Text as Python IDE - jedi</title>
-                <link>http://screamingatmyscreen.com/2013/9/sublime-text-as-python-ide-jedi/</link>
-                <description><p>I used Sublime Text exclusively for the last two weeks. The major drawback, beside the not really native user interface, was the way jedi works. After tweeting that the integration in vim using YouCompleteMe is way better I received the question how to properly configure Sublime Text to use jedi - let me give you a short walkthrough.
-<!--MORE--></p>
-
-<p>If you are not sure why you want <a href="https://github.com/davidhalter/jedi">jedi</a> - believe me, you do - let me show you two screenshots with and without jedi. Without jedi editing a file looks like this</p>
-
-<p><img src="nojedi1.gif" alt="nojedi1" />
-<img src="nojedi2.gif" alt="nojedi2" /></p>
-
-<p>Now if we configure jedi properly and it looks like this</p>
-
-<p><img src="jedi1.gif" alt="jedi1" />
-<img src="jedi2.gif" alt="jedi2" /></p>
-
-<p>I don't know how you work and what your preferences are, but I prefer a working autocompletion and not one who only completes words in the same file or open files - I'm looking at you TextMate. Makes it a lot easier working on larger codebases if you do not have to remember every single class attribute, method and argument.</p>
-
-<p>First have to install <a href="https://github.com/srusskih/SublimeJEDI">SublimeJedi</a>. It looks like the people who asked why it isn't working for them are either using virtualenv or never used the projects functionality and don't know how to configure a project in Sublime Text. This are basically the only two options I can think of.</p>
-
-<p>Open Sublime Text and the project you are working on and save it as a project using <code>Project -&gt; Save Project as…</code>. The only thing left to do is editing your project file using <code>Project -&gt; Edit Project</code>. The most basic configuration looks like this</p>
-
-<pre><code>{
-    "folders":
-    [
-            {
-                  "follow_symlinks": true,
-                  "path": "my-project"
-            }
-     ],
-    "settings": {
-        "python_interpreter_path": "/Users/tizi/my-project/venv/bin/python"
-    }
-}
-</code></pre>
-
-<p>Now jedi will use the Python interpreter from the virtual environment I created in <code>my-project/venv</code>. It will also index and complete all packages you install in your virtual environment. For more configuration options I suggest reading the documentation of SublimeJedi. Now that you have understood the configuration is should be fairly easy to add the additional options if needed.</p>
-</description>
-                <pubDate>2013-09-14 18:34:00</pubDate>
-            </item>
             
         
             

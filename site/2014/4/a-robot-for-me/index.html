@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>
-    Zenbo, Zenbo As A Service And Pricing
+    A robot for... me?!
 </title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -367,96 +367,23 @@
             <div id="wrapper">
 
                 
-    <p class="meta">posted on 2012 - 10 - 12 in <a href="/tag/drupan/">drupan</a>, <a href="/tag/project/">project</a></p>
-    <h1>Zenbo, Zenbo As A Service And Pricing</h1>
-    <p>After a week of working on Zenbo (and desperately searching for a new name, as this one is already protected by someone else) there are some news I want to share with you. Sadly not everything worked as expected and there were some private issues I had to take care of. But the good news are that I am on a good track for a release. Let me give you an overview what happened and what you can expect.
+    <p class="meta">posted on 2014 - 4 - 23 in <a href="/tag/project/">project</a>, <a href="/tag/node-js/">node.js</a>, <a href="/tag/ios/">iOS</a></p>
+    <h1>A robot for... me?!</h1>
+    <p>With colleagues it is sometimes as with babies. Everyone thinks he got the best, cutest and most fun to be around. But honestly: if this would be a game, I would win ;) . On Valentines Day my colleagues surprised me with a self-made telepresence device.
 <!--MORE--></p>
 
-<p>First of all there were some major commits and pushes to the <a href="https://github.com/fallenhitokiri/Zenbo">GitHub repository</a>. Some changes that look small but make a lot of sense if you take the greater picture into consideration.</p>
+<p>Just read the <a href="http://blog.printf.net/articles/2014/03/18/a-robot-for-timo/">blog post</a> Chris wrote and the <a href="http://hackaday.com/2014/03/27/telepresence-robot-proves-its-a-small-world-after-all/">short article</a> on Hack A Day. It should give you a good idea how it works and what the project looks like. Something I personally like is that <a href="https://github.com/flightcar/broadway-nodejs">two</a> <a href="https://github.com/flightcar/broadway-ios-remote">parts</a> of the project "borrowed" from things we built for a different purpose. </p>
 
-<h3>Configuration</h3>
-
-<p>Each plugin will now ship with a default configuration. This means that you can, if you are happy with the defaults, run with a configuration file that only consists of three lines. A major step for people starting to use Zenbo.</p>
-
-<p>On the other hand there are some things left to do. There will be a way to run Zenbo with defaults and command line arguments. This is needed for the hosting.</p>
-
-<h3>Plugins</h3>
-
-<p>There are no categories for plugins anymore. There is just a plugin with a <code>run</code> method in a class called <code>Feature</code>. The order in which plugins are executed is determinate by the order in which they are listed in the configuration file.</p>
-
-<p>This makes it easy to add a base class for common features which will happen at one point. This way configuration handling will be provided by Zenbo and not be the job of every plugin and plugin author.</p>
-
-<h3>Usability</h3>
-
-<p>Today I started working on a way to setup a new site with <code>zenbo --init</code>. It is still a bit rough around the edges but I think it will be done tomorrow. The goal is making it easy for people without prior Zenbo experience getting a site up and running with one command. Deployment excluded.</p>
-
-<h2>Zenbo As A Service</h2>
-
-<p>I talked about <a href="http://www.screamingatmyscreen.com/2012/9/23/updates_on_zenbo_and_zenbo-hosted.html">zenbo-hosted</a>. Some people asked why we need another hosting and blogging service. The answer is pretty easy. I want it for my own and my companies projects.</p>
-
-<p>Most of the time there is no reason for full featured content management systems and there is also no reason to waste money of clients for server resources and hosting they do not really need. With Zenbo as a service there is a way to edit sites in the browser and still benefit from the advantages of a static generated site.</p>
-
-<p>Everyone who prefers a fast and easy to use hosting service, who wants to edit files locally and test a site before it goes live, designers who love the freedom doing what they want, not being tied to the annoyances and limitations of a CMS, everyone who loves git and vim will hopefully enjoy it.</p>
-
-<h3>Architecture</h3>
-
-<p>There will be a longer post how everything will work but a quick overview.</p>
-
-<p>The backend will be hosted on a dedicated server. Adding content, no matter if you push with git or add it through the web interface will cause a commit in the git repository which will trigger a hook that starts generating your site.</p>
-
-<p>Between the generation and the repository will be Celery which will make sure the same site is not generated multiple times parallel, that there are not 500 processes fighting over system resources and finally notify the front end if everything is fine or if problems occurred. My last tests indicate that generating 100 sites parallel should be fine on a small box. And thanks to some revised design decisions it will be easy to just add more or bigger boxes.</p>
-
-<p>The final site will be hosted on S3. This will add a hughe performance boost over one or two server and cut down costs. If a customer still wants more performance I will offer a CloudFront add-on. This is, at least for my current knowledge, the fastest possible site you can have. No backend wasting time on generating content, servers near every customer visiting your site, in one word: performance.</p>
-
-<h3>Pricing</h3>
-
-<p>Now that I had some time evaluating my options I decided what the pricing will look like. Thanks to an Amazon Web Services event in Leipzig I had the opportunity to talk to some people and answer some open questions.</p>
-
-<p>Zenbo-hosted will be free for everything which is non-commercial. There will be some strings attached to it. Those are still a topic that has to be discussed.</p>
+<p>There are some things I will talk about in a later post. I really have some catching up to do with all the posts, @sternenkind moving in just took way longer than expected, which is also the reason why I did not have time to work on two features I want to see:</p>
 
 <ul>
-<li>private sites will always be free</li>
-<li>no advertisement, or anything else</li>
-<li>no file hosting</li>
-<li>non-profit organizations have special rules</li>
+<li>a desktop client to control the robot</li>
+<li>fixed position movement - move from one pre defined position to another one</li>
 </ul>
 
-<h3>File Hosting</h3>
+<p>There were some hilarious scenes, people stop by for a quick chat and if you can just discuss a problem or an idea without first initiating a video call, which is, surprisingly, still a hassle in 2014. It can be really helpful.</p>
 
-<p>This is just a matter of costs. I want to keep the service free with no strings attached for private usage. Putting up a 2MB PDF with your résumé is fine. Images and image galleries are fine. Uploading the last season of Buffy you just ripped for your friends is not cool. Not only because of the costs but also because of all the DMCA stuff I would have to answer.</p>
-
-<h3>Non-profit Organizations</h3>
-
-<p>Most of the time they cause some decent traffic and have some money at their hands for organizational costs. The only thing that changes is that they are halt to put "powered by Zenbo-hosted" in the footer of the site.</p>
-
-<p>If a non-profit organization decides to use Zenbo I hope they will get in touch with me. I would be happy to support them and provide add-on packages as a donation.</p>
-
-<h3>Companies</h3>
-
-<p>Basically pretty easy. $5 / month as basic plan and you pay what you use. That is it. Without any add-ons this is everything you have to pay for.</p>
-
-<h3>Add-Ons</h3>
-
-<p>There will be several add-on packages you can order which will be a paid service. I am not sure if they will be all available at the beginning but they should appear in the course of this year.</p>
-
-<ul>
-<li>Post by mail</li>
-<li>Hosting files</li>
-<li>Dedicated backend</li>
-<li>Mail service</li>
-<li>API to submit any form you put on your site</li>
-<li>Custom plugins</li>
-<li>Domain service / DNS</li>
-<li>AWS CloudFront support</li>
-</ul>
-
-<p>Beside the file hosting all features will be around $1 to $3 a month. I think this is reasonable and affordable.</p>
-
-<h2>Why Am I Building This?</h2>
-
-<p>Because I believe people will enjoy using it. Because I want to offer a different approach to classic hosting services. Because it is fun. Because it will be beneficial for my company. Because I hope some people who did amazing stuff that helped me do my job and run my business will notice it and use it - my way of saying "thank you".</p>
-
-<p>There are many reasons. For me, the most important ones are fun, saying "thank you" and providing a solid base for future projects I and my company will be working on.</p>
+<p>If you want to stay up to date you can follow <a href="https://github.com/flightcar">FlightCar on GitHub</a> or the individual repositories prefixed with <code>broadway-</code>. The current implementation works great and is a lot of fun to use. If you have someone remote and are looking for a a way to still have them in your office I would suggest you give it a try.</p>
 
 
     <div class="subbox">
