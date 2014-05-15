@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>
-Tag: backup
+    Why are so many people writing static site generators?
 </title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -369,12 +369,56 @@ Tag: backup
             <div id="wrapper">
 
                 
-    <h6>Tag: backup</h6>
-    <ul>
-    
-        <li><a href="/2013/5/the-cloud-is-fine-you-are-just-using-it-the-wrong-way/">The Cloud Is Fine - You Are Just Using It The Wrong Way</a></li>
-    
-    </ul>
+    <p class="meta">posted on 2014 - 5 - 15 in <a href="/tag/drupan/">drupan</a>, <a href="/tag/content-management/">content management</a>, <a href="/tag/development/">development</a>, <a href="/tag/project/">project</a></p>
+    <h1>Why are so many people writing static site generators?</h1>
+    <p>Yesterday I was asked this question by <a href="https://twitter.com/hpoom/status/465926128935661568">Simon Wood</a>. While trying to give some reasons in four tweets I think it is a topic I should elaborate. Especially since I am some hours of coding away from releasing the second major release of <a href="http://github.com/fallenhitokiri/drupan">Drupan</a>.
+<!--MORE--></p>
+
+<p>I believe that writing a static site generator is the new "Hello World", at least for people who wrote their first "Hello World" a decade or so ago. It is stupidly trivial to write a basic one. The basic steps are:</p>
+
+<ol>
+<li>read files</li>
+<li>run library-A</li>
+<li>run library-B</li>
+<li>write output</li>
+<li>deploy</li>
+</ol>
+
+<p>Reading and writing files is most likely a part of the standard library of the current hotness of the programming language world. Library-A is something that converts markdown, textile or whatever obscure text formatting language was discussed last on HackerNews to HTML and library-B is a template engine. Those five steps do not require more than a few lines of code, at least if you do not have to write any functionality yourself, and you have successfully written a static site generator.</p>
+
+<p>But the real fun starts after that. How about a real plugin system? Different URL schemes? Deployment beyond git or rsync? Those are features most of those projects never see. And that is perfectly fine.</p>
+
+<p>I started writing drupan because I wanted to see @sternenkind drawing a drunken panda and because I was not satisfied with the existing generators. I started drupan over 3 years ago, jekyll was, as today still is, I believe, the most known static site generator out there, two or three other projects found their first users and people, back then as today, argued how superior / or how stupid this whole static site thing is. I was not able to find one written in Python with the features I wanted. So I wrote one. When it generated and deployed screamingatmyscreen.com the first time it was merely what I described above. Some months and some work later and it matured and became feature rich and also was used to built more sites than my blog. Some people asked for special version, some asked for help with the project they are working on and want to use drupan. Today it is still an unknown static site generator with a really small user base and it is still in development, adapting to new workflows and requirements.</p>
+
+<p>If a static site generator is developed after it can successfully do the 5 basic steps does not matter as long as it is fun for the person who wrote it. It does not matter if it is ever used to actually bring one site to life. A static site generator is a simple piece of software, but you can learn many things about a language if you write one, especially if you go slightly behind the five initial steps.</p>
+
+<h2>Choice</h2>
+
+<p>One question was: "Do we need so many different static site generators?" No, we do not need them. But it also does no harm that they exist and that people put them out there. And you never who can learn something from reading the code or if there is one that evolves beyond what we already have and delivers a cool, new feature. Variety is never the problem - choosing which one to use is one.</p>
+
+<p>Deciding which one to use can be quite tricky, especially if you just go to <a href="http://staticsitegenerators.net">staticsitegenerators.net</a> and look at the list. The biggest problem: you have no idea which one provides the features you want and need. It is only a list, not even a good one, it lists <a href="http://jinja.pocoo.org">jinja</a> as a static site generator. Depending on how you define the term it could be possible, but far from what I would expect if I look for one. On the other hand, a task runner like <a href="http://gruntjs.com">Grunt</a> can become a perfectly fine generator if you only want the initially mentioned five steps. Choosing the right one is hard. If I would not be biased I would likely do the following steps:</p>
+
+<ul>
+<li>look for generators written in the language I prefer</li>
+<li>look at those that are kind of actively maintained</li>
+<li>look at the features</li>
+<li>take the first one that looks good</li>
+<li>if it works: profit, if not: rinse and repeat</li>
+</ul>
+
+<p>That is likely not the most pleasant process but on the other hand: everything has its price. If you look for a full feature content management system you would have to go through the exact same process. At least if you do not settle with the "most known player" in the game. If that approach is fine for you: just use Jekyll.</p>
+
+<h2>Why are so many people writing static site generators?</h2>
+
+<p>I think this would be a good "Ask HN" topic - there are likely many different reasons why people wrote a static site generator. If someone is just learning a new language writing a static site generator is something to consider. There are far worse things to write while learning a new language.</p>
+
+
+    <div class="subbox">
+        <p>I would love to talk to you about this post, your ideas or awesome projects.</p> 
+        <p>I am <a href="http://www.twitter.com/fallenhitokiri/">@fallenhitokiri</a> on Twitter and 
+            <a href="https://github.com/fallenhitokiri/">GitHub</a> or 
+            you can send me a <a href="mailto:timo (at) screamingatmyscreen (dot) com">mail</a>.</p>
+    </div>
 
 
             </div>

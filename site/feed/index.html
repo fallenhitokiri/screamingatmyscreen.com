@@ -8,8 +8,57 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2014-05-05 22:26:20.781178 GMT</pubDate>
+        <pubDate>2014-05-15 21:29:39.209777 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>Why are so many people writing static site generators?</title>
+                <link>http://screamingatmyscreen.com/2014/5/why-are-so-many-people-writing-static-site-generators/</link>
+                <description><p>Yesterday I was asked this question by <a href="https://twitter.com/hpoom/status/465926128935661568">Simon Wood</a>. While trying to give some reasons in four tweets I think it is a topic I should elaborate. Especially since I am some hours of coding away from releasing the second major release of <a href="http://github.com/fallenhitokiri/drupan">Drupan</a>.
+<!--MORE--></p>
+
+<p>I believe that writing a static site generator is the new "Hello World", at least for people who wrote their first "Hello World" a decade or so ago. It is stupidly trivial to write a basic one. The basic steps are:</p>
+
+<ol>
+<li>read files</li>
+<li>run library-A</li>
+<li>run library-B</li>
+<li>write output</li>
+<li>deploy</li>
+</ol>
+
+<p>Reading and writing files is most likely a part of the standard library of the current hotness of the programming language world. Library-A is something that converts markdown, textile or whatever obscure text formatting language was discussed last on HackerNews to HTML and library-B is a template engine. Those five steps do not require more than a few lines of code, at least if you do not have to write any functionality yourself, and you have successfully written a static site generator.</p>
+
+<p>But the real fun starts after that. How about a real plugin system? Different URL schemes? Deployment beyond git or rsync? Those are features most of those projects never see. And that is perfectly fine.</p>
+
+<p>I started writing drupan because I wanted to see @sternenkind drawing a drunken panda and because I was not satisfied with the existing generators. I started drupan over 3 years ago, jekyll was, as today still is, I believe, the most known static site generator out there, two or three other projects found their first users and people, back then as today, argued how superior / or how stupid this whole static site thing is. I was not able to find one written in Python with the features I wanted. So I wrote one. When it generated and deployed screamingatmyscreen.com the first time it was merely what I described above. Some months and some work later and it matured and became feature rich and also was used to built more sites than my blog. Some people asked for special version, some asked for help with the project they are working on and want to use drupan. Today it is still an unknown static site generator with a really small user base and it is still in development, adapting to new workflows and requirements.</p>
+
+<p>If a static site generator is developed after it can successfully do the 5 basic steps does not matter as long as it is fun for the person who wrote it. It does not matter if it is ever used to actually bring one site to life. A static site generator is a simple piece of software, but you can learn many things about a language if you write one, especially if you go slightly behind the five initial steps.</p>
+
+<h2>Choice</h2>
+
+<p>One question was: "Do we need so many different static site generators?" No, we do not need them. But it also does no harm that they exist and that people put them out there. And you never who can learn something from reading the code or if there is one that evolves beyond what we already have and delivers a cool, new feature. Variety is never the problem - choosing which one to use is one.</p>
+
+<p>Deciding which one to use can be quite tricky, especially if you just go to <a href="http://staticsitegenerators.net">staticsitegenerators.net</a> and look at the list. The biggest problem: you have no idea which one provides the features you want and need. It is only a list, not even a good one, it lists <a href="http://jinja.pocoo.org">jinja</a> as a static site generator. Depending on how you define the term it could be possible, but far from what I would expect if I look for one. On the other hand, a task runner like <a href="http://gruntjs.com">Grunt</a> can become a perfectly fine generator if you only want the initially mentioned five steps. Choosing the right one is hard. If I would not be biased I would likely do the following steps:</p>
+
+<ul>
+<li>look for generators written in the language I prefer</li>
+<li>look at those that are kind of actively maintained</li>
+<li>look at the features</li>
+<li>take the first one that looks good</li>
+<li>if it works: profit, if not: rinse and repeat</li>
+</ul>
+
+<p>That is likely not the most pleasant process but on the other hand: everything has its price. If you look for a full feature content management system you would have to go through the exact same process. At least if you do not settle with the "most known player" in the game. If that approach is fine for you: just use Jekyll.</p>
+
+<h2>Why are so many people writing static site generators?</h2>
+
+<p>I think this would be a good "Ask HN" topic - there are likely many different reasons why people wrote a static site generator. If someone is just learning a new language writing a static site generator is something to consider. There are far worse things to write while learning a new language.</p>
+</description>
+                <pubDate>2014-05-15 21:28:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -282,27 +331,6 @@
             </item>
             
         
-            
-            <item>
-                <title>Learning Scala - Week 1</title>
-                <link>http://screamingatmyscreen.com/2013/9/learning-scala-week/</link>
-                <description><p>I decided to learn Scala. It was more a spontaneous decision than well thought out. I have heard many good things about it, it seems to do a decent job at Twitter, other start-ups and established companies, it runs on top of the JVM and Coursera just started a course "Functional Programming Principles in Scala". I will write a short recap about my journey every weekend.
-<!--MORE--></p>
-
-<p>This are basically two new things at the same time for me. Coursera and Scala. Functional programming is not something new to me but I never used a purely functional programming language or focused on learning everything about it. I am aware how it works, the advantages and disadvantages and how to use it if necessary.</p>
-
-<p>Finishing the first week, I have not seen much of Scala. Defining a function, some recursion, nothing spectacular. This is not necessarily bad. A lot of time was used to explain fundamentals of functional programming and I believe someone who has no experience with it really needs those explanations before starting with anything else. And I have high hopes in this course, especially since we are talking about Martin Odersky, who, beside the one - or one of the people - who came up with a programming language could explain the fundamental ideas better?</p>
-
-<p>The homework looks ridiculous compared to what you learn. It would be interesting to see someone without programming background trying to complete the assignments - if you are fitting in this category or know someone I would love to hear your thoughts. As far as I can tell you get enough hints but concentrating on Scala, deciding how to implement something and not knowing if the problem with your implementation is caused by a wrong implementation or if the solution you came up with is wrong can surely be confusing. Maybe the course is meant for people with a math and / or programming background but currently I do not believe it is well suited for beginners.</p>
-
-<p>Scala runs on top of the JVM which means I had, for the first time in many years, a reason to install Java on my notebook. If you follow the instructions closely you will end up installing Eclipse. I do not want this to become a discussion of IDEs or why, of all IDEs I have worked with, Eclipse is the last one I would want to use. </p>
-
-<p>Something that currently did not happen - and I have seen the same thing in many Java books - is an explanation how you setup a project, file system structure and run it using command line tools. Maybe it will follow in a later lesson and was just skipped for simplicity, at least I hope so. I have seen to many people not being able to run a Java project when you take away their IDE with explanations ranging from "I never needed to do this" to "let the sysops guys handle this, it is not my job". In my opinion this is a lack of base knowledge.</p>
-
-<p>The material for the second week looks promising. I hope to talk a bit more about Scala and less about everything else next week.</p>
-</description>
-                <pubDate>2013-09-22 20:35:00</pubDate>
-            </item>
             
         
             
