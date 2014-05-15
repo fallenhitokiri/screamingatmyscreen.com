@@ -219,6 +219,10 @@ a:hover {
         list-style-type:disc;
     }
 
+    ol {
+        list-style-type:decimal-leading-zero;
+    }
+
     .post {
         margin:0 0 3em 0;
     }

@@ -208,6 +208,8 @@ a:hover {
       margin: 0 0 0.3em 0; }
   #main ul {
     list-style-type: disc; }
+  #main ol {
+    list-style-type: decimal-leading-zero; }
   #main .post {
     margin: 0 0 3em 0; }
   #main img {
