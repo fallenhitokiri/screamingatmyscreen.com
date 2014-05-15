@@ -37,3 +37,5 @@ That is likely not the most pleasant process but on the other hand: everything h
 
 ## Why are so many people writing static site generators?
 I think this would be a good "Ask HN" topic - there are likely many different reasons why people wrote a static site generator. If someone is just learning a new language writing a static site generator is something to consider. There are far worse things to write while learning a new language.
+
+Discuss this post on [Hacker News](https://news.ycombinator.com/item?id=7751701).
