@@ -1,7 +1,7 @@
 title: How To Write A Static Site Generator
 date: 2014-05-19 20:10:00
 layout: post
-tags: ["drupan", "development", "python", "project"]
+tags: ["drupan", "development", "Python", "project"]
 ---
 After my [last post](http://screamingatmyscreen.com/2014/5/why-are-so-many-people-writing-static-site-generators/) I received a question how to actually write a static site generator. I can see that this sounds like a big project for someone who just starts writing code - but I claimed it would be a good starting project and since I prefer to put my money where my mouth is let me help you getting started.
 <!--MORE-->
