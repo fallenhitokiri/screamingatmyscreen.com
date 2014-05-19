@@ -17,7 +17,7 @@ We will not go into deployment. Chances are that my deployment preferences vary 
 
 You can follow the different steps by looking at `ssg.py` in [this repository](https://github.com/fallenhitokiri/how-to-ssg) which holds the whole static site generator source code, two example posts and a template - which is as simple as possible. Make sure you install [markdown2](https://pypi.python.org/pypi/markdown2) and [jinja](http://jinja.pocoo.org) using [pip](https://pypi.python.org/pypi/pip) before running it, maybe even setup a [virtualenv](https://pypi.python.org/pypi/virtualenv). If you do not know Python well enough to understand every line of code I suggest you look up all imports in the [docs](https://docs.python.org/2.7/) to fully understand what is going on.
 
-The script is not very long and is meant to be an introduction to the different steps. We will not always stick to best practices, make code reusable or structure it perfectly. Just read it from the top to the button - ideally when having this post open side by side.
+The script is not very long and is meant to be an introduction to the different steps. We will not always stick to best practices, make code reusable or structure it perfectly. Just read it from the top to the button - ideally when having this post open side by side. You will have to do some research on your own to complete the "do it yourself" parts.
 
 ## Step 1 - Read
 Listing files in a directory, reading files and writing files are most likely part of the standard library of any high level language - at least I am not aware of one that does not provide those functions, please correct me if I am wrong.
@@ -40,14 +40,14 @@ Instead of markdown we want to use textile. Install a package that provides text
 ## Step 3 - Template
 Now it is time to make the posts look nice. Too bad I will not write a full template for a short example, so we only go with the bare minimum.
 
-Before we run it we add an key named "index.html" without a value. Since we always pass the whole `SITE` dictionary we can iterate over it in the template and generate a list of posts we have written. Jinja is a powerful template engine and I want to encourage you to read it. It will safe you some time if you "just" want to add basic things like sorting a list or dictionary.
+Before we run it we add an key named "index.html" without a value. Since we always pass the whole `SITE` dictionary we can iterate over it in the template and generate a list of posts we have written. Jinja is a powerful template engine and I want to encourage you to read it. It will save you some time if you "just" want to add basic things like sorting a list or dictionary.
 
 Lines: 32 to 41
 
 ### Do It Yourself
 Write a custom template filter that parses the filename and outputs it without the file extension and capitalized. You will find everything you need in jinjas documentation.
 
-Add post numbers in front of the post title (filename) so your files look like this `01-foo.html`, `02-bar.html`. Sort your `SITE` directory by those numbers and only display the last five posts on your index page. This can be done in Python with `sort` and `reverse` or using ninja.
+Add post numbers in front of the post title (filename) so your files look like this `01-foo.html`, `02-bar.html`. Sort your `SITE` directory by those numbers and only display the last five posts on your index page. This can be done in Python with `sort` and `reverse` or using jinja.
 
 Add an archive showing all posts.
 
@@ -59,7 +59,7 @@ Lines: 45 to 56
 ### Do It Yourself
 Instead of putting all files in the same directory create one directory for every post and name the output file "index.html". This way we get clean URLs like `/foo/` instead of `foo.html`. This would be a good time to use a list with instances of a `Post` class you have to create. Add some properties to get the URL and the title.
 
-Add links back to your `index.html` so your users can navigate your site without using the back button.
+Add links back to `/index.html` so your users can navigate your site without using the back button.
 
 ## Conclusion
 This is, surely, a very simple static site generator but it gets the job done. You can write your posts in markdown or textile, upload the generated site to whatever $1 webhoster you can find and people can browse your site.

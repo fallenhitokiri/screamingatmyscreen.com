@@ -391,7 +391,7 @@
 
 <p>You can follow the different steps by looking at <code>ssg.py</code> in <a href="https://github.com/fallenhitokiri/how-to-ssg">this repository</a> which holds the whole static site generator source code, two example posts and a template - which is as simple as possible. Make sure you install <a href="https://pypi.python.org/pypi/markdown2">markdown2</a> and <a href="http://jinja.pocoo.org">jinja</a> using <a href="https://pypi.python.org/pypi/pip">pip</a> before running it, maybe even setup a <a href="https://pypi.python.org/pypi/virtualenv">virtualenv</a>. If you do not know Python well enough to understand every line of code I suggest you look up all imports in the <a href="https://docs.python.org/2.7/">docs</a> to fully understand what is going on.</p>
 
-<p>The script is not very long and is meant to be an introduction to the different steps. We will not always stick to best practices, make code reusable or structure it perfectly. Just read it from the top to the button - ideally when having this post open side by side.</p>
+<p>The script is not very long and is meant to be an introduction to the different steps. We will not always stick to best practices, make code reusable or structure it perfectly. Just read it from the top to the button - ideally when having this post open side by side. You will have to do some research on your own to complete the "do it yourself" parts.</p>
 
 <h2>Step 1 - Read</h2>
 
@@ -419,7 +419,7 @@
 
 <p>Now it is time to make the posts look nice. Too bad I will not write a full template for a short example, so we only go with the bare minimum.</p>
 
-<p>Before we run it we add an key named "index.html" without a value. Since we always pass the whole <code>SITE</code> dictionary we can iterate over it in the template and generate a list of posts we have written. Jinja is a powerful template engine and I want to encourage you to read it. It will safe you some time if you "just" want to add basic things like sorting a list or dictionary.</p>
+<p>Before we run it we add an key named "index.html" without a value. Since we always pass the whole <code>SITE</code> dictionary we can iterate over it in the template and generate a list of posts we have written. Jinja is a powerful template engine and I want to encourage you to read it. It will save you some time if you "just" want to add basic things like sorting a list or dictionary.</p>
 
 <p>Lines: 32 to 41</p>
 
@@ -427,7 +427,7 @@
 
 <p>Write a custom template filter that parses the filename and outputs it without the file extension and capitalized. You will find everything you need in jinjas documentation.</p>
 
-<p>Add post numbers in front of the post title (filename) so your files look like this <code>01-foo.html</code>, <code>02-bar.html</code>. Sort your <code>SITE</code> directory by those numbers and only display the last five posts on your index page. This can be done in Python with <code>sort</code> and <code>reverse</code> or using ninja.</p>
+<p>Add post numbers in front of the post title (filename) so your files look like this <code>01-foo.html</code>, <code>02-bar.html</code>. Sort your <code>SITE</code> directory by those numbers and only display the last five posts on your index page. This can be done in Python with <code>sort</code> and <code>reverse</code> or using jinja.</p>
 
 <p>Add an archive showing all posts.</p>
 
@@ -441,7 +441,7 @@
 
 <p>Instead of putting all files in the same directory create one directory for every post and name the output file "index.html". This way we get clean URLs like <code>/foo/</code> instead of <code>foo.html</code>. This would be a good time to use a list with instances of a <code>Post</code> class you have to create. Add some properties to get the URL and the title.</p>
 
-<p>Add links back to your <code>index.html</code> so your users can navigate your site without using the back button.</p>
+<p>Add links back to <code>/index.html</code> so your users can navigate your site without using the back button.</p>
 
 <h2>Conclusion</h2>
 
