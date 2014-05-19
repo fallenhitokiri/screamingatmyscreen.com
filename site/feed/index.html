@@ -8,8 +8,90 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2014-05-15 21:36:58.618255 GMT</pubDate>
+        <pubDate>2014-05-19 20:08:42.549771 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>How To Write A Static Site Generator</title>
+                <link>http://screamingatmyscreen.com/2014/5/how-to-write-a-static-site-generator/</link>
+                <description><p>After my <a href="http://screamingatmyscreen.com/2014/5/why-are-so-many-people-writing-static-site-generators/">last post</a> I received a question how to actually write a static site generator. I can see that this sounds like a big project for someone who just starts writing code - but I claimed it would be a good starting project and since I prefer to put my money where my mouth is let me help you getting started.
+<!--MORE--></p>
+
+<p>The goal is to write a basic static site generator using some well known libraries you will likely come across more often if you do web development using Python. We will do this in four steps</p>
+
+<ol>
+<li>Read files from disk</li>
+<li>Convert markdown to HTML</li>
+<li>Create one page for each posted using a template engine</li>
+<li>Write output to disk</li>
+</ol>
+
+<p>We will not go into deployment. Chances are that my deployment preferences vary highly from yours. While I either deploy using git or to S3 and CloudFront after I released drupan 2 you may prefer sFTP, scp or directly uploading your files if you do not intent to update your blog very often.</p>
+
+<p>You can follow the different steps by looking at <code>ssg.py</code> in <a href="https://github.com/fallenhitokiri/how-to-ssg">this repository</a> which holds the whole static site generator source code, two example posts and a template - which is as simple as possible. Make sure you install <a href="https://pypi.python.org/pypi/markdown2">markdown2</a> and <a href="http://jinja.pocoo.org">jinja</a> using <a href="https://pypi.python.org/pypi/pip">pip</a> before running it, maybe even setup a <a href="https://pypi.python.org/pypi/virtualenv">virtualenv</a>. If you do not know Python well enough to understand every line of code I suggest you look up all imports in the <a href="https://docs.python.org/2.7/">docs</a> to fully understand what is going on.</p>
+
+<p>The script is not very long and is meant to be an introduction to the different steps. We will not always stick to best practices, make code reusable or structure it perfectly. Just read it from the top to the button - ideally when having this post open side by side.</p>
+
+<h2>Step 1 - Read</h2>
+
+<p>Listing files in a directory, reading files and writing files are most likely part of the standard library of any high level language - at least I am not aware of one that does not provide those functions, please correct me if I am wrong.</p>
+
+<p>This step is actually pretty simple - read all files in an directory, read the file and add it to the <code>SITE</code> directory with the filename, which we will later use as URL, and its content as value.</p>
+
+<p>Lines: 19 to 23</p>
+
+<h3>Do It Yourself</h3>
+
+<p>Right now you have to make sure the filename is URL friendly. Add a function which takes a string as input and returns an URL friendly version of it. Replacing spaces with dashes and cut of file extensions, for example.</p>
+
+<h2>Step 2 - Markup</h2>
+
+<p>Writing HTML is not really a pleasant thing to do. Having a markup language that can be converted to HTML helps a lot while writing posts. We use markdown in this example. There is not much to do since we use the <code>markdown2</code> library.</p>
+
+<p>Lines: 27 to 28</p>
+
+<h3>Do It Yourself</h3>
+
+<p>Instead of markdown we want to use textile. Install a package that provides textile to HTML conversion and use it instead of markdown2.</p>
+
+<h2>Step 3 - Template</h2>
+
+<p>Now it is time to make the posts look nice. Too bad I will not write a full template for a short example, so we only go with the bare minimum.</p>
+
+<p>Before we run it we add an key named "index.html" without a value. Since we always pass the whole <code>SITE</code> dictionary we can iterate over it in the template and generate a list of posts we have written. Jinja is a powerful template engine and I want to encourage you to read it. It will safe you some time if you "just" want to add basic things like sorting a list or dictionary.</p>
+
+<p>Lines: 32 to 41</p>
+
+<h3>Do It Yourself</h3>
+
+<p>Write a custom template filter that parses the filename and outputs it without the file extension and capitalized. You will find everything you need in jinjas documentation.</p>
+
+<p>Add post numbers in front of the post title (filename) so your files look like this <code>01-foo.html</code>, <code>02-bar.html</code>. Sort your <code>SITE</code> directory by those numbers and only display the last five posts on your index page. This can be done in Python with <code>sort</code> and <code>reverse</code> or using ninja.</p>
+
+<p>Add an archive showing all posts.</p>
+
+<h2>Step 4 - Write</h2>
+
+<p>Now the only thing left to do is writing those posts to the output directory. This can be done as easy as reading them. Before writing them we check if the output directory already exists, delete it if this is the case and create it again, so it is empty.</p>
+
+<p>Lines: 45 to 56</p>
+
+<h3>Do It Yourself</h3>
+
+<p>Instead of putting all files in the same directory create one directory for every post and name the output file "index.html". This way we get clean URLs like <code>/foo/</code> instead of <code>foo.html</code>. This would be a good time to use a list with instances of a <code>Post</code> class you have to create. Add some properties to get the URL and the title.</p>
+
+<p>Add links back to your <code>index.html</code> so your users can navigate your site without using the back button.</p>
+
+<h2>Conclusion</h2>
+
+<p>This is, surely, a very simple static site generator but it gets the job done. You can write your posts in markdown or textile, upload the generated site to whatever $1 webhoster you can find and people can browse your site.</p>
+
+<p>As I mentioned in my previous post there are many features you will be missing - but this was not the goal of this how to. You wrote a static site generator in 58 lines of code. You used the standard library and third party packages. You should have figured out where to search for additional packages and have a rough feeling when things are happening. The real work, and fun, starts from here. Enjoy.</p>
+</description>
+                <pubDate>2014-05-19 20:10:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -310,27 +392,6 @@
             </item>
             
         
-            
-            <item>
-                <title>Learning Scala - Week 2: Coursera And Scala Related Tools</title>
-                <link>http://screamingatmyscreen.com/2013/10/learning-scala-week-2-coursera-and-scala-related-tools/</link>
-                <description><p>I am a bit late with my week two summary but let's do it anyway. Week three will be ready on Sunday. I stopped attending the Coursera class. I fought against the tools and I even managed to actually learn some Scala.
-<!--MORE--></p>
-
-<p>Why did I stop the course? Well, first it is absolutely not the way how I can effectively learn a new language. It just doesn't work for me. Second, I was a bit disappointed by it. I will still watch the video instructions to know if I am right about it but currently I feel like there is some part of Scala, some part of functional programming in every weeks lectures and at the end of the day, without any prior knowledge, you know nothing about both of them. Maybe it is also just my first impression and I'm wrong.</p>
-
-<p>Some people argued that I should still complete it to get the certificate. First: I do not really care about it. I do not need papers, or PDFs, to show me what I can do. Second: It will not be accepted by any university as prove that I am able to do something or learned it. And I think most, if not all, potential employers and clients also do not care about a piece of paper from an online course, especially if I can just demonstrate the skills.</p>
-
-<p>The tools are still a bit strange, especially sbt and Eclipse. This is not directly Scala related since I thing I can just ignore both for now. Life is pretty easy right now. <code>python foo.py</code>, <code>go run foo.py</code>, <code>node foo.js</code>. One file. You can have this with Scala, too. You have the usual Java-ish stuff kit compile and than run. You have the same Java-ish stuff with specifying the classes. If you ever worked with Java you know how it will be working with Scala. Beside that you also get some nice things like an interactive shell.</p>
-
-<p>Working with Scala, right now, after the first tutorials is not really spectacular. I only made it through the basics to get an understanding of the syntax, parts of the library and some best practices. I think the "real fun" starts after I got through those things. It doesn't make a big difference for me if I am writing Scala or Go for example. I believe line count is about the same.</p>
-
-<p>What made me chuckle is the fact that using <code>MutableList</code> threw a style warning that I should not use it. I'm not sure what the Coursera system used to check the code style and quality. But throwing an error for using something from the standard library is just hilarious if you ask me. "Hey - I know the people who wrote the language gave you this tool. But I think you should not use it. Because reasons (actually: mutability). Nah, they surely do not just make it unavailable or throw an error if you use it directly or warn you for using it. Thats my job. You really should not use it."</p>
-
-<p>Sadly I did not get as much done as I expected till last Sunday. But this week was a bit more productive - update will be ready on Sunday.</p>
-</description>
-                <pubDate>2013-10-04 19:08:00</pubDate>
-            </item>
             
         
             

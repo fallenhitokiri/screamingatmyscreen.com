@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>
-Tag: iPad
+    How To Write A Static Site Generator
 </title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -373,16 +373,89 @@ Tag: iPad
             <div id="wrapper">
 
                 
-    <h6>Tag: iPad</h6>
-    <ul>
-    
-        <li><a href="/2012/3/the-new-ipad-and-responsive-web-design/">The New iPad And Responsive Web Design</a></li>
-    
-        <li><a href="/2012/10/the-ipad-mini-is-not-for-you/">The iPad Mini Is Not For You</a></li>
-    
-        <li><a href="/2012/3/resolutionary-isn-t-it/">Resolutionary, isn't it?</a></li>
-    
-    </ul>
+    <p class="meta">posted on 2014 - 5 - 19 in <a href="/tag/drupan/">drupan</a>, <a href="/tag/development/">development</a>, <a href="/tag/python/">python</a>, <a href="/tag/project/">project</a></p>
+    <h1>How To Write A Static Site Generator</h1>
+    <p>After my <a href="http://screamingatmyscreen.com/2014/5/why-are-so-many-people-writing-static-site-generators/">last post</a> I received a question how to actually write a static site generator. I can see that this sounds like a big project for someone who just starts writing code - but I claimed it would be a good starting project and since I prefer to put my money where my mouth is let me help you getting started.
+<!--MORE--></p>
+
+<p>The goal is to write a basic static site generator using some well known libraries you will likely come across more often if you do web development using Python. We will do this in four steps</p>
+
+<ol>
+<li>Read files from disk</li>
+<li>Convert markdown to HTML</li>
+<li>Create one page for each posted using a template engine</li>
+<li>Write output to disk</li>
+</ol>
+
+<p>We will not go into deployment. Chances are that my deployment preferences vary highly from yours. While I either deploy using git or to S3 and CloudFront after I released drupan 2 you may prefer sFTP, scp or directly uploading your files if you do not intent to update your blog very often.</p>
+
+<p>You can follow the different steps by looking at <code>ssg.py</code> in <a href="https://github.com/fallenhitokiri/how-to-ssg">this repository</a> which holds the whole static site generator source code, two example posts and a template - which is as simple as possible. Make sure you install <a href="https://pypi.python.org/pypi/markdown2">markdown2</a> and <a href="http://jinja.pocoo.org">jinja</a> using <a href="https://pypi.python.org/pypi/pip">pip</a> before running it, maybe even setup a <a href="https://pypi.python.org/pypi/virtualenv">virtualenv</a>. If you do not know Python well enough to understand every line of code I suggest you look up all imports in the <a href="https://docs.python.org/2.7/">docs</a> to fully understand what is going on.</p>
+
+<p>The script is not very long and is meant to be an introduction to the different steps. We will not always stick to best practices, make code reusable or structure it perfectly. Just read it from the top to the button - ideally when having this post open side by side.</p>
+
+<h2>Step 1 - Read</h2>
+
+<p>Listing files in a directory, reading files and writing files are most likely part of the standard library of any high level language - at least I am not aware of one that does not provide those functions, please correct me if I am wrong.</p>
+
+<p>This step is actually pretty simple - read all files in an directory, read the file and add it to the <code>SITE</code> directory with the filename, which we will later use as URL, and its content as value.</p>
+
+<p>Lines: 19 to 23</p>
+
+<h3>Do It Yourself</h3>
+
+<p>Right now you have to make sure the filename is URL friendly. Add a function which takes a string as input and returns an URL friendly version of it. Replacing spaces with dashes and cut of file extensions, for example.</p>
+
+<h2>Step 2 - Markup</h2>
+
+<p>Writing HTML is not really a pleasant thing to do. Having a markup language that can be converted to HTML helps a lot while writing posts. We use markdown in this example. There is not much to do since we use the <code>markdown2</code> library.</p>
+
+<p>Lines: 27 to 28</p>
+
+<h3>Do It Yourself</h3>
+
+<p>Instead of markdown we want to use textile. Install a package that provides textile to HTML conversion and use it instead of markdown2.</p>
+
+<h2>Step 3 - Template</h2>
+
+<p>Now it is time to make the posts look nice. Too bad I will not write a full template for a short example, so we only go with the bare minimum.</p>
+
+<p>Before we run it we add an key named "index.html" without a value. Since we always pass the whole <code>SITE</code> dictionary we can iterate over it in the template and generate a list of posts we have written. Jinja is a powerful template engine and I want to encourage you to read it. It will safe you some time if you "just" want to add basic things like sorting a list or dictionary.</p>
+
+<p>Lines: 32 to 41</p>
+
+<h3>Do It Yourself</h3>
+
+<p>Write a custom template filter that parses the filename and outputs it without the file extension and capitalized. You will find everything you need in jinjas documentation.</p>
+
+<p>Add post numbers in front of the post title (filename) so your files look like this <code>01-foo.html</code>, <code>02-bar.html</code>. Sort your <code>SITE</code> directory by those numbers and only display the last five posts on your index page. This can be done in Python with <code>sort</code> and <code>reverse</code> or using ninja.</p>
+
+<p>Add an archive showing all posts.</p>
+
+<h2>Step 4 - Write</h2>
+
+<p>Now the only thing left to do is writing those posts to the output directory. This can be done as easy as reading them. Before writing them we check if the output directory already exists, delete it if this is the case and create it again, so it is empty.</p>
+
+<p>Lines: 45 to 56</p>
+
+<h3>Do It Yourself</h3>
+
+<p>Instead of putting all files in the same directory create one directory for every post and name the output file "index.html". This way we get clean URLs like <code>/foo/</code> instead of <code>foo.html</code>. This would be a good time to use a list with instances of a <code>Post</code> class you have to create. Add some properties to get the URL and the title.</p>
+
+<p>Add links back to your <code>index.html</code> so your users can navigate your site without using the back button.</p>
+
+<h2>Conclusion</h2>
+
+<p>This is, surely, a very simple static site generator but it gets the job done. You can write your posts in markdown or textile, upload the generated site to whatever $1 webhoster you can find and people can browse your site.</p>
+
+<p>As I mentioned in my previous post there are many features you will be missing - but this was not the goal of this how to. You wrote a static site generator in 58 lines of code. You used the standard library and third party packages. You should have figured out where to search for additional packages and have a rough feeling when things are happening. The real work, and fun, starts from here. Enjoy.</p>
+
+
+    <div class="subbox">
+        <p>I would love to talk to you about this post, your ideas or awesome projects.</p> 
+        <p>I am <a href="http://www.twitter.com/fallenhitokiri/">@fallenhitokiri</a> on Twitter and 
+            <a href="https://github.com/fallenhitokiri/">GitHub</a> or 
+            you can send me a <a href="mailto:timo (at) screamingatmyscreen (dot) com">mail</a>.</p>
+    </div>
 
 
             </div>
