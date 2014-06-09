@@ -8,8 +8,41 @@
         <description>what's hot</description>
         <language>en-en</language>
         <copyright>you!</copyright>
-        <pubDate>2014-05-19 20:17:33.404374 GMT</pubDate>
+        <pubDate>2014-06-09 18:09:22.267988 GMT</pubDate>
 
+        
+            
+            <item>
+                <title>Introducing Leeroy</title>
+                <link>http://screamingatmyscreen.com/2014/6/introducing-leeroy/</link>
+                <description><p>Today I am releasing one of my side projects, <a href="https://github.com/fallenhitokiri/leeroyci">Leeroy CI</a>. It is a self hosted, continuous integration and build service with the primary goal to be easy to configure and get out of your way while doing its job. And since it is licensed under the BSD license it is also pretty affordable.
+<!--MORE--></p>
+
+<p>Leeroy aims to be as simple as possible while allowing you to run tests the way you want. For each push or pull request it executes a set of scripts or commands you define. It shows you the results in a webinterface, notifies you via email or posts to your Slack channel and can also comment on GitHub pull requests or close them if a build failed.</p>
+
+<p><img src="leeroy.png" alt="leeroy" /></p>
+
+<p>If you have a Django application your build script could look like this</p>
+
+<pre><code> #! /bin/bash       
+ cd /home/ec2-user/test
+ git fetch
+ git checkout $2
+ git pull
+ source /home/ec2-user/test/.env
+ python /home/ec2-user/test/manage.py test
+</code></pre>
+
+<p>Want to test if a virtual environment can be created with your current requirements file? Want to run a performance test? Just create additional scripts. This way you get all test results for a push at once.
+With this approach you do not fix the first problem (failing requirements) push, notice other problems, fix and push again,... the goal should be that after one failed build you can fix everything to make the next one successful. </p>
+
+<p>Leeroy is not feature complete so this is not a 1.0 release but it is running as primary CI at FlightCar and for my personal projects for some weeks now and did not have one hiccup, so I feel like this is a good time for a release.</p>
+
+<p>I welcome any feature request and help, just check the "Contributing" part in the <a href="https://github.com/fallenhitokiri/leeroyci/blob/master/Readme.md">Readme</a>.</p>
+</description>
+                <pubDate>2014-06-09 18:13:00</pubDate>
+            </item>
+            
         
             
             <item>
@@ -373,23 +406,6 @@
             </item>
             
         
-            
-            <item>
-                <title>Learning Scala - Week 3: Webdevelopment</title>
-                <link>http://screamingatmyscreen.com/2013/10/learning-scala-week-3-webdevelopment/</link>
-                <description><p>Another week with Scala. After ditching the Coursera course I just started working a bit with the language and building some smaller applications. I looked at Scalatra and Play, deployed a test application and finally uninstalled Eclipse. Let us talk about web applications.
-<!--MORE--></p>
-
-<p>Naturally I am most interested in anything web related. It is my job, I enjoy doing it and it is the area where I am most likely to use a new programming language, framework or technology. So how does Scala compare to what I am currently using - Django, Node.js and Golang?</p>
-
-<p>Deploying Scala is pretty easy. Just throw it at a servlet container or embed Jetty and start your war file using <code>java</code>. Pretty simple. Compiled, one file, all the joy of Golang - a pleasure compared to Django - with more and better third party libraries than Go but not with the same development speed. This is highly unscientific and only based on my experience but compared to Golang the learning curve feels a lot steeper and I have to open the API reference or Google more often.</p>
-
-<p>I did not run any benchmarks and if I did, we all know they would likely be wrong. If we stick with <a href="http://www.techempower.com/benchmarks/#section=data-r6&amp;hw=i7&amp;test=db&amp;f=2niog-8vn0g0-0">TechEmpower</a> for framework and performance comparisons we can say that Scala and Go are, especially using a framework, both a solid choice if you need to write performant services. But judging from the adoption of Scala it will likely be a lot easier to find developers who already have experience deploying Scala applications to production and knowing how the language and tools behave if you throw more than 5 requests / second at it.</p>
-
-<p>As some of you could know, I am a fan of Golang. But if you are operating on a tight deadline, have a team who has to work on the codebase and if the Go standard library is not enough to get the job done I would currently suggest you take a look at Scala. Compared to Go it is ready for its prime time. Libraries are just more stable, tested and well maintained, often thanks to the fact that you can "just" use a Java library. I know, bad practice and stuff, but sometimes shipping is more important than writing yet another ORM.</p>
-</description>
-                <pubDate>2013-10-06 19:25:00</pubDate>
-            </item>
             
         
             

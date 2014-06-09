@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+    Introducing Leeroy
+</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="This is the private blog of Timo Zimmermann." />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding, django, flask, ruby, objective-c, ios, c, blaze it, drupan" />
+        <meta name="author" content="Timo Zimmermann" />
+        <meta name="robots" content="all" /> 
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
+
+        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.screamingatmyscreen.com/feed/" />
+    </head>
+    
+    <body>
+
+        <div id="sidebar">
+
+
+            <p id="name"><a href="/">screaming at my screen</a></p>
+
+            <div id="me">
+
+                <div id="picture"></div>
+
+                <div id="about"><p id="who"><strong>Timo Zimmermann</strong></p>
+                    <p>I am a web and iOS developer, practice martial arts and enjoy video games.
+                        I believe I have seen the whole Internet once, maybe twice.</p>
+                </div>
+                <!--about-->
+
+            </div>
+            <!--me-->
+
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/about/">About</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/archive/">Archive</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        </div>
+        <!--sidebar-->
+
+        <div id="main">
+
+            <div id="wrapper">
+
+                
+    <p class="meta">posted on 2014 - 6 - 9 in <a href="/tag/project/">project</a>, <a href="/tag/leeroy/">leeroy</a>, <a href="/tag/golang/">golang</a></p>
+    <h1>Introducing Leeroy</h1>
+    <p>Today I am releasing one of my side projects, <a href="https://github.com/fallenhitokiri/leeroyci">Leeroy CI</a>. It is a self hosted, continuous integration and build service with the primary goal to be easy to configure and get out of your way while doing its job. And since it is licensed under the BSD license it is also pretty affordable.
+<!--MORE--></p>
+
+<p>Leeroy aims to be as simple as possible while allowing you to run tests the way you want. For each push or pull request it executes a set of scripts or commands you define. It shows you the results in a webinterface, notifies you via email or posts to your Slack channel and can also comment on GitHub pull requests or close them if a build failed.</p>
+
+<p><img src="leeroy.png" alt="leeroy" /></p>
+
+<p>If you have a Django application your build script could look like this</p>
+
+<pre><code> #! /bin/bash       
+ cd /home/ec2-user/test
+ git fetch
+ git checkout $2
+ git pull
+ source /home/ec2-user/test/.env
+ python /home/ec2-user/test/manage.py test
+</code></pre>
+
+<p>Want to test if a virtual environment can be created with your current requirements file? Want to run a performance test? Just create additional scripts. This way you get all test results for a push at once.
+With this approach you do not fix the first problem (failing requirements) push, notice other problems, fix and push again,... the goal should be that after one failed build you can fix everything to make the next one successful. </p>
+
+<p>Leeroy is not feature complete so this is not a 1.0 release but it is running as primary CI at FlightCar and for my personal projects for some weeks now and did not have one hiccup, so I feel like this is a good time for a release.</p>
+
+<p>I welcome any feature request and help, just check the "Contributing" part in the <a href="https://github.com/fallenhitokiri/leeroyci/blob/master/Readme.md">Readme</a>.</p>
+
+
+    <div class="subbox">
+        <p>I would love to talk to you about this post, your ideas or awesome projects.</p> 
+        <p>I am <a href="http://www.twitter.com/fallenhitokiri/">@fallenhitokiri</a> on Twitter and 
+            <a href="https://github.com/fallenhitokiri/">GitHub</a> or 
+            you can send me a <a href="mailto:timo (at) screamingatmyscreen (dot) com">mail</a>.</p>
+    </div>
+
+
+            </div>
+            <!--wrapper-->
+
+        </div>
+        <!--main-->
+
+    </body>
+</html>
