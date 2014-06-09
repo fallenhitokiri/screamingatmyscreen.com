@@ -26,3 +26,5 @@ With this approach you do not fix the first problem (failing requirements) push,
 Leeroy is not feature complete so this is not a 1.0 release but it is running as primary CI at FlightCar and for my personal projects for some weeks now and did not have one hiccup, so I feel like this is a good time for a release.
 
 I welcome any feature request and help, just check the "Contributing" part in the [Readme](https://github.com/fallenhitokiri/leeroyci/blob/master/Readme.md).
+
+You can discuss this on [HackerNews](https://news.ycombinator.com/item?id=7869077).
