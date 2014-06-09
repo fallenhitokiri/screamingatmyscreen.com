@@ -271,7 +271,7 @@ a:hover {
         }
     }
 
-    pre code {
+    pre {
         background:#cccccc;
         font-family:Courier New, Sans;
         @include borders($dark, 1px, 1px, 1px, 1px, solid);
