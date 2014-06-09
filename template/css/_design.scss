@@ -270,6 +270,13 @@ a:hover {
             margin:0 0 1em 0;
         }
     }
+
+    pre code {
+        background:#cccccc;
+        font-family:Courier New, Sans;
+        @include borders($dark, 1px, 1px, 1px, 1px, solid);
+        margin:0 20px 20px 20px;
+    }
 }
 
 /******************************************************************************
