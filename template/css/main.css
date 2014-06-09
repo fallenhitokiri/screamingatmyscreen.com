@@ -240,7 +240,7 @@ a:hover {
       float: right; }
     #main #archive .preview {
       margin: 0 0 1em 0; }
-  #main pre code {
+  #main pre {
     background: #cccccc;
     font-family: Courier New, Sans;
     border-color: #262626;
