@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>
-    iMessage is more than secure enough
+    State of drupan 2 - RAWR
 </title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -46,7 +46,17 @@
                     
                 
                     
+                
+                    
                         <li><a href="/about/">About</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -355,6 +365,8 @@
                 
                     
                 
+                    
+                
             </ul>
 
         </div>
@@ -365,44 +377,34 @@
             <div id="wrapper">
 
                 
-    <p class="meta">posted on 2014 - 3 - 6 in <a href="/tag/apple/">apple</a>, <a href="/tag/security/">security</a></p>
-    <h1>iMessage is more than secure enough</h1>
-    <p>Apple published a <a href="http://images.apple.com/iphone/business/docs/iOS_Security_Feb14.pdf">iOS security whitepaper</a>. One thing that was discussed a lot is iMessage. Since mainstream media thought it would be a good idea to report about it some people became insecure if it is a good idea to use iMessage or if it should be considered insecure. Let us try to figure out if you should be worried while using iMessage or not.
+    <p class="meta">posted on 2014 - 7 - 3 in <a href="/tag/drupan/">drupan</a>, <a href="/tag/project/">project</a></p>
+    <h1>State of drupan 2 - RAWR</h1>
+    <p>There went quite some development time in <a href="https://github.com/fallenhitokiri/drupan">drupan</a> and a release is in sight. The most common question I receive about drupan is what features will make it into 2.0 - codename <a href="https://github.com/fallenhitokiri/drupan/tree/rawr">RAWR</a>. Let me give you a rough idea what is done and what will be done.
 <!--MORE--></p>
 
-<p>I will start with the conclusion and try to explain the thought process how I came to it: iMessage is not secure. But it is likely one of the most secure systems people are willing to use and it is, most of the time, good enough.</p>
+<p>From a first look RAWR will not be very spectacular. It is mostly a refactoring, rewrite and improvement of what I learned from using 1.x in production for 2 1/2 years and listening to people who decided to use it privately or for commercial projects.</p>
 
-<h2>Possible attacks</h2>
+<p>The code became a bit more opinionated but more flexible for plugins. The opinionated part went into which steps are executed in which order and which part of the system is in charge of which task. This was not very clear in 1.x. Also there is now only support for <a href="http://jinja.pocoo.org">jinja</a> - I am not aware of anyone using anything else.</p>
 
-<p>Your device requests the public keys for the recipient and all of your devices from Apples servers. It uses the public keys to encrypt the messages you send. You can not verify which keys are used, you cannot pin them and you cannot check how many are returned for a request. So it would be possible that they just send you one additional key for a private key they use to encrypt the messages.</p>
+<p>The flexible part is something you will notice if you write a plugin or create a new template. You can now query the storage object for specific entities which allows you to use drupan to split a large single page application into small, maintainable parts or create a site that is not a blog more easily.</p>
 
-<p>Another point to criticize is that Apple is securing the connection using TLS, but they are not using certificate pinning. So a possible attack is as "easy" as getting a certificate from a trusted CA. If you believe this is an unlikely scenario - ask the <a href="http://arstechnica.com/security/2013/12/french-agency-caught-minting-ssl-certificates-impersonating-google/">French cyberdefense agency  and Google</a>.</p>
+<p>The other new feature I am particularly excited about is directly deploying to S3 and CloudFront. Hosting a site without any need for maintenance and having it delivered as fast as possible for anyone, no matter where the person is located, is a huge win if you ask me. Currently this happens with the invocation of <a href="https://github.com/aws/aws-cli">aws-cli</a>. A <a href="https://github.com/boto/boto">boto</a> based implementation will follow.</p>
 
-<p>One thing to remember is that if you use iCloud to backup your devices, Apple can likely read your messages.</p>
+<p>All other features will ship as minor update when RAWR is released - this is also true for tag based feeds.</p>
 
-<p>And last but not least: iOS, OSX and iMessage are not Open Source. So it is not possible that a 3rd party verifies the security of the implementation. While you never know what a review would uncover, if anything, reviews never hurt and likely increase the quality of the implementation.</p>
-
-<h3>Resources</h3>
-
-<p>There are some resources to read if you are interested in the topic and want to read about the possible attacks in detail.</p>
+<p>Unsorted list of things to know about RAWR:</p>
 
 <ul>
-<li><a href="http://images.apple.com/iphone/business/docs/iOS_Security_Feb14.pdf">Apples iOS security whitepaper</a></li>
-<li><a href="http://blog.cryptographyengineering.com/2013/06/can-apple-read-your-imessages.html">Matthwe Greens - Can Apple read your iMessage</a></li>
-<li><a href="https://news.ycombinator.com/item?id=7315964">Hacker News thread</a> about the whitepaper</li>
+<li>1.x will not be supported anymore</li>
+<li>configuration syntax changed</li>
+<li>you now specify the configuration file instead of the directory when generating your site (this allows you to place templates, the output directory and content directory in different places)</li>
+<li>it is easier to import it in scripts or other projects</li>
+<li>first measures suggest that there is a vague possibility that it could be faster by a not specified quantity</li>
+<li>there will be new features released frequently</li>
+<li>it should now be as simple as building a blog to build any kind of website</li>
 </ul>
 
-<p>This will cover all points and provide links to additional material.</p>
-
-<h2>How concerned should you be?</h2>
-
-<p>That is the big question. All attacks outlined require skill, time, money and a lot of effort. iMessage will not prevent a government agency eavesdropping. But it also does not have to. If one of the agencies wants to know your secrets they will find a way - depending on how badly they want to know there is always <a href="http://xkcd.com/538/">the wrench</a>. So if you are trying to oppose a dictatorship or want to plan highly illegal things, I would not rely on iMessage.</p>
-
-<p>Do you want to tell a non-technical, even if tech-savvy but not into encryption, coworker a password but you have to do it over the Internet? Want to tell your parents how your illness is developing? Chatting about how super awesome your little kitten is? iMessage is fine. The effort required to eavesdrop is just too much to just do it for random surveillance, even for big government agencies. And do not worry about other companies trying to gain insight on business critical things - bribing an unsatisfied, underpaid secretary is easier and cheaper.</p>
-
-<p>Apple set the bar pretty high. I would not send nuclear launch codes over it, especially the really <a href="http://arstechnica.com/tech-policy/2013/12/launch-code-for-us-nukes-was-00000000-for-20-years/">secure ones</a>. But basically everything else. I care about people and computers intercepting my communication, creating profiles and selling it to marketing agencies. I care about potential profiles created by organizations for whatever purpose. I care about companies trying to get business critical information. And this are things highly unlikely to happen using iMessage.</p>
-
-<p>iMessage is the easiest, while still secure, way to communicate right now. It does not require people to learn about encryption. It is <a href="http://screamingatmyscreen.com/2013/11/gnupg-is-still-too-hard-to-use/">not hard</a> to use. It protects the messages good enough from all risks ordinary, private people and most companies should worry about. And again: it does not require people to learn <em>anything</em>. This is by far the most important point. No lazy passwords. No explanation about private and public keys. It just works(tm).</p>
+<p>I think this are the most important things you should know about RAWR. I am trying to get it done, but there is still some work to do and I still suffer from a jet lag. So no promise when the exact release will happen. You can use the RAWR branch, it should be fine, but no guarantees.</p>
 
 
     <div class="subbox">

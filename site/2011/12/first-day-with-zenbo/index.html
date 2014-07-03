@@ -232,6 +232,8 @@
                     
                 
                     
+                
+                    
                         <li><a href="/archive/">Archive</a></li>
                     
                 
@@ -382,8 +384,9 @@ process currently running is <a href="http://www.lighttpd.net/">Lighttpd</a>. Bu
 mostly be a recapitulation of what happened and what will happen.
 <!--MORE--></p>
 
-<p>###Testing Zenbo
-I was a bit sceptical if everything will work as expected. I first used a
+<h3>Testing Zenbo</h3>
+
+<p>I was a bit sceptical if everything will work as expected. I first used a
 vhost to test everything. While fixing the design I did 23 deploys and I had
 not one error. So I was pretty sure everything should work well while blogging.</p>
 
@@ -392,31 +395,36 @@ checked out and up to date. What I currently do not know is how long it will tak
 the repo gets bigger, the load gets higher and if there will be a downtime while the
 checkout is running.</p>
 
-<p>###Nice URLs
-I want URLs that do not include a file extensions. Looks and feels wired after all
+<h3>Nice URLs</h3>
+
+<p>I want URLs that do not include a file extensions. Looks and feels wired after all
 those years that there is an extension again. I already found a rewrite that works
 but sadly I am not sure how to manage multiple extensions based on conditions.</p>
 
 <p>Having a RSS feed with a .html extension looks as wrong as a CSS file with an .html
 at the end. Even if it would work it is just not right.</p>
 
-<p>###RFC conform dates
-The date in an RSS feed should be RFC-822 compatible so it validates. Currently I
+<h3>RFC conform dates</h3>
+
+<p>The date in an RSS feed should be RFC-822 compatible so it validates. Currently I
 only add a date on a year-month-day scheme since it is enough for my blog.</p>
 
 <p>Adding hours and minutes should not break my sorting but it could. So I need some
 time for testing. Well or I just check if the feed works without a valid date.</p>
 
-<p>###Editor
-I currently use <a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a> to write this post. I will also try to replace vim with it.
+<h3>Editor</h3>
+
+<p>I currently use <a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a> to write this post. I will also try to replace vim with it.
 After using vim for 12 years now I feel like I should really give something else a fair
 chance. Again.</p>
 
-<p>###404
-Definitely need a 404 page. Nothing to add to this point.</p>
+<h3>404</h3>
 
-<p>##Next few weeks
-I made up my mind what I will fix next. There will be some improvements in my
+<p>Definitely need a 404 page. Nothing to add to this point.</p>
+
+<h2>Next few weeks</h2>
+
+<p>I made up my mind what I will fix next. There will be some improvements in my
 CSS files and I will add syntax highlighting that actually works. I use pygments and
 guess the lexer what does not always work as intended. Than there is the plugin
 system that really wants some love and attention.</p>
@@ -434,8 +442,9 @@ will be some major changes and generators will also become plugins. Filters will
 the same. If you are using Zenbo or start someday drop me a line or add yourself to
 the <a href="https://github.com/fallenhitokiri/Zenbo/wiki/Who%3F">GithHub Wiki Page</a>.</p>
 
-<p>##Twitter Comments
-As a side project I am looking in a way to pull all tweets using a specific hashtag in
+<h2>Twitter Comments</h2>
+
+<p>As a side project I am looking in a way to pull all tweets using a specific hashtag in
 a local file and load them with every page using JavaScript. Basically a comment
 system using Twitter.</p>
 
@@ -445,8 +454,9 @@ related. Mostly because caches tend to break or mess something up at some point.
 
 <p>But this is nothing that is finished or even in an early alpha stage.</p>
 
-<p>##Webserver
-I use lighttpd for many years now. Compared to <a href="http://httpd.apache.org/">Apache</a> it has enough features, is
+<h2>Webserver</h2>
+
+<p>I use lighttpd for many years now. Compared to <a href="http://httpd.apache.org/">Apache</a> it has enough features, is
 sometimes faster, easier to configure and has some regex url magic included.</p>
 
 <p>Since it is possible that I will hit more problems with nice looking URLs and rewrites
