@@ -1,13 +1,13 @@
 {% extends "_base.html" %}
 
 {% block title %}
-    {{ obj.meta['title'] }}
+    {{ obj.title }}
 {% endblock %}
 
 {% block content %}
-    <p class="meta">posted on {{ obj.meta['date'].year }} - {{ obj.meta['date'].month }} - {{ obj.meta['date'].day }} {% if obj.meta['tags'] %}in {% for tag in obj.meta['tags'] %}<a href="{{ site.tags[tag] }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
-    <h1>{{ obj.meta['title'] }}</h1>
-    {{obj.markup}}
+    <p class="meta">posted on {{ obj.date.strftime("%B %d, %Y") }} {% if obj.tags %}in {% for tag in obj.tags %}<a href="{{ site.tags[tag|lower].url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
+    <h1>{{ obj.title }}</h1>
+    {{ obj.content }}
 
     <div class="subbox">
         <p>I would love to talk to you about this post, your ideas or awesome projects.</p> 

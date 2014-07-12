@@ -1,22 +1,96 @@
-name: "Timo Zimmermann"
-url: "/"
-
-plugins: ['fsreader', 'blank', 'sorted', 'tags', 'markdown', 'jinja', 'fswriter', 'imagecopy', 'gitsub']
-
-input: "content"
-template: "template"
-output: "site"
-
-# url scheme - form: layout: url
-# $foo means: relpace $foo with $foo from "meta"
-# %foo means: replace %foo with attribute foo from ContentObject
-layouts:
-  post: ["$year/$month/%slug/", "_post.html"]
-  page: ["%slug/", "_page.html"]
-  archive: ["archive/", "_archive.html"]
-  index: ["", "_index.html"]
-  feed: ["feed/", "_feed.xml"]
-  tags: ["tag/%slug/", "_tag.html"]
-
-
+reader: "filesystem"
+writer: "filesystem"
+plugins: ["markdown", "blank", "tags"]
+deployment: "s3sub"
+url_scheme:
+    index: ""
+    archive: "/archive/"
+    tag: "/tag/%slug/"
+    post: "/%year/%month/%slug/"
+    page: "/%slug/"
+    feed: "/feed/"
+    error: "/error/"
 options:
+    reader:
+        directory: "/Users/timo/tmp/screamingatmyscreen/content"
+        extension: "md"
+    writer:
+        directory: "/Users/timo/tmp/screamingatmyscreen/site"
+    jinja:
+        template: "/Users/timo/tmp/screamingatmyscreen/template"
+    markdown:
+        extras: ["tables", "code-highlight"]
+    blank:
+        generate:
+            index: "index"
+            archive: "archive"
+            feed: "feed"
+            error: "error"
+    s3sub:
+        bucket: "screamingatmyscreen.com"
+        profile: "sams"
+        md5path: "/Users/timo/tmp/screamingatmyscreen/md5s"
+        site_url: "http://screamingatmyscreen.com"
+        redirects:
+            "/feed.xml": "/feed/"
+            "/feeds/posts": "/feed/"
+            "/index.php/feed": "/feed/"
+            "/error.html": "/error/"
+            "/2012/10/12/zenbo,_zenbo_as_a_service_and_pricing.html": "/2012/10/zenbo-zenbo-as-a-service-and-pricing/"
+            "/2012/9/23/updates_on_zenbo_and_zenbo-hosted.html": "/2012/9/updates-on-zenbo-and-zenbo-hosted/"
+            "/2012/9/16/taking_zenbo_to_the_next_level_-_zenbo-hosted.html": "/2012/9/taking-zenbo-to-the-next-level-zenbo-hosted/"
+            "/2012/9/9/my_stack_is_bigger_than_yours_-_ranting_about_web_applications_and_scalability.html": "/2012/9/my-stack-is-bigger-than-yours-ranting-about-web-applications-and-scalability/"
+            "/2012/8/29/in_defense_of_being_obsessed.html": "/2012/8/in-defense-of-being-obsessed/"
+            "/2012/8/26/on_patents,_apple,_samsung_and_innovation.html": "/2012/8/on-patents-apple-samsung-and-innovation/"
+            "/2012/8/20/review__ia_writer.html": "/2012/8/review-ia-writer/"
+            "/2012/8/18/random_thoughts_on_ios_development.html": "/2012/8/random-thoughts-on-ios-development/"
+            "/2012/8/14/the_road_to_zenbo_1_0.html": "/2012/8/the-road-to-zenbo-1/"
+            "/2012/8/7/does_google_deserve_any_trust_.html": "/2012/8/does-google-deserve-any-trust/"
+            "/2012/7/28/app_net_-_dead_before_it_could_rise.html": "/2012/7/app-net-dead-before-it-could-rise/"
+            "/2012/7/27/working_on_zenbo.html": "/2012/7/working-on-zenbo/"
+            "/2012/7/24/bye_bye_comments_-_it_was_a_great_time_but_you_have_to_go.html": "/2012/7/bye-bye-comments-it-was-a-great-time-but-you-have-to-go/"
+            "/2012/7/21/talent_acquisitions_are_not_the_problem.html": "/2012/7/talent-acquisitions-are-not-the-problem/"
+            "/2012/7/12/there_is_nothing_wrong_or_broken_with_email.html": "/2012/7/there-is-nothing-wrong-or-broken-with-email/"
+            "/2012/7/9/myth_of_freelancing_-_time_management.html": "/2012/7/myth-of-freelancing-time-management/"
+            "/2012/7/2/designing_beautiful_urls.html": "/2012/7/designing-beautiful-urls/"
+            "/2012/6/29/chrome_for_ios.html": "/2012/6/chrome-for-ios/"
+            "/2012/6/23/my_journey_-_ios_development.html": "/2012/6/my-journey-ios-development/"
+            "/2012/6/13/the_doom_of_responsive_design.html": "/2012/6/the-doom-of-responsive-design/"
+            "/2012/6/8/django_and_generic_relations.html": "/2012/6/django-and-generic-relations/"
+            "/2012/5/31/myth_of_freelancing_-_you_are_your_own_boss.html": "/2012/5/myth-of-freelancing-you-are-your-own-boss/"
+            "/2012/5/22/15_years_of_gaming.html": "/2012/5/15-years-of-gaming/"
+            "/2012/5/13/pull_requests,_developers_and_respect.html": "/2012/5/pull-requests-developers-and-respect/"
+            "/2012/5/10/time_to_talk_about_business.html": "/2012/5/time-to-talk-about-business/"
+            "/2012/4/30/what_is_wrong_with_content_management_systems_.html": "/2012/4/what-is-wrong-with-content-management-systems/"
+            "/2012/4/20/code_challenge_-_the_ideas.html": "/2012/4/code-challenge-the-ideas/"
+            "/2012/4/19/is_rss_dead_.html": "/2012/4/is-rss-dead/"
+            "/2012/4/16/code_challenge_-_the_challenge.html": "/2012/4/code-challenge-the-challenge/"
+            "/2012/4/11/meteor_is_just_a_toy.html": "/2012/4/meteor-is-just-a-toy/"
+            "/2012/4/10/facebook_and_instagram,_sitting_in_a_tree.html": "/2012/4/facebook-and-instagram-sitting-in-a-tree/"
+            "/2012/3/31/when_people_tell_you_your_idea_sucks_ignore_them.html": "/2012/3/when-people-tell-you-your-idea-sucks-ignore-them/"
+            "/2012/3/20/why_you_should_ignore__most__posts_about_go.html": "/2012/3/why-you-should-ignore-most-posts-about-go/"
+            "/2012/3/14/even_if_you_hate_adobe_-_go,_get_adobe_shadow.html": "/2012/3/even-if-you-hate-adobe-go-get-adobe-shadow/"
+            "/2012/3/11/the_new_ipad_and_responsive_web_design.html": "/2012/3/the-new-ipad-and-responsive-web-design/"
+            "/2012/3/8/resolutionary,_isn_t_it_.html": "/2012/3/resolutionary-isn-t-it/"
+            "/2012/3/8/comments_and_posts.html": "/2012/3/comments-and-posts/"
+            "/2012/3/4/is_hacker_news_the_superior_commenting_system_.html": "/2012/3/is-hacker-news-the-superior-commenting-system/"
+            "/2012/2/27/firefox_is_the_new_enemy.html": "/2012/2/firefox-is-the-new-enemy/"
+            "/2012/2/26/the_great_patent_wars_-_i_was_there.html": "/2012/2/the-great-patent-wars-i-was-there/"
+            "/2012/2/24/the_lie_about_icloud.html": "/2012/2/the-lie-about-icloud/"
+            "/2012/2/19/business_decision_-_why_i_use_django_and_not_ruby_on_rails.html": "/2012/2/business-decision-why-i-use-django-and-not-ruby-on-rails/"
+            "/2012/2/11/why_i_do_not_use_java.html": "/2012/2/why-i-do-not-use-java/"
+            "/2012/2/9/first_day_with_an_iphone_4s.html": "/2012/2/change-change-change-and-fun/"
+            "/2012/2/9/change,_change,_change_and_fun.html": "/2012/2/first-day-with-an-iphone-4s/"
+            "/2012/2/5/a_new_editor.html": "/2012/2/a-new-editor/"
+            "/2012/1/24/oop__lesson_2.html": "/2012/1/oop-lesson-2-vocabulary/"
+            "/2012/1/20/oop__lesson_1.html": "/2012/1/oop-lesson-1-basics/"
+            "/2012/1/18/object-oriented_programming.html": "/2012/1/object-oriented-programming/"
+            "/2012/1/11/short_update.html": "/2012/1/short-update/"
+            "/2012/1/7/feature_flood.html": "/2012/1/feature-flood/"
+            "/2012/1/2/a_new_year.html": "/2012/1/a-new-year/"
+            "/2011/12/24/merry_christmas.html": "/2011/12/merry-christmas/"
+            "/2011/12/18/the_holy_grail__a_programmer_s_editor.html": "/2011/12/the-holy-grail-a-programmer-s-editor/"
+            "/2011/12/12/first_day_with_zenbo.html": "/2011/12/first-day-with-zenbo/"
+            "/2011/12/11/and_here_comes_zenbo.html": "/2011/12/and-here-comes-zenbo/"
+            "/2013/9/learning-scala-week/": "/2013/9learning-scala-week-1/"
+            "/2012/8/the-road-to-zenbo-1": "/2012/8/the-road-to-zenbo-1-0/"

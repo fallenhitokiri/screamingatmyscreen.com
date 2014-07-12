@@ -1,5 +1,5 @@
 title: About
-date: 2011-12-11
+date: 2014-07-06
 layout: page
 menu: True
 ---
@@ -23,9 +23,7 @@ Facebook friend list it is likely that you do not belong in this category.
 If you cannot guess how to contact me now or if you are a known Web 2.0 hater you
 can send a mail to timo (aet) screamingatmyscreen (doet) com or a letter
 
-Timo Zimmermann
-Otto-Bartning-Strasze 13
-69239 Neckarsteinach
+Timo Zimmermann | Bahnhofstraße 20 | 69256 Mauer
 
 [1]: https://github.com/fallenhitokiri/Zenbo
 [2]: https://twitter.com/#!/fallenhitokiri

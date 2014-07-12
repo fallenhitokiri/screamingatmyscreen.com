@@ -2,14 +2,14 @@
 
 {% block content %}
 
-    {% for post in site.sorted %}
+    {% for post in site|filter("layout", "post")|sort(attribute="created", reverse=True) %}
 
         {% if loop.index <= 5 %}
 
         <div class="post">
-                <p class="meta">posted on {{ post.meta['date'].month }}-{{ post.meta['date'].day }}-{{ post.meta['date'].year }} {% if post.meta['tags'] %}in {% for tag in post.meta['tags'] %}<a href="{{ site.tags[tag] }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
-            <h1><a href="{{ post.url }}" alt="{{ post.meta['title'] }}">{{ post.meta['title']}}</a></h1>
-            {{ post.markup|more }}
+            <p class="meta">posted on {{ post.date.strftime("%B %d, %Y") }} {% if post.tags %}in {% for tag in post.tags %}<a href="{{ site.tags[tag|lower].url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
+            <h1><a href="{{ post.url }}" alt="{{ post.title }}">{{ post.title }}</a></h1>
+            {{ post.content|more }}
         </div>
 
         {% endif %}

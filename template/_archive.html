@@ -10,16 +10,16 @@
     <!--{% if site.tags|count > 0 %}
     <p id="tags"><strong>Tags:</strong>
         {% for tag in site.tags %}
-            <a href="{{ site.tags[tag] }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
+            <a href="{{ site.tags[tag].url }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
         {% endfor %}
     </p>
     {% endif %}-->
 
     <ul id="archive">
-    {% for item in site.sorted %}
+    {% for item in site|filter("layout", "post")|sort(attribute="created", reverse=True) %}
         <li>
-            <span class="meta">{{ item.meta['date'].month }}-{{ item.meta['date'].day }}-{{ item.meta['date'].year }}</span>
-            <span class="title"><a href="{{ item.url }}">{{ item.meta['title'] }}</a></span>
+            <span class="meta">{{ item.created.strftime("%B %d, %Y") }}</span>
+            <span class="title"><a href="{{ item.url }}">{{ item.title }}</a></span>
 
             <!--<span class="preview">{{ item.content|more }}</span>-->
         </li>

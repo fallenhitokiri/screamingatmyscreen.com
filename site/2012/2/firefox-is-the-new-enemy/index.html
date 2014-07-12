@@ -8,10 +8,10 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="This is the private blog of Timo Zimmermann." />
-        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, financial consultant, startup, python, programming, coding, django, flask, ruby, objective-c, ios, c, blaze it, drupan" />
+        <meta name="keywords" content="Timo Zimmermann, IT, gaming, geek, self employed, startup, python, programming, coding, django, flask, ruby, ruby on rails, ror, objective-c, ios, c, blaze it, drupan, leeroy, ci, leeroy ci" />
         <meta name="author" content="Timo Zimmermann" />
         <meta name="robots" content="all" /> 
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
 
         <link rel="stylesheet" href="/css/main.css" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.screamingatmyscreen.com/feed/" />
@@ -39,333 +39,11 @@
 
             <ul>
                 
-                    
+                <li><a href="/about/">About</a></li>
                 
-                    
+
                 
-                    
-                
-                    
-                
-                    
-                        <li><a href="/about/">About</a></li>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                        <li><a href="/archive/">Archive</a></li>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
+                <li><a href="/archive/">Archive</a></li>
                 
             </ul>
 
@@ -377,7 +55,7 @@
             <div id="wrapper">
 
                 
-    <p class="meta">posted on 2012 - 2 - 27 in <a href="/tag/browser/">browser</a>, <a href="/tag/cors/">CORS</a>, <a href="/tag/deployment/">deployment</a></p>
+    <p class="meta">posted on February 27, 2012 in <a href="/tag/browser/">browser</a>, <a href="/tag/cors/">CORS</a>, <a href="/tag/deployment/">deployment</a></p>
     <h1>Firefox Is The New Enemy</h1>
     <p>When I first started designing websites there was one enemy. Internet
 Explorer. No matter what you did it did not work. Sites were designed
@@ -391,9 +69,8 @@ and you had less work creating stunning sites that work on all browsers.
 years. Even if it is not as necessary as it was. But today I ran into
 something only Firefox screws up. Cross-Origin Resource Sharing.</p>
 
-<h2>Explaining The Setup</h2>
-
-<p>Sounds complicated, doesn't it? Well let me give you an easy example
+<p>##Explaining The Setup
+Sounds complicated, doesn't it? Well let me give you an easy example
 why I ran into this problem. I deployed some Django sites today and
 they share the same static files. Let us assume we have three domains.</p>
 
@@ -414,9 +91,8 @@ the static directory that contains all the files and create three
 conditions, for every domain, to tell lighttpd to proxy requests to the
 corresponding project. I will talk about this setup in another post.</p>
 
-<h2>Accessing Your Static Files</h2>
-
-<p>Now you tell your Django projects that they should access the static
+<p>##Accessing Your Static Files
+Now you tell your Django projects that they should access the static
 files through <code>http://$ip/</code>. Everything looked fine till I did the
 last check on my Windows box with Firefox and Internet Explorer.</p>
 
@@ -429,9 +105,8 @@ website. Loading something form <code>$ip</code> when you opened <code>domain3.t
 does not work. I am currently not sure what they try to achieve with
 this behaviour but I am sure that there are some good reasons.</p>
 
-<h3>Good Reasons For Everything</h3>
-
-<p>When I talk about good reasons and Firefox in one sentence you should
+<p>###Good Reasons For Everything
+When I talk about good reasons and Firefox in one sentence you should
 read it in the most sarcastic voice you can imagine. There is a reason
 why I call Firefox useless these days. Of course it did something
 great in the past. Thanks to Firefox we had a tiny, fast browser that 
@@ -446,18 +121,16 @@ users are the best beta testers you can get.</p>
 and I think you can understand why I declare Firefox the new Internet
 Explorer.</p>
 
-<h2>Solving This Problem</h2>
-
-<p>There is an easy way to solve it. You just have to tell Firefox that
+<p>##Solving This Problem
+There is an easy way to solve it. You just have to tell Firefox that
 it is okay to access those files. Add <code>Access-Control-Allow-Origin</code>
 to your response header and everything is fine.</p>
 
 <p>The worst solution I know is patching this with your application. There
 are better options. Use your webserver.</p>
 
-<h3>Lighttpd</h3>
-
-<p>Load <code>mod_setenv</code> and add the following line to your configuration.</p>
+<p>###Lighttpd
+Load <code>mod_setenv</code> and add the following line to your configuration.</p>
 
 <p>setenv.add-response-header = ( "Access-Control-Allow-Origin" =&gt; "*" )</p>
 
@@ -468,21 +141,20 @@ the wildcard with domain names to restrict access.</p>
 add a response header and you are fine. Quick examples, without modules
 or anything else.</p>
 
-<h3>Apache</h3>
+<p>###Apache</p>
 
 <p>Header set Access-Control-Allow-Origin "*"</p>
 
-<h3>IIS</h3>
+<p>###IIS</p>
 
 <p>add name="Access-Control-Allow-Origin" value="*"</p>
 
-<h3>NginX</h3>
+<p>###NginX</p>
 
 <p>add_header Access-Control-Allow-Origin *</p>
 
-<h3>Restricting Access</h3>
-
-<p>I strongly suggest you do not use the wildcard. Every domain can load your
+<p>###Restricting Access
+I strongly suggest you do not use the wildcard. Every domain can load your
 files. If you are planning to run a CDN this could be viable, for everything
 else think about what you are doing.</p>
 
